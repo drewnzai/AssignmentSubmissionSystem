@@ -4,7 +4,6 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.LoginRequest;
 import com.andrew.AssignmentSubmission.dto.LoginResponse;
 import com.andrew.AssignmentSubmission.dto.RefreshTokenRequest;
-import com.andrew.AssignmentSubmission.dto.RegisterRequest;
 import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.models.UserDetailsImpl;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;

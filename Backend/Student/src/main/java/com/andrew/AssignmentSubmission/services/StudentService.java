@@ -3,7 +3,6 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.Student;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.User;
-import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +16,7 @@ public class StudentService {
     public Student getStudentDetails(String registration){
 
         if(userRepository.existsByRegistration(registration)){
+
             User user = userRepository.findByRegistration(registration);
 
             Student student = new Student();
