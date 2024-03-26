@@ -30,10 +30,9 @@ public class User {
     @NotBlank(message = "Username is required")
     private String registration;
 
-    private String email;
-
     private String firstName;
     private String lastName;
+    private String email;
 
     @NotBlank(message = "Password is required")
     private String password;
