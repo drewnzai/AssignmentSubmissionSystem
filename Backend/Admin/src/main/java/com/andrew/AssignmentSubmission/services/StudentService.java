@@ -39,6 +39,7 @@ public class StudentService {
                     studentDto.getLastName().toLowerCase()
                     + "@egerton.ac.ke");
             student.setPassword(studentDto.getFirstName() + studentDto.getLastName());
+            student.setRegistration(studentDto.getRegistration());
             student.setEnrolledCourse(course);
             student.setCreated(Instant.now());
             student.setEnabled(true);
