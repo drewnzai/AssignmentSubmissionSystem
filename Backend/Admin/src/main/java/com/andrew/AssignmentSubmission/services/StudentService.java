@@ -7,6 +7,7 @@ import com.andrew.AssignmentSubmission.models.Student;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -17,6 +18,7 @@ public class StudentService {
 
     private StudentRepository studentRepository;
     private CourseRepository courseRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public boolean addStudent(StudentDto studentDto){
         if
@@ -37,7 +39,10 @@ public class StudentService {
                     + "." +
                     studentDto.getLastName().toLowerCase()
                     + "@egerton.ac.ke");
-            student.setPassword(studentDto.getFirstName() + studentDto.getLastName());
+            student.setPassword
+                    (passwordEncoder
+                            .encode
+                                    (studentDto.getFirstName()));
             student.setRegistration(studentDto.getRegistration());
             student.setEnrolledCourse(course);
             student.setCreated(Instant.now());
