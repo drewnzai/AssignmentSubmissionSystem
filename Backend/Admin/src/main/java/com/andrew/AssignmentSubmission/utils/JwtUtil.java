@@ -4,6 +4,9 @@ import com.andrew.AssignmentSubmission.models.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,12 +18,13 @@ import java.time.Instant;
 import java.util.Date;
 
 @Component
+@AllArgsConstructor
 public class JwtUtil {
 
     private static final long serialVersionUID = -2550185165626007488L;
 
     @Value("${jwt.secret}")
-    private String SECRET;
+    private final String SECRET;
 
     @Value("${jwt.expiration.time}")
     private Long jwtExpirationInSeconds;
