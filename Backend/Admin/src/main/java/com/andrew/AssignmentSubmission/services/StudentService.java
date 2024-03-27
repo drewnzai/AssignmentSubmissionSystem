@@ -49,4 +49,19 @@ public class StudentService {
         }
     }
 
+    public boolean deleteStudent(StudentDto studentDto) {
+        if
+        (studentRepository.existsByRegistration(studentDto.getRegistration())) {
+
+           studentRepository.delete(studentRepository
+                   .findByRegistration(studentDto.getRegistration()));
+
+            return true;
+
+        } else {
+
+            return false;
+        }
+    }
+
 }

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController("/api/student/")
 @AllArgsConstructor
 public class StudentController {
@@ -40,9 +42,33 @@ public class StudentController {
     }
 
     @DeleteMapping
-    public ResponseEntity<APIResponse> dropStudent(@RequestBody ){
+    public ResponseEntity<APIResponse> dropStudent(@RequestBody StudentDto studentDto){
+        if(studentService.deleteStudent(studentDto)){
+            APIResponse apiResponse = APIResponse.builder()
+                    .message("Student Dropped Successfully")
+                    .isSuccessful(true)
+                    .statusCode(200)
+                    .build();
 
+            return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+        }
+        else{
+
+            APIResponse apiResponse = APIResponse.builder()
+                    .message("Student Does Not Exist")
+                    .isSuccessful(false)
+                    .statusCode(409)
+                    .build();
+
+            return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+        }
     }
 
-
+    @PostMapping("batch")
+    public void batch(@RequestBody List<StudentDto> students) {
+        for (StudentDto studentDto : students) {
+            studentService.addStudent(studentDto);
+        }
+    }
 }
+
