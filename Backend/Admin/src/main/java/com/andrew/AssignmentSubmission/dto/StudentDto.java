@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentRegisterRequest {
+public class StudentDto {
     private String firstName;
     private String lastName;
     private String registration;

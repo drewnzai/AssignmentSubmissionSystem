@@ -1,6 +1,6 @@
 package com.andrew.AssignmentSubmission.services;
 
-import com.andrew.AssignmentSubmission.dto.StudentRegisterRequest;
+import com.andrew.AssignmentSubmission.dto.StudentDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
@@ -18,26 +18,26 @@ public class StudentService {
     private StudentRepository studentRepository;
     private CourseRepository courseRepository;
 
-    public boolean addStudent(StudentRegisterRequest registerRequest){
+    public boolean addStudent(StudentDto studentDto){
         if
-        (studentRepository.existsByRegistration(registerRequest.getRegistration())){
+        (studentRepository.existsByRegistration(studentDto.getRegistration())){
             return false;
         }
         else{
 
             Student student = new Student();
-            Course course = courseRepository.findByName(registerRequest.getCourseName())
+            Course course = courseRepository.findByName(studentDto.getCourseName())
                             .orElseThrow(
                                     () -> new AssignmentException("No Such Course")
                             );
 
-            student.setFirstName(registerRequest.getFirstName());
-            student.setLastName(registerRequest.getLastName());
-            student.setEmail(registerRequest.getFirstName().toLowerCase()
+            student.setFirstName(studentDto.getFirstName());
+            student.setLastName(studentDto.getLastName());
+            student.setEmail(studentDto.getFirstName().toLowerCase()
                     + "." +
-                    registerRequest.getLastName().toLowerCase()
+                    studentDto.getLastName().toLowerCase()
                     + "@egerton.ac.ke");
-            student.setPassword(registerRequest.getFirstName() + registerRequest.getLastName());
+            student.setPassword(studentDto.getFirstName() + studentDto.getLastName());
             student.setEnrolledCourse(course);
             student.setCreated(Instant.now());
             student.setEnabled(true);
