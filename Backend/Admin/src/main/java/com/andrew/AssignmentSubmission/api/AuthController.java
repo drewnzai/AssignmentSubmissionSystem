@@ -4,6 +4,7 @@ import com.andrew.AssignmentSubmission.dto.LoginRequest;
 import com.andrew.AssignmentSubmission.dto.LoginResponse;
 import com.andrew.AssignmentSubmission.dto.RefreshTokenRequest;
 import com.andrew.AssignmentSubmission.dto.RegisterRequest;
+import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.services.AuthService;
 import com.andrew.AssignmentSubmission.services.RefreshTokenService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
@@ -59,7 +60,13 @@ public class AuthController {
     }
     @PostMapping("login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
-        return authService.login(loginRequest);
+
+        if(authService.isLoggedIn()){
+            throw new AssignmentException("Already logged in");
+        }
+        else {
+            return authService.login(loginRequest);
+        }
     }
 
     @PostMapping("refresh/token")
