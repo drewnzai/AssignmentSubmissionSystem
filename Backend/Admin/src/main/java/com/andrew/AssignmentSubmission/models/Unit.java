@@ -19,6 +19,7 @@ public class Unit {
     private Long unitId;
     private String name;
     private String code;
+    private String description;
     private int credits;
 
     @ManyToOne
@@ -26,6 +27,9 @@ public class Unit {
     private Semester semester;
 
 
+    @ManyToOne
+    @JoinColumn(name = "lecturer_id")
+    private User lecturer;
 
     @OneToMany(mappedBy = "unit")
     private List<UnitCourseOffering> courseOfferings;
