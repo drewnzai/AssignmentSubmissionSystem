@@ -26,8 +26,6 @@ public class User {
     @GeneratedValue(strategy = IDENTITY)
     private Long userId;
 
-    @NotBlank(message = "Username is required")
-    private String username;
 
     private String firstName;
     private String lastName;

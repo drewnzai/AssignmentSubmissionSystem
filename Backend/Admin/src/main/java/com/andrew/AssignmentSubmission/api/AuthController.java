@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.LoginRequest;
+import com.andrew.AssignmentSubmission.dto.LoginResponse;
 import com.andrew.AssignmentSubmission.dto.RefreshTokenRequest;
 import com.andrew.AssignmentSubmission.dto.RegisterRequest;
 import com.andrew.AssignmentSubmission.services.AuthService;
@@ -57,15 +58,8 @@ public class AuthController {
         return "OK";
     }
     @PostMapping("login")
-    public ResponseEntity<APIResponse>  login(@RequestBody LoginRequest loginRequest) {
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Successful login")
-                .isSuccessful(true)
-                .statusCode(200)
-                .data(authService.login(loginRequest))
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+    public LoginResponse login(@RequestBody LoginRequest loginRequest) {
+        return authService.login(loginRequest);
     }
 
     @PostMapping("refresh/token")

@@ -36,13 +36,19 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
 
     public boolean signup(RegisterRequest registerRequest) {
+        String email =
+                registerRequest.getFirstName()
+                        + "." +
+                        registerRequest.getLastName()
+                        + "@egerton.ac.ke";
 
-        if(userRepository.existsByUsername(registerRequest.getUsername())){
+        if(userRepository.existsByEmail(email)){
             return false;
         }
         else {
+
             User user = new User();
-            user.setUsername(registerRequest.getUsername());
+            user.setEmail(email);
             user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
             user.setCreated(Instant.now());
             user.setEnabled(true);
@@ -64,7 +70,7 @@ public class AuthService {
     public User getCurrentUser() {
         UserDetailsImpl principal = (UserDetailsImpl) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();
-        return userRepository.findByUsername(principal.getUsername());
+        return userRepository.findByEmail(principal.getEmail());
     }
 
     public LoginResponse login(LoginRequest loginRequest) {
