@@ -32,14 +32,14 @@ public class JwtUtil {
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
-                .setSubject((userPrincipal.getUsername()))
+                .setSubject((userPrincipal.getEmail()))
                 .setIssuedAt(Date.from(Instant.now()))
                 .setExpiration(Date.from(Instant.now().plusSeconds(jwtExpirationInSeconds)))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS512)
                 .compact();
     }
 
-    public String getUsernameFromJwtToken(String token) {
+    public String getEmailFromJwtToken(String token) {
         return Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token).getBody().getSubject();
     }
 
@@ -62,10 +62,10 @@ public class JwtUtil {
 
 
 
-    public String generateTokenFromUsername(String username) {
+    public String generateTokenFromEmail(String email) {
 
         return Jwts.builder()
-                .setSubject(username)
+                .setSubject(email)
                 .setIssuedAt(Date.from(Instant.now()))
                 .setExpiration(Date.from(Instant.now().plusSeconds(jwtExpirationInSeconds)))
                 .signWith(getSigningKey(), SignatureAlgorithm.HS512)

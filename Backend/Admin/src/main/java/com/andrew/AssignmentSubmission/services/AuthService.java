@@ -74,7 +74,7 @@ public class AuthService {
     }
 
     public LoginResponse login(LoginRequest loginRequest) {
-        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
+        Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String token = jwtUtil.generateJwtToken(authenticate);
@@ -82,18 +82,18 @@ public class AuthService {
                 .authenticationToken(token)
                 .refreshToken(refreshTokenService.generateRefreshToken().getToken())
                 .expiresAt(Instant.now().plusSeconds(jwtUtil.getJwtExpiration()))
-                .username(loginRequest.getUsername())
+                .email(loginRequest.getEmail())
                 .build();
     }
 
     public LoginResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
-        String token = jwtUtil.generateTokenFromUsername(refreshTokenRequest.getUsername());
+        String token = jwtUtil.generateTokenFromEmail(refreshTokenRequest.getEmail());
         return LoginResponse.builder()
                 .authenticationToken(token)
                 .refreshToken(refreshTokenRequest.getRefreshToken())
                 .expiresAt(Instant.now().plusSeconds(jwtUtil.getJwtExpiration()))
-                .username(refreshTokenRequest.getUsername())
+                .email(refreshTokenRequest.getEmail())
                 .build();
     }
 
