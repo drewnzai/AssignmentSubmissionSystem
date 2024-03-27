@@ -52,12 +52,12 @@ public class AuthService {
 
     public LoginResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
-        String token = jwtUtil.generateTokenFromUsername(refreshTokenRequest.getUsername());
+        String token = jwtUtil.generateTokenFromUsername(refreshTokenRequest.getRegistration());
         return LoginResponse.builder()
                 .authenticationToken(token)
                 .refreshToken(refreshTokenRequest.getRefreshToken())
                 .expiresAt(Instant.now().plusSeconds(jwtUtil.getJwtExpiration()))
-                .registration(refreshTokenRequest.getUsername())
+                .registration(refreshTokenRequest.getRegistration())
                 .build();
     }
 
