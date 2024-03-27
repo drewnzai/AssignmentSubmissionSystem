@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController("/api/auth/")
+@RestController
+@RequestMapping("/api/auth/")
 @AllArgsConstructor
 public class AuthController {
 
