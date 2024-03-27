@@ -36,12 +36,8 @@ public class User {
     private String password;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "unit_id")
-    private List<Unit> unitsTaught;
 
     private Instant created;
 

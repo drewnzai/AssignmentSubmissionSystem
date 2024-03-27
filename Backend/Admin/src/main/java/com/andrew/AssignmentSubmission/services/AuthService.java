@@ -37,9 +37,9 @@ public class AuthService {
 
     public boolean signup(RegisterRequest registerRequest) {
         String email =
-                registerRequest.getFirstName()
+                registerRequest.getFirstName().toLowerCase()
                         + "." +
-                        registerRequest.getLastName()
+                        registerRequest.getLastName().toLowerCase()
                         + "@egerton.ac.ke";
 
         if(userRepository.existsByEmail(email)){
@@ -49,6 +49,8 @@ public class AuthService {
 
             User user = new User();
             user.setEmail(email);
+            user.setFirstName(registerRequest.getFirstName());
+            user.setLastName(registerRequest.getLastName());
             user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
             user.setCreated(Instant.now());
             user.setEnabled(true);

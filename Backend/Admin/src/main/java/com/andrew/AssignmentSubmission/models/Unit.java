@@ -26,9 +26,6 @@ public class Unit {
     private Semester semester;
 
 
-    @ManyToOne
-    @JoinColumn(name = "lecturer_id")
-    private User lecturer;
 
     @OneToMany(mappedBy = "unit")
     private List<UnitCourseOffering> courseOfferings;
