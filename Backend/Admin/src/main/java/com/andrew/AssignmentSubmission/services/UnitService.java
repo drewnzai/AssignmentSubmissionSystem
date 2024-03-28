@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.UnitDto;
+import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Semester;
 import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.User;
@@ -27,17 +28,7 @@ public class UnitService {
 
             Unit unit = new Unit();
 
-            User lecturer = userRepository.findByEmail(unitDto.getLecturerEmail());
-            Semester semester = semesterRepository.findByName(unitDto.getSemester());
-
-            unit.setName(unitDto.getName());
-            unit.setCode(unitDto.getCode());
-            unit.setDescription(unitDto.getDescription());
-            unit.setCredits(unitDto.getCredits());
-            unit.setSemester(semester);
-            unit.setLecturer(lecturer);
-
-            unitRepository.save(unit);
+            map(unitDto, unit);
 
             return true;
         }
@@ -56,7 +47,6 @@ public class UnitService {
 
             throw new AssignmentException("No such Unit");
 
-            return false;
         }
     }
 
@@ -66,17 +56,7 @@ public class UnitService {
 
             Unit unit  = unitRepository.findByName(unitDto.getName());
 
-            User lecturer = userRepository.findByEmail(unitDto.getLecturerEmail());
-            Semester semester = semesterRepository.findByName(unitDto.getSemester());
-
-            unit.setName(unitDto.getName());
-            unit.setCode(unitDto.getCode());
-            unit.setDescription(unitDto.getDescription());
-            unit.setCredits(unitDto.getCredits());
-            unit.setSemester(semester);
-            unit.setLecturer(lecturer);
-
-            unitRepository.save(unit);
+            map(unitDto, unit);
 
             return true;
 
@@ -85,8 +65,22 @@ public class UnitService {
 
             throw new AssignmentException("No such Unit");
 
-            return false;
         }
+
+    }
+
+    private void map(UnitDto unitDto, Unit unit) {
+        User lecturer = userRepository.findByEmail(unitDto.getLecturerEmail());
+        Semester semester = semesterRepository.findByName(unitDto.getSemester());
+
+        unit.setName(unitDto.getName());
+        unit.setCode(unitDto.getCode());
+        unit.setDescription(unitDto.getDescription());
+        unit.setCredits(unitDto.getCredits());
+        unit.setSemester(semester);
+        unit.setLecturer(lecturer);
+
+        unitRepository.save(unit);
 
     }
 }
