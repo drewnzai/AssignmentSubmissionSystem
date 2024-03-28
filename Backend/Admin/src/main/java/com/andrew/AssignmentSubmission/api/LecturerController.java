@@ -16,7 +16,7 @@ public class LecturerController {
 
     private UserService userService;
 
-    //For some reason using @RequestBody String email prevents the code from working correctly
+    //Using "@RequestBody String email" prevents the code from working correctly
     //Plain JSON strings are not decoded properly hence the need for userDTO, a top-level container
     @GetMapping
     public Assigned getLecturerDetails(@RequestBody UserDto userDto){
