@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/unit")
 @AllArgsConstructor
@@ -58,5 +60,44 @@ public class UnitController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
         }
+    }
+
+    @PostMapping("/modify")
+    public ResponseEntity<APIResponse> modifyUnit(@RequestBody UnitDto unitDto){
+        if(unitService.modifyUnit(unitDto)){
+            APIResponse apiResponse = APIResponse.builder()
+                    .message("Unit Modified Successfully")
+                    .isSuccessful(true)
+                    .statusCode(201)
+                    .build();
+
+            return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
+        } else {
+
+            APIResponse apiResponse = APIResponse.builder()
+                    .message("Unit Does not Exist")
+                    .isSuccessful(false)
+                    .statusCode(409)
+                    .build();
+
+            return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
+        }
+    }
+
+    @PostMapping("/batch")
+    public ResponseEntity<APIResponse> batch(@RequestBody List<UnitDto> units) {
+
+        for(UnitDto unitDto: units){
+            unitService.addUnit(unitDto);
+        }
+
+        APIResponse apiResponse = APIResponse.builder()
+                .message("Units Added Successfully")
+                .isSuccessful(true)
+                .statusCode(201)
+                .build();
+
+        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
+
     }
 }
