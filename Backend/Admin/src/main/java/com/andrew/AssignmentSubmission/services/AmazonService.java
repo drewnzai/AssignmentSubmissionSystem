@@ -28,11 +28,11 @@ public class AmazonService {
     private final AmazonS3 amazonS3;
 
     @Async
-    public void save(MultipartFile multipartFile, String username, String courseCode) throws IOException {
+    public void save(MultipartFile multipartFile, String studentRegistration, String unitCode) throws IOException {
         int year = Year.now(ZoneId.systemDefault()).getValue();
 
 
-        String folderKey = year + "/" + courseCode + "/" + username + "/";
+        String folderKey = year + "/" + unitCode + "/" + studentRegistration + "/";
 
         String fileName = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
         String objectKey = folderKey + fileName;
