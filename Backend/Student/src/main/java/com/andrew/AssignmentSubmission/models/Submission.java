@@ -1,11 +1,9 @@
 package com.andrew.AssignmentSubmission.models;
 
-import com.andrew.AssignmentSubmission.dto.Student;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.sql.ast.tree.update.Assignment;
 
 import java.time.LocalDate;
 
@@ -25,7 +23,7 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    private Student student;
+    private User student;
 
     private String path;
     private LocalDate submissionDate;
