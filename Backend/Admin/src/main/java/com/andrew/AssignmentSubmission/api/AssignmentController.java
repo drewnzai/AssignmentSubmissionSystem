@@ -68,21 +68,4 @@ public class AssignmentController {
     public List<AssignmentDto> getPendingAssignmentsByUnit(@PathVariable String unitCode){
         return assignmentService.pendingAssignmentsByUnit(unitCode);
     }
-
-    @PostMapping("/batch")
-    public ResponseEntity<APIResponse> batch(@RequestBody List<AssignmentDto> assignments){
-
-        for(AssignmentDto assignmentDto: assignments){
-            assignmentService.addAssignment(assignmentDto);
-        }
-
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Assignments Created Successfully")
-                .isSuccessful(true)
-                .statusCode(201)
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-    }
-
 }
