@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/submission")
@@ -72,4 +73,10 @@ public class SubmissionController {
             return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
         }
     }
+
+    @GetMapping("/{assignmentTitle}")
+    public List<SubmissionDto> getSubmissionsByAssignment(@PathVariable String assignmentTitle){
+        return submissionService.getSubmissionsByAssignment(assignmentTitle);
+    }
+
 }
