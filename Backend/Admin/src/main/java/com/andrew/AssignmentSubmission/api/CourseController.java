@@ -70,20 +70,5 @@ public class CourseController {
         return courseService.getAssignedCourses(unitCode);
     }
 
-    @PostMapping("/batch")
-    public ResponseEntity<APIResponse> batch(@RequestBody List<CourseDto> courses){
-
-        for(CourseDto courseDto: courses){
-            courseService.addCourse(courseDto.getName());
-        }
-
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Student Registration Successful")
-                .isSuccessful(true)
-                .statusCode(201)
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-    }
 
 }
