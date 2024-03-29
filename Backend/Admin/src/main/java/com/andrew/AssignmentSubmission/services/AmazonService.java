@@ -25,27 +25,6 @@ public class AmazonService {
 
     private final AmazonS3 amazonS3;
 
-    @Async
-    public void save(MultipartFile multipartFile, String folderKey) throws IOException {
-
-        String fileName = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
-        String objectKey = folderKey + fileName;
-
-        
-        ObjectMetadata metadata = new ObjectMetadata();
-        
-        metadata.setContentType("plain/"+ FilenameUtils.getExtension(fileName));
-        metadata.addUserMetadata("Title", "File Upload - " + fileName);
-        metadata.setContentLength(multipartFile.getSize());
-
-        PutObjectRequest request = new PutObjectRequest(bucketName, objectKey, multipartFile.getInputStream(), metadata);
-
-        amazonS3.putObject(request);
-
-    }
-
-
-
     public byte[] download(String path, String key) {
         try {
             S3Object object = amazonS3.getObject(path, key);
