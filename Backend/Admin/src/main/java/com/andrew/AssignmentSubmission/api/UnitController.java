@@ -90,7 +90,7 @@ public class UnitController {
     }
 
     @GetMapping("/{courseName}")
-    public List<UnitDto> getCourseDetails(@PathVariable String courseName){
+    public List<UnitDto> getUnitsFromCourse(@PathVariable String courseName){
         return unitService.getUnitsFromCourse(courseName);
     }
 
