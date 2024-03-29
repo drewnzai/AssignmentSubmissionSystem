@@ -8,6 +8,7 @@ import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -73,6 +74,21 @@ public class UnitService {
 
         }
 
+    }
+
+    public List<String> getAssignedCourses(String unitCode){
+        Unit unit = unitRepository.findByCode(unitCode);
+
+        List<String> courses = new ArrayList<>();
+
+        for(UnitCourseOffering courseOffering: unit.getCourseOfferings()){
+            Course course = courseOffering.getCourse();
+
+            courses.add(course.getName());
+
+        }
+
+        return courses;
     }
 
     private void map(UnitDto unitDto, Unit unit) {

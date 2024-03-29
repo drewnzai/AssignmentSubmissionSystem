@@ -62,6 +62,11 @@ public class UnitController {
         }
     }
 
+    @GetMapping("/{unitCode}")
+    public List<String> getAssignedCourses(@PathVariable String unitCode){
+        return unitService.getAssignedCourses(unitCode);
+    }
+
     @PostMapping("/modify")
     public ResponseEntity<APIResponse> modifyUnit(@RequestBody UnitDto unitDto){
         if(unitService.modifyUnit(unitDto)){
