@@ -1,35 +1,36 @@
 package com.andrew.AssignmentSubmission.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Entity
 @Data
-@Table(name = "units")
+@Table(name = "assignments")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Unit {
+public class Assignment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long unitId;
-    private String name;
-    private String code;
+    private Long assignmentId;
+    private String title;
     private String description;
-    private int credits;
 
     @ManyToOne
-    @JoinColumn(name = "semester_id")
-    private Semester semester;
+    @JoinColumn(name = "unit_id")
+    private Unit unit;
 
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
     private User lecturer;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "unit")
-    private List<UnitCourseOffering> courseOfferings;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate due;
+
+
 }
