@@ -15,11 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 public class UnitService {
 
-    private AssignmentRepository assignmentRepository;
-    private UnitRepository unitRepository;
-    private UserRepository userRepository;
-    private SemesterRepository semesterRepository;
-    private OfferingRepository offeringRepository;
     private CourseRepository courseRepository;
 
 
