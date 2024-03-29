@@ -92,10 +92,7 @@ public class UnitService {
         unitRepository.save(unit);
 
         for(CourseDto courseDto: courses){
-            Course course = courseRepository.findByName(courseDto.getName())
-                    .orElseThrow(
-                            () -> new AssignmentException("No Such course")
-                    );
+            Course course = courseRepository.findByName(courseDto.getName());
             UnitCourseOffering courseOffering = new UnitCourseOffering();
 
             courseOffering.setUnit(unit);

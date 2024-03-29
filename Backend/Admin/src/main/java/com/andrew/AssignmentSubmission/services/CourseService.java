@@ -15,10 +15,7 @@ public class CourseService {
 
     public CourseDto getCourseDetails(String courseName){
 
-        Course course = courseRepository.findByName(courseName)
-                .orElseThrow(
-                        () -> new AssignmentException("No Such Course Exists")
-                );
+        Course course = courseRepository.findByName(courseName);
 
         return new CourseDto(course.getName());
     }
@@ -42,7 +39,7 @@ public class CourseService {
     public boolean deleteCourse(String courseName){
         if(courseRepository.existsByName(courseName)){
 
-            courseRepository.delete(courseRepository.findByName(courseName).get());
+            courseRepository.delete(courseRepository.findByName(courseName));
 
             return true;
         }

@@ -33,10 +33,7 @@ public class StudentService {
         else{
 
             Student student = new Student();
-            Course course = courseRepository.findByName(studentDto.getCourseName())
-                            .orElseThrow(
-                                    () -> new AssignmentException("No Such Course")
-                            );
+            Course course = courseRepository.findByName(studentDto.getCourseName());
 
             student.setFirstName(studentDto.getFirstName());
             student.setLastName(studentDto.getLastName());
