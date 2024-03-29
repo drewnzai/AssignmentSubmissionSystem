@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.repositories;
 
+import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,4 +11,6 @@ import java.util.List;
 @Repository
 public interface OfferingRepository extends JpaRepository<UnitCourseOffering, Long> {
     List<UnitCourseOffering> findAllByUnit(Unit unit);
+
+    List<UnitCourseOffering> findAllByCourse(Course course);
 }

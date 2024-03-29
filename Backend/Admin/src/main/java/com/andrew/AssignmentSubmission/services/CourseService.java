@@ -4,6 +4,8 @@ import com.andrew.AssignmentSubmission.dto.CourseDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
+import com.andrew.AssignmentSubmission.repositories.OfferingRepository;
+import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Service;
 public class CourseService {
 
     private CourseRepository courseRepository;
+    private OfferingRepository offeringRepository;
+    private StudentRepository studentRepository;
 
     public CourseDto getCourseDetails(String courseName){
 
@@ -39,7 +43,11 @@ public class CourseService {
     public boolean deleteCourse(String courseName){
         if(courseRepository.existsByName(courseName)){
 
-            courseRepository.delete(courseRepository.findByName(courseName));
+            Course course = courseRepository.findByName(courseName);
+
+            offeringRepository.deleteAll(offeringRepository.findAllByCourse(course));
+
+            courseRepository.delete(course);
 
             return true;
         }
