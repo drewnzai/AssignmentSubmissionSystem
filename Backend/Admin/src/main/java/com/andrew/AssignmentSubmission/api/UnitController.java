@@ -89,6 +89,11 @@ public class UnitController {
         }
     }
 
+    @GetMapping("/{courseName}")
+    public List<UnitDto> getCourseDetails(@PathVariable String courseName){
+        return unitService.getUnitsFromCourse(courseName);
+    }
+
     @PostMapping("/batch")
     public ResponseEntity<APIResponse> batch(@RequestBody List<UnitDto> units) {
 

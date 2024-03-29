@@ -22,30 +22,6 @@ public class CourseService {
     private OfferingRepository offeringRepository;
     private StudentRepository studentRepository;
 
-    public List<UnitDto> getCourseDetails(String courseName){
-
-        Course course = courseRepository.findByName(courseName);
-        List<UnitDto> units = new ArrayList<>();
-
-        for(UnitCourseOffering courseOffering: course.getUnitCourseOfferings()){
-            Unit unit = courseOffering.getUnit();
-
-            UnitDto unitDto = new UnitDto();
-
-            unitDto.setName(unit.getName());
-            unitDto.setCode(unit.getCode());
-            unitDto.setSemester(unit.getSemester().getName());
-            unitDto.setDescription(unit.getDescription());
-            unitDto.setCredits(unit.getCredits());
-            unitDto.setLecturerEmail(unit.getLecturer().getEmail());
-
-            units.add(unitDto);
-
-        }
-
-        return units;
-    }
-
     public boolean addCourse(String courseName){
 
         if(courseRepository.existsByName(courseName)){
