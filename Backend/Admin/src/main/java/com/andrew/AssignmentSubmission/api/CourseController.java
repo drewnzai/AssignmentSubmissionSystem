@@ -1,7 +1,6 @@
 package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.CourseDto;
-import com.andrew.AssignmentSubmission.dto.UnitDto;
 import com.andrew.AssignmentSubmission.services.CourseService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
 import lombok.AllArgsConstructor;

@@ -1,10 +1,10 @@
 package com.andrew.AssignmentSubmission.services;
 
-import com.andrew.AssignmentSubmission.dto.CourseDto;
 import com.andrew.AssignmentSubmission.dto.UnitDto;
-import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
-import com.andrew.AssignmentSubmission.models.*;
-import com.andrew.AssignmentSubmission.repositories.*;
+import com.andrew.AssignmentSubmission.models.Course;
+import com.andrew.AssignmentSubmission.models.Unit;
+import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
+import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

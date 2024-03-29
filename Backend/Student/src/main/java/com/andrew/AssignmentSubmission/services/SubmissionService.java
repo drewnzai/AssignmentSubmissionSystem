@@ -3,11 +3,9 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.SubmissionDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Assignment;
-import com.andrew.AssignmentSubmission.models.Student;
 import com.andrew.AssignmentSubmission.models.Submission;
 import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
-import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -18,8 +16,6 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
