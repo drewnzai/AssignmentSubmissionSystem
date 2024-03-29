@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.andrew</groupId>
 	<artifactId>Admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>Admin</name>
 	<description>Admin module for Assignment Submission app</description>
 	<properties>
