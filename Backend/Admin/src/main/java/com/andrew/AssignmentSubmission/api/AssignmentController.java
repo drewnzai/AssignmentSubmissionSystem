@@ -64,6 +64,11 @@ public class AssignmentController {
         }
     }
 
+    @GetMapping("/{unitCode}")
+    public List<AssignmentDto> getPendingAssignmentsByUnit(@PathVariable String unitCode){
+        return assignmentService.pendingAssignmentsByUnit(unitCode);
+    }
+
     @PostMapping("/batch")
     public ResponseEntity<APIResponse> batch(@RequestBody List<AssignmentDto> assignments){
 

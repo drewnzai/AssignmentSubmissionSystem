@@ -11,6 +11,7 @@ import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,5 +90,32 @@ public class AssignmentService {
         else{
             throw new AssignmentException("User with email " + email + " does not exist");
         }
+    }
+
+    public List<AssignmentDto> pendingAssignmentsByUnit(String unitCode){
+
+        Unit unit = unitRepository.findByCode(unitCode);
+
+        List<Assignment> assignments = assignmentRepository.findAllByUnit(unit);
+
+        List<AssignmentDto> pendingAssignments = new ArrayList<>();
+
+        for(Assignment assignment: assignments){
+
+            if(LocalDate.now().isBefore(assignment.getDue())){
+
+                AssignmentDto assignmentDto = new AssignmentDto();
+
+                assignmentDto.setUnitCode(unitCode);
+                assignmentDto.setTitle(assignment.getTitle());
+                assignmentDto.setDescription(assignment.getDescription());
+                assignmentDto.setDue(assignment.getDue());
+                assignmentDto.setLecturerEmail(assignment.getLecturer().getEmail());
+
+                pendingAssignments.add(assignmentDto);
+
+            }
+        }
+        return pendingAssignments;
     }
 }
