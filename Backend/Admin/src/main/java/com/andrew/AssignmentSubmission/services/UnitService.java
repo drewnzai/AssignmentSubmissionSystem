@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UnitService {
 
+    private AssignmentRepository assignmentRepository;
     private UnitRepository unitRepository;
     private UserRepository userRepository;
     private SemesterRepository semesterRepository;
@@ -40,6 +41,8 @@ public class UnitService {
 
         if(unitRepository.existsByName(unitDto.getName())){
             Unit unit  = unitRepository.findByName(unitDto.getName());
+
+            assignmentRepository.deleteAll(assignmentRepository.findAllByUnit(unit));
 
             unitRepository.delete(unit);
 

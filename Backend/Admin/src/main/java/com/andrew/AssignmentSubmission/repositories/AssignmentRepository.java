@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.repositories;
 
 import com.andrew.AssignmentSubmission.models.Assignment;
+import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -14,4 +15,6 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
     Assignment findByTitle(String title);
 
     List<Assignment> findAllByLecturer(User user);
+
+    List<Assignment> findAllByUnit(Unit unit);
 }
