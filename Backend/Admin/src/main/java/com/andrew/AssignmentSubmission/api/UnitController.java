@@ -88,21 +88,4 @@ public class UnitController {
     public List<UnitDto> getUnitsFromCourse(@PathVariable String courseName){
         return unitService.getUnitsFromCourse(courseName);
     }
-
-    @PostMapping("/batch")
-    public ResponseEntity<APIResponse> batch(@RequestBody List<UnitDto> units) {
-
-        for(UnitDto unitDto: units){
-            unitService.addUnit(unitDto);
-        }
-
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Units Added Successfully")
-                .isSuccessful(true)
-                .statusCode(201)
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-
-    }
 }
