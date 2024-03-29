@@ -65,6 +65,11 @@ public class CourseController {
         }
     }
 
+    @GetMapping("/{unitCode}")
+    public List<String> getAssignedCourses(@PathVariable String unitCode){
+        return courseService.getAssignedCourses(unitCode);
+    }
+
     @PostMapping("/batch")
     public ResponseEntity<APIResponse> batch(@RequestBody List<CourseDto> courses){
 

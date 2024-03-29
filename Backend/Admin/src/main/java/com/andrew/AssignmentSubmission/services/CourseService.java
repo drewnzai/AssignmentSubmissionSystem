@@ -8,6 +8,7 @@ import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.OfferingRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
+import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class CourseService {
     private CourseRepository courseRepository;
     private OfferingRepository offeringRepository;
     private StudentRepository studentRepository;
+    private UnitRepository unitRepository;
 
     public boolean addCourse(String courseName){
 
@@ -60,6 +62,21 @@ public class CourseService {
 
             return false;
         }
+    }
+
+    public List<String> getAssignedCourses(String unitCode){
+        Unit unit = unitRepository.findByCode(unitCode);
+
+        List<String> courses = new ArrayList<>();
+
+        for(UnitCourseOffering courseOffering: unit.getCourseOfferings()){
+            Course course = courseOffering.getCourse();
+
+            courses.add(course.getName());
+
+        }
+
+        return courses;
     }
 
 }

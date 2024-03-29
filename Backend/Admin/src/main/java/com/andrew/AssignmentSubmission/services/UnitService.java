@@ -100,21 +100,6 @@ public class UnitService {
         return units;
     }
 
-    public List<String> getAssignedCourses(String unitCode){
-        Unit unit = unitRepository.findByCode(unitCode);
-
-        List<String> courses = new ArrayList<>();
-
-        for(UnitCourseOffering courseOffering: unit.getCourseOfferings()){
-            Course course = courseOffering.getCourse();
-
-            courses.add(course.getName());
-
-        }
-
-        return courses;
-    }
-
     private void map(UnitDto unitDto, Unit unit) {
         User lecturer = userRepository.findByEmail(unitDto.getLecturerEmail());
         Semester semester = semesterRepository.findByName(unitDto.getSemester());
