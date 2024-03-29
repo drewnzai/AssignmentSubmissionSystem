@@ -19,39 +19,6 @@ public class SubmissionController {
 
     private SubmissionService submissionService;
 
-    @PostMapping
-    public ResponseEntity<APIResponse>
-    submit(@RequestParam("assignmentTitle") String assignmentTitle,
-           @RequestParam("studentRegistration") String studentRegistration,
-           @RequestParam("unitCode") String unitCode,
-           @RequestParam("file") MultipartFile file)
-            throws IOException {
-
-        SubmissionDto submissionDto = new SubmissionDto();
-        submissionDto.setAssignmentTitle(assignmentTitle);
-        submissionDto.setUnitCode(unitCode);
-        submissionDto.setStudentRegistration(studentRegistration);
-
-        if(submissionService.submit(submissionDto, file)){
-            APIResponse apiResponse = APIResponse.builder()
-                    .message("Submitted successfully")
-                    .isSuccessful(true)
-                    .statusCode(201)
-                    .build();
-
-            return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-        } else {
-
-            APIResponse apiResponse = APIResponse.builder()
-                    .message("Submission failed")
-                    .isSuccessful(false)
-                    .statusCode(409)
-                    .build();
-
-            return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
-        }
-    }
-
     @PostMapping("/update")
     public ResponseEntity<APIResponse> update(@RequestBody SubmissionDto submissionDto){
         if(submissionService.update(submissionDto)){
