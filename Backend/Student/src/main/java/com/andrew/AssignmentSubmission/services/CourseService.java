@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 public class CourseService {
     private CourseRepository courseRepository;
 
-    public Course getCourseByName(String courseName){
-        return courseRepository.findByName(courseName)
-                .orElseThrow(() -> new AssignmentException("No course by name: "+ courseName));
-    }
 
 
 }
