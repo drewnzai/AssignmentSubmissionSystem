@@ -28,7 +28,7 @@ public class Unit {
 
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
-    private User lecturer;
+    private Lecturer lecturer;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "unit")
     private List<UnitCourseOffering> courseOfferings;
