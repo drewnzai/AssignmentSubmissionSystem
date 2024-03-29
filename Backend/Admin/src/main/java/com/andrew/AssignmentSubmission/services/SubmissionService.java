@@ -55,7 +55,9 @@ public class SubmissionService {
 
             submissionRepository.save(submission);
 
-            amazonService.save(multipartFile, submissionDto.getStudentRegistration(), submissionDto.getUnitCode());
+            String fullName = student.getFirstName() + " " + student.getLastName();
+
+            amazonService.save(multipartFile, fullName, submissionDto.getUnitCode());
 
             return true;
         }
