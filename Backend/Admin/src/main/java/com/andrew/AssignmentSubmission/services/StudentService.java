@@ -1,10 +1,8 @@
 package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.StudentDto;
-import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
-import com.andrew.AssignmentSubmission.models.Submission;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
@@ -13,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.util.List;
 
 @Service
 @AllArgsConstructor

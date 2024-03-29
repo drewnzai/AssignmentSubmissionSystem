@@ -1,6 +1,5 @@
 package com.andrew.AssignmentSubmission.dto;
 
-import com.andrew.AssignmentSubmission.models.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
