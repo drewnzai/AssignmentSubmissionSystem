@@ -14,6 +14,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.Year;
+import java.time.ZoneId;
 
 @Service
 @AllArgsConstructor
@@ -45,19 +47,26 @@ public class SubmissionService {
             Assignment assignment = assignmentRepository.findByTitle(submissionDto.getAssignmentTitle());
             Student student = studentRepository.findByRegistration(submissionDto.getStudentRegistration());
 
+            String fullName = student.getFirstName() + " " + student.getLastName();
+
+            int year = Year.now(ZoneId.systemDefault()).getValue();
+
+            String path = year + "/" + submissionDto.getUnitCode() + "/" + submissionDto.getAssignmentTitle()
+                    + "/" + fullName + "/";
+
             submission.setAssignment(assignment);
+            submission.setPath(path);
             submission.setAccepted(false);
             submission.setScore(0);
             submission.setStudent(student);
             submission.setFeedback("");
             submission.setSubmissionDate(LocalDate.now());
-            submission.setFileName(multipartFile.getOriginalFilename());
+
+
+
+            amazonService.save(multipartFile, path);
 
             submissionRepository.save(submission);
-
-            String fullName = student.getFirstName() + " " + student.getLastName();
-
-            amazonService.save(multipartFile, submissionDto.getUnitCode(), submissionDto.getAssignmentTitle(), fullName );
 
             return true;
         }

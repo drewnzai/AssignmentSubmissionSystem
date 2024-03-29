@@ -25,7 +25,7 @@ public class Submission {
     @JoinColumn(name = "student_id")
     private Student student;
 
-    private String fileName;
+    private String path;
     private LocalDate submissionDate;
     private int score;
     private String feedback;

@@ -15,5 +15,6 @@ public class SubmissionDto {
     private int score;
     private String feedback;
     private boolean accepted;
+    private String path;
 
 }
