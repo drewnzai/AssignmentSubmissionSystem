@@ -70,5 +70,4 @@ public class CourseController {
         return courseService.getAssignedCourses(unitCode);
     }
 
-
 }
