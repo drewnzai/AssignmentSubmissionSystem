@@ -22,7 +22,7 @@ public class StudentService {
             Student student = new Student();
 
             student.setRegistration(registration);
-            student.setFullName(user.getFirstName() + user.getLastName());
+            student.setFullName(user.getFirstName() + " " + user.getLastName());
             student.setCourseName
                     (user.getEnrolledCourse().getName());
 
