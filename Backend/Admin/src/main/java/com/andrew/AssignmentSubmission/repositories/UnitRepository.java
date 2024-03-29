@@ -14,4 +14,8 @@ public interface UnitRepository extends JpaRepository<Unit, Long> {
     Unit findByName(String name);
 
     List<Unit> findAllByLecturer(User lecturer);
+
+    boolean existsByCode(String code);
+
+    Unit findByCode(String unitCode);
 }
