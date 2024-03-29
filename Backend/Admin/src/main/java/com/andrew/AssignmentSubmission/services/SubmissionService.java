@@ -61,5 +61,33 @@ public class SubmissionService {
         }
     }
 
+    public boolean update(SubmissionDto submissionDto){
+        Assignment assignment = assignmentRepository
+                .findByTitle(submissionDto.getAssignmentTitle());
+
+        Student student = studentRepository
+                .findByRegistration(submissionDto.getStudentRegistration());
+
+        if
+        (submissionRepository.existsByAssignmentAndStudent(assignment, student)
+        ){
+
+            Submission submission = submissionRepository
+                    .findSubmissionByAssignmentAndStudent(assignment, student);
+
+            submission.setAccepted(submissionDto.isAccepted());
+            submission.setScore(submissionDto.getScore());
+            submission.setFeedback(submissionDto.getFeedback());
+
+            submissionRepository.save(submission);
+
+            return true;
+
+
+        }else{
+            throw new AssignmentException("Submission does not exist");
+        }
+    }
+
 
 }
