@@ -22,8 +22,8 @@ public class Submission {
     private Assignment assignment;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "student_id")
+    private Student student;
 
     private String fileName;
     private LocalDate submissionDate;
