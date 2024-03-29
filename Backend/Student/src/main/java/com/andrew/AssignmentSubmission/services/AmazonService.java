@@ -14,8 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.time.Year;
-import java.time.ZoneId;
 import java.util.UUID;
 
 @Service
@@ -28,18 +26,14 @@ public class AmazonService {
     private final AmazonS3 amazonS3;
 
     @Async
-    public void save(MultipartFile multipartFile, String username, String courseCode) throws IOException {
-        int year = Year.now(ZoneId.systemDefault()).getValue();
-
-
-        String folderKey = year + "/" + courseCode + "/" + username + "/";
+    public void save(MultipartFile multipartFile, String folderKey) throws IOException {
 
         String fileName = UUID.randomUUID().toString() + "_" + multipartFile.getOriginalFilename();
         String objectKey = folderKey + fileName;
 
-        
+
         ObjectMetadata metadata = new ObjectMetadata();
-        
+
         metadata.setContentType("plain/"+ FilenameUtils.getExtension(fileName));
         metadata.addUserMetadata("Title", "File Upload - " + fileName);
         metadata.setContentLength(multipartFile.getSize());
@@ -50,15 +44,4 @@ public class AmazonService {
 
     }
 
-
-
-    public byte[] download(String path, String key) {
-        try {
-            S3Object object = amazonS3.getObject(path, key);
-            return IOUtils.toByteArray(object.getObjectContent());
-
-        } catch (AmazonServiceException | IOException e) {
-            throw new IllegalStateException("Failed to download file from s3", e);
-        }
-    }
 }
