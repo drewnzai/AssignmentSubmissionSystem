@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.dto;
 
+import com.andrew.AssignmentSubmission.models.Unit;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class OfferingDto {
 
-    private String unitName;
-    private List<String> courses;
+    private List<UnitDto> units;
+    private List<CourseDto> courses;
+
 
 }
