@@ -1,14 +1,18 @@
 package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.CourseDto;
+import com.andrew.AssignmentSubmission.dto.UnitDto;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
+import com.andrew.AssignmentSubmission.models.Unit;
+import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.OfferingRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,11 +23,28 @@ public class CourseService {
     private OfferingRepository offeringRepository;
     private StudentRepository studentRepository;
 
-    public CourseDto getCourseDetails(String courseName){
+    public List<UnitDto> getCourseDetails(String courseName){
 
         Course course = courseRepository.findByName(courseName);
+        List<UnitDto> units = new ArrayList<>();
 
-        return new CourseDto(course.getName());
+        for(UnitCourseOffering courseOffering: course.getUnitCourseOfferings()){
+            Unit unit = courseOffering.getUnit();
+
+            UnitDto unitDto = new UnitDto();
+
+            unitDto.setName(unit.getName());
+            unitDto.setCode(unit.getCode());
+            unitDto.setSemester(unit.getSemester().getName());
+            unitDto.setDescription(unit.getDescription());
+            unitDto.setCredits(unit.getCredits());
+            unitDto.setLecturerEmail(unit.getLecturer().getEmail());
+
+            units.add(unitDto);
+
+        }
+
+        return units;
     }
 
     public boolean addCourse(String courseName){

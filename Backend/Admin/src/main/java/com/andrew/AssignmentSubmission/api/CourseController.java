@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.CourseDto;
+import com.andrew.AssignmentSubmission.dto.UnitDto;
 import com.andrew.AssignmentSubmission.services.CourseService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
 import lombok.AllArgsConstructor;
@@ -80,4 +81,8 @@ public class CourseController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
+    @GetMapping("/details")
+    public List<UnitDto> getCourseDetails(@RequestBody CourseDto courseDto){
+        return courseService.getCourseDetails(courseDto.getName());
+    }
 }
