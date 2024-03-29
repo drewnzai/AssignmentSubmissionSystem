@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class APIResponse {
     private String message;
+    private boolean isSuccessful;
     private int statusCode;
     private Object data;
 }
