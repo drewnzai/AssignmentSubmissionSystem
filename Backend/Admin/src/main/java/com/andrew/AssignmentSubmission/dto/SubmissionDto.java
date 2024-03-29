@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SubmissionDto {
 
-    private String assignmentName;
-    private String student;
+    private String assignmentTitle;
+    private String studentRegistration;
     private String unitCode;
     private int score;
     private String feedback;
