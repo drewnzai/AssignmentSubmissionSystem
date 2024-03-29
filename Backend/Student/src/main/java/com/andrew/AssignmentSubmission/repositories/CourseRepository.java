@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CourseRepository extends JpaRepository<Course, Long> {
-    boolean existsByName(String courseName);
 
     Course findByName(String courseName);
 }

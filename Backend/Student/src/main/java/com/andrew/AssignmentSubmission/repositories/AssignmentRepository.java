@@ -14,7 +14,5 @@ public interface AssignmentRepository extends JpaRepository<Assignment, Long> {
 
     Assignment findByTitle(String title);
 
-    List<Assignment> findAllByLecturer(User user);
-
     List<Assignment> findAllByUnit(Unit unit);
 }
