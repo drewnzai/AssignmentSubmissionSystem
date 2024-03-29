@@ -43,6 +43,7 @@ public class UnitService {
             Unit unit  = unitRepository.findByName(unitDto.getName());
 
             assignmentRepository.deleteAll(assignmentRepository.findAllByUnit(unit));
+            offeringRepository.deleteAll(offeringRepository.findAllByUnit(unit));
 
             unitRepository.delete(unit);
 
