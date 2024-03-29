@@ -81,8 +81,8 @@ public class CourseController {
         return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
     }
 
-    @GetMapping("/details")
-    public List<UnitDto> getCourseDetails(@RequestBody CourseDto courseDto){
-        return courseService.getCourseDetails(courseDto.getName());
+    @GetMapping("/{courseName}")
+    public List<UnitDto> getCourseDetails(@PathVariable String courseName){
+        return courseService.getCourseDetails(courseName);
     }
 }
