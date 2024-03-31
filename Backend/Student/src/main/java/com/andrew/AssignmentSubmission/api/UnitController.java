@@ -2,6 +2,7 @@ package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.UnitDto;
 import com.andrew.AssignmentSubmission.services.UnitService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/unit")
 @AllArgsConstructor
+@Tag(name = "Unit", description = "Unit Management APIs")
 public class UnitController {
 
     private UnitService unitService;
