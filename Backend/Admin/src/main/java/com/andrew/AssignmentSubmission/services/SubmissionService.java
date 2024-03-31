@@ -29,51 +29,6 @@ public class SubmissionService {
     private StudentRepository studentRepository;
 
 
-    public boolean submit(SubmissionDto submissionDto, MultipartFile multipartFile) throws IOException {
-
-        if(!assignmentRepository.existsByTitle(submissionDto.getAssignmentTitle())
-        || !studentRepository.existsByRegistration(submissionDto.getStudentRegistration())){
-
-            throw new AssignmentException("Assignment or User details are wrong");
-
-        }
-        else if(LocalDate.now().isAfter(
-                assignmentRepository.findByTitle(submissionDto.getAssignmentTitle()).getDue()
-        )){
-              throw new AssignmentException("Assignment is overdue");
-        }
-        else{
-
-            Submission submission = new Submission();
-
-            Assignment assignment = assignmentRepository.findByTitle(submissionDto.getAssignmentTitle());
-            Student student = studentRepository.findByRegistration(submissionDto.getStudentRegistration());
-
-            String fullName = student.getFirstName() + " " + student.getLastName();
-
-            int year = Year.now(ZoneId.systemDefault()).getValue();
-
-            String path = year + "/" + submissionDto.getUnitCode() + "/" + submissionDto.getAssignmentTitle()
-                    + "/" + fullName + "/";
-
-            submission.setAssignment(assignment);
-            submission.setPath(path);
-            submission.setAccepted(false);
-            submission.setScore(0);
-            submission.setStudent(student);
-            submission.setFeedback("");
-            submission.setSubmissionDate(LocalDate.now());
-
-
-
-            amazonService.save(multipartFile, path);
-
-            submissionRepository.save(submission);
-
-            return true;
-        }
-    }
-
     public boolean update(SubmissionDto submissionDto){
         Assignment assignment = assignmentRepository
                 .findByTitle(submissionDto.getAssignmentTitle());
