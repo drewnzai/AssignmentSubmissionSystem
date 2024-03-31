@@ -1,0 +1,24 @@
+.wrapper{
+  padding-bottom: 179px;
+}
+
+.pagecentre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    
+  }
+  .pagecentre form {
+    background: white;
+    opacity: 0.94;
+    padding: 65px !important;
+    /* display: flex;
+    flex-direction: column; */
+    text-align: center;
+    border-radius: 10px;
+  }
+
+::placeholder{
+  color: black !important;
+}

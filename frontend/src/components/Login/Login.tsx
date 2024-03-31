@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Login.css";
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Button, Form, Input } from 'antd';
+import { EyeTwoTone, EyeInvisibleOutlined} from '@ant-design/icons';
+import { InfoCircleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Tooltip } from 'antd';
 
 
 function Login(){
@@ -10,7 +11,11 @@ function Login(){
     console.log("Received values of form: ", values);
   };
 
+  const[passwordVisible, setPasswordVisible] = useState<boolean>(false);
+
   return (
+    <div className="wrapper">
+    <div className="pagecentre">
     <Form
       name="normal_login"
       className="login-form"
@@ -20,18 +25,33 @@ function Login(){
         name="registration"
         rules={[{ required: true, message: 'Please input your Registration Number!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Registration Number" />
+        <Input
+        prefix={<UserOutlined className="site-form-item-icon" />} 
+        placeholder="Registration Number"
+        suffix={
+          <Tooltip title="Sample Registration Number format: A01/03124/23">
+            <InfoCircleOutlined style={{
+              color: "rgba(0, 0, 0, .45)"
+            }}
+            />
+          </Tooltip>
+        }
+        />
       </Form.Item>
-
+      
       <Form.Item
         name="password"
         rules={[{ required: true, message: 'Please input your Password!' }]}
       >
-        <Input
+        <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
           placeholder="Password"
-        />
+          iconRender={
+            (visible) => (
+              visible? <EyeTwoTone /> : <EyeInvisibleOutlined/>
+            )
+          }
+          />
       </Form.Item>
 
       <Form.Item>
@@ -40,6 +60,8 @@ function Login(){
         </Button>
       </Form.Item>
      </Form>
+    </div>
+    </div>
   );
 }
 

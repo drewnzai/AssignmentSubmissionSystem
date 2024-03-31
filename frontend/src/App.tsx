@@ -11,10 +11,14 @@ const App: React.FC = () => (
 			<Route path="/login" Component={() => {
         return(
           <>
+          <div className="imageFill">
+          <div className="egerton">
           <Header/>
-          <Layout.Content>
-            <Login/>
-          </Layout.Content>
+        
+          <Login/>
+        
+          </div>
+          </div>
           </>
         );
       }} />
