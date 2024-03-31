@@ -10,12 +10,7 @@ import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.time.LocalDate;
-import java.time.Year;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
