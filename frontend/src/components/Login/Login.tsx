@@ -11,8 +11,6 @@ function Login(){
     console.log("Received values of form: ", values);
   };
 
-  const[passwordVisible, setPasswordVisible] = useState<boolean>(false);
-
   return (
     <div className="wrapper">
     <div className="pagecentre">
