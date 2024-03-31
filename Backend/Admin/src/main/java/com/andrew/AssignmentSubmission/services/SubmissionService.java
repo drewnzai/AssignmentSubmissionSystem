@@ -25,7 +25,6 @@ public class SubmissionService {
 
     private SubmissionRepository submissionRepository;
     private AssignmentRepository assignmentRepository;
-    private AmazonService amazonService;
     private StudentRepository studentRepository;
 
 
