@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Header.css"
-import { Layout, Typography } from "antd";
 
 function Header(){
     return(
