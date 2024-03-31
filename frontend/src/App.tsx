@@ -1,7 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Layout } from "antd";
 import './App.css';
-import Login from "./components/Login/Login"
+import Header from "./components/ui/Header/Header";
+import Login from "./components/Login/Login";
 
 const App: React.FC = () => (
 	<BrowserRouter>
@@ -9,6 +11,10 @@ const App: React.FC = () => (
 			<Route path="/login" Component={() => {
         return(
           <>
+          <Header/>
+          <Layout.Content>
+            <Login/>
+          </Layout.Content>
           </>
         );
       }} />
