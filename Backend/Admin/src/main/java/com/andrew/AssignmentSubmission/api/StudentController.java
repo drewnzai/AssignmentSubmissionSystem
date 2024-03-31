@@ -3,6 +3,7 @@ package com.andrew.AssignmentSubmission.api;
 import com.andrew.AssignmentSubmission.dto.StudentDto;
 import com.andrew.AssignmentSubmission.services.StudentService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/student")
 @AllArgsConstructor
+@Tag(name = "Student", description = "Student Management APIs")
 public class StudentController {
 
     private StudentService studentService;

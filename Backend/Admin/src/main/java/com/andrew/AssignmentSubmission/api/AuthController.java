@@ -8,6 +8,7 @@ import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.services.AuthService;
 import com.andrew.AssignmentSubmission.services.RefreshTokenService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/auth/")
 @AllArgsConstructor
+@Tag(name = "Auth", description = "User Access and Management APIs")
 public class AuthController {
 
     private final AuthService authService;
