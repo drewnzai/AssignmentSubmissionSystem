@@ -6,7 +6,12 @@ import Login from "./Components/Login/Login"
 const App: React.FC = () => (
 	<BrowserRouter>
 		<Routes>
-			<Route path="/login" element={<Login />} />
+			<Route path="/login" Component={() => {
+        return(
+          <>
+          </>
+        );
+      }} />
 		</Routes>
 	</BrowserRouter>
 );
