@@ -4,7 +4,8 @@ import "./Header.css"
 function Header(){
     return(
         <header className='header'>
-            <h1>Egerton Univeristy Assignment Submission System</h1>
+            <img src="/eu-logo.png" alt="" />
+            <h1>Assignment Submission System</h1>
         </header>
     );
 }
