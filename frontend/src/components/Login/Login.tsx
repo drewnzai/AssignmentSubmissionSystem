@@ -3,14 +3,35 @@ import "./Login.css";
 import { EyeTwoTone, EyeInvisibleOutlined} from '@ant-design/icons';
 import { InfoCircleOutlined, LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Tooltip } from 'antd';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+export interface LoginRequest{
+  registration: string;
+  password: string;
+}
 
 
 function Login(){
 
-  const onFinish = (values: any) => {
-    console.log("Received values of form: ", values);
-  };
+  const navigate = useNavigate();
+  
+  const onFinish = async (values: any) => {
+  
+    try {
+  
+    const loginRequest: LoginRequest = {
+    registration: values.registration,
+    password: values.password
+  }
+    
+    const response = await axios.post("http://localhost:8080/api/auth/login", loginRequest);
+    navigate("/dashboard");
 
+  } catch (error) {
+    console.log(error);
+  }
+}
   return (
     <div className="wrapper">
     <div className="pagecentre">
