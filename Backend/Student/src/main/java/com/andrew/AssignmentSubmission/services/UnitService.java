@@ -5,6 +5,7 @@ import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
+import com.andrew.AssignmentSubmission.repositories.OfferingRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +17,19 @@ import java.util.List;
 public class UnitService {
 
     private CourseRepository courseRepository;
-
+    private OfferingRepository offeringRepository;
 
     public List<UnitDto> getCurrentUnitsFromCourse(String courseName){
 
-        Course course = courseRepository.findByName(courseName);
+        List<UnitCourseOffering> offerings = offeringRepository
+                .findAllByCourse
+                        (
+                                courseRepository.findByName(courseName)
+                        );
 
         List<UnitDto> units = new ArrayList<>();
 
-        for(UnitCourseOffering courseOffering: course.getUnitCourseOfferings()){
+        for(UnitCourseOffering courseOffering: offerings){
             Unit unit = courseOffering.getUnit();
 
             UnitDto unitDto = new UnitDto();

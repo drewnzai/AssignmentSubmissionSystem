@@ -78,10 +78,15 @@ public class UnitService {
 
     public List<UnitDto> getUnitsFromCourse(String courseName){
 
-        Course course = courseRepository.findByName(courseName);
+        List<UnitCourseOffering> offerings = offeringRepository
+                .findAllByCourse
+                        (
+                                courseRepository.findByName(courseName)
+                        );
+
         List<UnitDto> units = new ArrayList<>();
 
-        for(UnitCourseOffering courseOffering: course.getUnitCourseOfferings()){
+        for(UnitCourseOffering courseOffering: offerings){
             Unit unit = courseOffering.getUnit();
 
             UnitDto unitDto = new UnitDto();

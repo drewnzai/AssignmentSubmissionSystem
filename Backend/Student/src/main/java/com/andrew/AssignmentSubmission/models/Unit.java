@@ -30,6 +30,6 @@ public class Unit {
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "unit")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "unit")
     private List<UnitCourseOffering> courseOfferings;
 }

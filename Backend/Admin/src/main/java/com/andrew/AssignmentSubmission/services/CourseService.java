@@ -64,15 +64,16 @@ public class CourseService {
     }
 
     public List<String> getAssignedCourses(String unitCode){
-        Unit unit = unitRepository.findByCode(unitCode);
+
+        List<UnitCourseOffering> offerings = offeringRepository
+                .findAllByUnit(
+                        unitRepository.findByCode(unitCode)
+                );
 
         List<String> courses = new ArrayList<>();
 
-        for(UnitCourseOffering courseOffering: unit.getCourseOfferings()){
-            Course course = courseOffering.getCourse();
-
-            courses.add(course.getName());
-
+        for(UnitCourseOffering courseOffering: offerings){
+            courses.add(courseOffering.getCourse().getName());
         }
 
         return courses;

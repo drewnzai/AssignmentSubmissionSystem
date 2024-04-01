@@ -19,7 +19,7 @@ public class Course {
     private Long courseId;
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "course")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "course")
     private List<UnitCourseOffering> unitCourseOfferings;
 
 }
