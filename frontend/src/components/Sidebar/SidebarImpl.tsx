@@ -9,14 +9,11 @@ function SidebarImpl(){
     return (
       <Sidebar>
       <Menu>
+      <MenuItem component={<Link to="/student" />}> Student Details</MenuItem>
         <SubMenu title="Assignments">
         <MenuItem component={<Link to="/assignments/pending" />}> Pending</MenuItem>
         <MenuItem component={<Link to="/assignments/completed" />}> Completed</MenuItem>
         </SubMenu>
-        <MenuItem>
-          Students
-          <Link to="/students" />
-        </MenuItem>
       </Menu>
     </Sidebar>
       );
