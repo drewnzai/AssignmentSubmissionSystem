@@ -9,9 +9,12 @@ interface LoginRequest{
 }
 
 
+
 function Login(props: any){
 
-    const [loginRequest, setLoginRequest] = useState<LoginRequest>({ registration: '', password: '' });
+    const navigate = useNavigate();
+ 
+  const [loginRequest, setLoginRequest] = useState<LoginRequest>({ registration: '', password: '' });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLoginRequest({ ...loginRequest, [e.target.name]: e.target.value });
@@ -19,11 +22,19 @@ function Login(props: any){
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try {
-        //   const response = await axios.post('http://localhost:8080/api/auth/login', loginRequest);
-        //   console.log(response.data);
         
-            console.log(loginRequest);
+        try {
+        
+           const response = await axios.post('http://localhost:8080/api/auth/login', loginRequest);
+           
+           localStorage.setItem('authenticationToken', response.data.authenticationToken);
+           localStorage.setItem('refreshToken', response.data.refreshToken);
+           localStorage.setItem('registration', response.data.registration);
+           localStorage.setItem('expiresAt', response.data.expiresAt);
+
+           navigate("/home");
+
+
 
         } catch (error) {
           console.error('Login failed:', error);
@@ -42,10 +53,6 @@ function Login(props: any){
         <div className="input-group">
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" value={loginRequest.password} onChange={handleInputChange} required />
-        </div>
-        <div className="input-remember">
-          <input type="checkbox" id="remember-me" />
-          <label htmlFor="remember-me">Remember me</label>
         </div>
         <button type="submit" className="submit-button">Submit</button>
         <a href="/forgot-password">Forgot password?</a>
