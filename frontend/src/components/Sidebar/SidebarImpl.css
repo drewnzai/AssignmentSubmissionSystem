@@ -1,0 +1,20 @@
+
+.pro-sidebar {
+    background: lightgreen; /* Dark background for the sidebar */
+    color: #ffffff; /* White text color for contrast */
+  }
+  
+  .pro-sidebar .pro-menu-item {
+    color: #ffffff; /* White text color for menu items */
+  }
+  
+  .pro-sidebar .pro-menu-item.pro-menu-item-active {
+    background: #0c7b93; /* Slightly different shade for active menu item */
+  }
+  
+  .pro-sidebar .pro-sub-menu {
+    background: #262626; /* Even darker background for sub-menus */
+  }
+  
+  /* You might need to add additional custom styles for other elements like badges, icons, etc. */
+  
