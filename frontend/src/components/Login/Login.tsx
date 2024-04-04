@@ -8,7 +8,7 @@ import { LoginRequest } from "../../models/LoginRequest";
 
 function Login(props: any){
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
  
   const [loginRequest, setLoginRequest] = useState<LoginRequest>({ registration: '', password: '' });
 
