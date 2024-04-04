@@ -18,12 +18,6 @@ function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
   const navigate = useNavigate();
 
-  useEffect((
-    () => {
-      const currentUser = authService.getCurrentUser();
-
-    }
-  ), [])
   const handleToggleSidebar = () => {
 
     setCollapsed(!collapsed);
