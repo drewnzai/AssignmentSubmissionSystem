@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import authService from "../../auth/auth.service";
 import { LoginRequest } from "../../models/LoginRequest";
 
@@ -22,8 +21,12 @@ function Login(props: any){
         
         try {
         
-           authService.login(loginRequest);
-           
+           authService.login(loginRequest)
+           .then(
+            () => navigate("/")
+           );
+
+      
         } catch (error) {
           console.error('Login failed:', error);
           // Handle error (e.g., show an error message)
