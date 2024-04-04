@@ -1,7 +1,6 @@
 package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.UnitDto;
-import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
