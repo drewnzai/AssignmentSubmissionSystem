@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SidebarImpl.css";
 
 import units from "../../temp/units.json";
+import authService from "../../auth/auth.service";
 
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BookIcon from '@mui/icons-material/Book';
 import LogoutIcon from '@mui/icons-material/Logout';
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -15,12 +16,23 @@ import SchoolIcon from '@mui/icons-material/School';
 
 function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
+  const navigate = useNavigate();
 
+  useEffect((
+    () => {
+      const currentUser = authService.getCurrentUser();
 
+    }
+  ), [])
   const handleToggleSidebar = () => {
 
     setCollapsed(!collapsed);
 
+  };
+
+  const logout = () => {
+    authService.logout();
+    navigate("/login");
   };
 
 
@@ -40,7 +52,7 @@ function SidebarImpl(){
             )
           )}
         </SubMenu>
-          <MenuItem icon={<LogoutIcon/> } component={<Link to="/logout" />}>Logout</MenuItem>
+          <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
           <MenuItem icon={<CalendarTodayOutlinedIcon />}>Calendar</MenuItem>
       </Menu>
