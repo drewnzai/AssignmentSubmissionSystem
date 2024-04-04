@@ -11,7 +11,7 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 
 function SidebarImpl(){
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
 
   const handleToggleSidebar = () => {
