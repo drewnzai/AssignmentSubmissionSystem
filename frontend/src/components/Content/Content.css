@@ -1,0 +1,20 @@
+.wrapper{
+    display: block;
+
+}
+
+.wrapper h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,166,81,255);
+}
+
+.card-wrapper{
+    display: flex;
+    width: 1283px;
+    height: 546px;
+    align-items: center;
+}
+
+.card-wrapper .around{
+    margin: 8px;
+}
