@@ -4,11 +4,12 @@ import com.andrew.AssignmentSubmission.dto.Student;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class StudentService {
 
     private UserRepository userRepository;
