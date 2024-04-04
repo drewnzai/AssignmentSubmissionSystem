@@ -2,11 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
-interface LoginRequest{
-    registration: string;
-    password: string;
-}
+import authService from "../../auth/auth.service";
+import { LoginRequest } from "../../models/LoginRequest";
 
 
 
@@ -25,17 +22,8 @@ function Login(props: any){
         
         try {
         
-           const response = await axios.post('http://localhost:8080/api/auth/login', loginRequest);
+           authService.login(loginRequest);
            
-           localStorage.setItem('authenticationToken', response.data.authenticationToken);
-           localStorage.setItem('refreshToken', response.data.refreshToken);
-           localStorage.setItem('registration', response.data.registration);
-           localStorage.setItem('expiresAt', response.data.expiresAt);
-
-           navigate("/home");
-
-
-
         } catch (error) {
           console.error('Login failed:', error);
           // Handle error (e.g., show an error message)
