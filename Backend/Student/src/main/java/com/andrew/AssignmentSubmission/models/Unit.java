@@ -29,7 +29,4 @@ public class Unit {
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "unit")
-    private List<UnitCourseOffering> courseOfferings;
 }
