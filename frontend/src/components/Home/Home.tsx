@@ -7,9 +7,11 @@ function Home(props: any){
   
 
   return (
-    <div>
+    <div style={{display: "flex"}}>
     <SidebarImpl/>
-    
+    <div>
+      <h1>MainBar</h1>
+    </div>
     </div>
   );
 
