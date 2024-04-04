@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./SidebarImpl.css";
 
+import units from "../../temp/units.json";
+
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link } from "react-router-dom";
 import BookIcon from '@mui/icons-material/Book';
@@ -9,6 +11,7 @@ import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import SchoolIcon from '@mui/icons-material/School';
 
 function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
@@ -29,6 +32,13 @@ function SidebarImpl(){
         <SubMenu icon={<BookIcon/>} label="Assignments">
         <MenuItem component={<Link to="/assignments/pending" />}> Pending</MenuItem>
         <MenuItem component={<Link to="/assignments/completed" />}> Completed</MenuItem>
+        </SubMenu>
+        <SubMenu icon={<SchoolIcon/>} label="Current Units">
+          {units.map(
+            (unit, index) => (
+              <MenuItem>{unit.code}</MenuItem>
+            )
+          )}
         </SubMenu>
           <MenuItem icon={<LogoutIcon/> } component={<Link to="/logout" />}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
