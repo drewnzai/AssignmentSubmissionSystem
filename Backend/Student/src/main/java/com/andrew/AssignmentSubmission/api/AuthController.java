@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/auth/")
+@RequestMapping("/api/auth")
 @AllArgsConstructor
 @Tag(name = "Auth", description = "Student Resource Access APIs")
 public class AuthController {
@@ -25,20 +25,20 @@ public class AuthController {
     private final AuthService authService;
     private final RefreshTokenService refreshTokenService;
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
 
         return authService.login(loginRequest);
     }
 
-    @PostMapping("refresh/token")
+    @PostMapping("/refresh")
     public LoginResponse refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
 
         return authService.refreshToken(refreshTokenRequest);
 
     }
 
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public ResponseEntity<APIResponse> logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
 
