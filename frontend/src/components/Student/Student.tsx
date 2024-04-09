@@ -33,7 +33,7 @@ function Student(){
               );
             
         }
-    ), [detailsRef]);
+    ), [detailsRef, navigate]);
 
     return(
         <div style={{display: "flex"}}>
