@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SidebarImpl.css";
 
 import units from "../../temp/units.json";
-import authService from "../../auth/auth.service";
+import authService from "../../services/auth.service";
 
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";

@@ -5,7 +5,7 @@ import "./Home.css";
 import SidebarImpl from "../Sidebar/SidebarImpl";
 import Content from "../Content/Content";
 
-import authService from "../../auth/auth.service";
+import authService from "../../services/auth.service";
 
 function Home(props: any){
   
