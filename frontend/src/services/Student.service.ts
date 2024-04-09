@@ -7,7 +7,7 @@ import AuthService from "./Auth.service";
 
 const API_URL = "http://localhost:8080/api/student";
 
-class StudentService{
+export default class StudentService{
     
     
     getDetails(){
@@ -44,5 +44,3 @@ class StudentService{
         
     }
 }
-
-export default new StudentService();

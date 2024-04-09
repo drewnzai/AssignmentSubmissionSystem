@@ -14,9 +14,10 @@ function Student(){
     const [studentDetails, setStudentDetails] = 
     useState<StudentDetails>({registration: "", fullName: "", courseName:""});
 
-    const authService = new AuthService();
-
     const detailsRef = useRef(studentDetails);
+    
+    const authService = new AuthService();
+    const studentService = new StudentService();
 
     useEffect((
         () => {
@@ -26,7 +27,7 @@ function Student(){
                 navigate("/login");
               }
             
-              StudentService.getDetails()
+              studentService.getDetails()
               .then(
                 (response: StudentDetails) => { 
                     
