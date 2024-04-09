@@ -1,7 +1,7 @@
 import axios from "axios";
 import { StudentDetails } from "../models/StudentDetails";
 import { DetailsRequest } from "../models/DetailsRequest"
-import authHeader from "../auth/auth.header";
+import AuthHeader from "../auth/Auth.header";
 import AuthService from "./Auth.service";
 
 
@@ -28,7 +28,7 @@ export default class StudentService{
 
     
 
-   return axios.post(API_URL, detailsRequest, {headers: authHeader()})
+   return axios.post(API_URL, detailsRequest, {headers: AuthHeader()})
     .then(
         (response) => {
 
