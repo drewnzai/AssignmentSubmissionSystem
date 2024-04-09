@@ -2,6 +2,8 @@ import axios from "axios";
 import { StudentDetails } from "../models/StudentDetails";
 import { DetailsRequest } from "../models/DetailsRequest"
 import authHeader from "../auth/auth.header";
+
+
 const API_URL = "http://localhost:8080/api/student";
 
 class StudentService{
@@ -13,7 +15,6 @@ class StudentService{
     const detailsRequest: DetailsRequest = {
         registration: userDetails.registration
     }
-    console.log(detailsRequest);
 
     const studentDetails: StudentDetails = {
         fullName: "",
@@ -26,14 +27,13 @@ class StudentService{
    return axios.post(API_URL, detailsRequest, {headers: authHeader()})
     .then(
         (response) => {
-            console.log(detailsRequest)
+
             if(response.data.registration){
             studentDetails.registration = response.data.registration;
             studentDetails.fullName = response.data.fullName;
             studentDetails.courseName = response.data.courseName;
             }
 
-            console.log("Service " + studentDetails);
             return studentDetails;
         }
     );
