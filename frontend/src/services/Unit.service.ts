@@ -4,11 +4,16 @@ import AuthService from "./Auth.service";
 
 const API_URL = "http://localhost:8080/api/unit";
 
-export default function UnitService(){
+export default class UnitService{
+
+    getUnitsFromCourse(){
 
     const authService = new AuthService();
 
     let userDetails = authService.getCurrentUser();
+
+
+    }
 
 
 }
