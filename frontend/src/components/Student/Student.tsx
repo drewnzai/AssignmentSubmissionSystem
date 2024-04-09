@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Student.css";
 import SidebarImpl from "../Sidebar/SidebarImpl";
-import AuthService from "../../services/auth.service";
-import StudentService from "../../services/student.service";
+import AuthService from "../../services/Auth.service";
+import StudentService from "../../services/Student.service";
 import { StudentDetails } from "../../models/StudentDetails";
 
 
