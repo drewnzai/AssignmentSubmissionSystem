@@ -64,19 +64,5 @@ public class StudentController {
         }
     }
 
-    @PostMapping("/batch")
-    public ResponseEntity<APIResponse> batch(@RequestBody List<StudentDto> students) {
-        for (StudentDto studentDto : students) {
-            studentService.addStudent(studentDto);
-        }
-
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Students Added Successfully")
-                .isSuccessful(true)
-                .statusCode(201)
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.CREATED);
-    }
 }
 
