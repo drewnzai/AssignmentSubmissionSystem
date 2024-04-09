@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Student.css";
+import { Unit } from "../../models/Unit";
 import SidebarImpl from "../Sidebar/SidebarImpl";
 import AuthService from "../../services/Auth.service";
 import StudentService from "../../services/Student.service";
 import { StudentDetails } from "../../models/StudentDetails";
+import UnitService from "../../services/Unit.service";
 
 
 function Student(){
@@ -14,10 +16,14 @@ function Student(){
     const [studentDetails, setStudentDetails] = 
     useState<StudentDetails>({registration: "", fullName: "", courseName:""});
 
+    const [units, setUnits] = 
+    useState<Unit[]>([]);
+
     const detailsRef = useRef(studentDetails);
     
     const authService = new AuthService();
     const studentService = new StudentService();
+    const unitService = new UnitService();
 
     useEffect((
         () => {
@@ -27,15 +33,22 @@ function Student(){
                 navigate("/login");
               }
             
-              studentService.getDetails()
+            studentService.getDetails()
               .then(
                 (response: StudentDetails) => { 
                     
                     setStudentDetails(response);
                 }
               );
-            
-        }
+
+            unitService.getUnitsFromCourse()
+            .then(
+                (response: Unit[]) => {
+                    setUnits(response);
+                }
+            );
+
+            }
     ), [detailsRef, navigate]);
 
     return(
@@ -47,7 +60,13 @@ function Student(){
             <p>{studentDetails.fullName}</p>
             <p>{studentDetails.courseName}</p>
 
-            
+            {units.map(
+                (unit, index) => (
+                <div>
+                    <p>{unit.code}</p>
+                </div>
+                )
+            )}
             </div>
             
         </div>
