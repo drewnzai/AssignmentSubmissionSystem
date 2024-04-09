@@ -38,7 +38,15 @@ function Student(){
     return(
         <div style={{display: "flex"}}>
             <SidebarImpl/>
+            
+            <div style={{display: "block", alignItems: "center", justifyContent: "center"}}>
             <p>{studentDetails.registration}</p>
+            <p>{studentDetails.fullName}</p>
+            <p>{studentDetails.courseName}</p>
+
+            
+            </div>
+            
         </div>
     );
 }
