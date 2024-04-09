@@ -9,9 +9,12 @@ const API_URL = "http://localhost:8080/api/student";
 
 class StudentService{
     
+    
     getDetails(){
 
-    let userDetails = AuthService.getCurrentUser();
+    const authService = new AuthService();
+    
+    let userDetails = authService.getCurrentUser();
 
     const detailsRequest: DetailsRequest = {
         registration: userDetails.registration

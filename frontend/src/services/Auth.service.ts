@@ -3,7 +3,7 @@ import { LoginRequest } from "../models/LoginRequest";
 
 const API_URL = "http://localhost:8080/api/auth/";
 
-class AuthService {
+export default class AuthService {
   login(loginRequest: LoginRequest) {
     
     return axios
@@ -30,4 +30,3 @@ class AuthService {
   }
 }
 
-export default new AuthService();

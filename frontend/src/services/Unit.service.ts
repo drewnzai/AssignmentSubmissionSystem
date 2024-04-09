@@ -6,7 +6,9 @@ const API_URL = "http://localhost:8080/api/unit";
 
 export default function UnitService(){
 
-    let userDetails = AuthService.getCurrentUser();
+    const authService = new AuthService();
+
+    let userDetails = authService.getCurrentUser();
 
 
 }

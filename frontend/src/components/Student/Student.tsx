@@ -14,11 +14,13 @@ function Student(){
     const [studentDetails, setStudentDetails] = 
     useState<StudentDetails>({registration: "", fullName: "", courseName:""});
 
+    const authService = new AuthService();
+
     const detailsRef = useRef(studentDetails);
 
     useEffect((
         () => {
-            const currentUser = AuthService.getCurrentUser();
+            const currentUser = authService.getCurrentUser();
 
             if(!currentUser){
                 navigate("/login");

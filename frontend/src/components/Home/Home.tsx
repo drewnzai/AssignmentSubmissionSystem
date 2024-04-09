@@ -8,12 +8,14 @@ import Content from "../Content/Content";
 import AuthService from "../../services/Auth.service";
 
 function Home(props: any){
+
+  const authService = new AuthService();
   
   const navigate = useNavigate();
   
   useEffect(
     () =>{
-      const currentUser = AuthService.getCurrentUser();
+      const currentUser = authService.getCurrentUser();
       
       if(!currentUser){
         navigate("/login");

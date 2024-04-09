@@ -18,6 +18,8 @@ function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
   const navigate = useNavigate();
 
+  const authService = new AuthService();
+
   const handleToggleSidebar = () => {
 
     setCollapsed(!collapsed);
@@ -25,7 +27,7 @@ function SidebarImpl(){
   };
 
   const logout = () => {
-    AuthService.logout();
+    authService.logout();
     navigate("/login");
   };
 
