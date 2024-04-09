@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./SidebarImpl.css";
 
 import units from "../../temp/units.json";
-import authService from "../../services/auth.service";
+import AuthService from "../../services/auth.service";
 
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ function SidebarImpl(){
   };
 
   const logout = () => {
-    authService.logout();
+    AuthService.logout();
     navigate("/login");
   };
 

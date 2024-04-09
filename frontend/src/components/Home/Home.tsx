@@ -5,7 +5,7 @@ import "./Home.css";
 import SidebarImpl from "../Sidebar/SidebarImpl";
 import Content from "../Content/Content";
 
-import authService from "../../services/auth.service";
+import AuthService from "../../services/auth.service";
 
 function Home(props: any){
   
@@ -13,7 +13,7 @@ function Home(props: any){
   
   useEffect(
     () =>{
-      const currentUser = authService.getCurrentUser();
+      const currentUser = AuthService.getCurrentUser();
       
       if(!currentUser){
         navigate("/login");

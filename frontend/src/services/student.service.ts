@@ -2,6 +2,7 @@ import axios from "axios";
 import { StudentDetails } from "../models/StudentDetails";
 import { DetailsRequest } from "../models/DetailsRequest"
 import authHeader from "../auth/auth.header";
+import AuthService from "./auth.service";
 
 
 const API_URL = "http://localhost:8080/api/student";
@@ -10,7 +11,7 @@ class StudentService{
     
     getDetails(){
 
-    let userDetails = JSON.parse(localStorage.getItem("user")!);
+    let userDetails = AuthService.getCurrentUser();
 
     const detailsRequest: DetailsRequest = {
         registration: userDetails.registration

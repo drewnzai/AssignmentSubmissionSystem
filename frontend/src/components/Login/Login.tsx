@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import authService from "../../services/auth.service";
+import AuthService from "../../services/auth.service";
 import { LoginRequest } from "../../models/LoginRequest";
 
 
@@ -21,7 +21,7 @@ function Login(props: any){
         
         try {
         
-           authService.login(loginRequest)
+           AuthService.login(loginRequest)
            .then(
             () => navigate("/")
            );
