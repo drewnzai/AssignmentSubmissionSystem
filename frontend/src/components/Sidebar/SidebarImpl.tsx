@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./SidebarImpl.css";
 
 import units from "../../temp/units.json";
