@@ -7,7 +7,6 @@ import AuthService from "../../services/Auth.service";
 import StudentService from "../../services/Student.service";
 import { StudentDetails } from "../../models/StudentDetails";
 import UnitService from "../../services/Unit.service";
-import { UnitContext } from "../../contexts/UnitContext";
 
 
 function Student(){
@@ -16,9 +15,6 @@ function Student(){
 
     const [studentDetails, setStudentDetails] = 
     useState<StudentDetails>({registration: "", fullName: "", courseName:""});
-
-    const [units, setUnits] = 
-    useState<Unit[]>([]);
 
     const detailsRef = useRef(studentDetails);
     
@@ -46,7 +42,7 @@ function Student(){
 
     return(
         <div style={{display: "flex"}}>
-          <UnitContext.Provider value={units}>
+          
             <SidebarImpl/>
             
             <div style={{display: "block", alignItems: "center", justifyContent: "center"}}>
@@ -56,7 +52,7 @@ function Student(){
             <p>{studentDetails.courseName}</p>
 
             </div>
-            </UnitContext.Provider>
+
         </div>
     );
 }
