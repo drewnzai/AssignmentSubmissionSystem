@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.api;
 
+import com.andrew.AssignmentSubmission.dto.MiscRequest;
 import com.andrew.AssignmentSubmission.dto.SubmissionDto;
 import com.andrew.AssignmentSubmission.services.SubmissionService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
@@ -41,9 +42,9 @@ public class SubmissionController {
         }
     }
 
-    @GetMapping("/{assignmentTitle}")
-    public List<SubmissionDto> getSubmissionsByAssignment(@PathVariable String assignmentTitle){
-        return submissionService.getSubmissionsByAssignment(assignmentTitle);
+    @PostMapping()
+    public List<SubmissionDto> getSubmissionsByAssignment(@RequestBody MiscRequest miscRequest){
+        return submissionService.getSubmissionsByAssignment(miscRequest.getData());
     }
 
 }

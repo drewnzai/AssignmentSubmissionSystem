@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
+import com.andrew.AssignmentSubmission.dto.MiscRequest;
 import com.andrew.AssignmentSubmission.services.AssignmentService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -66,8 +67,8 @@ public class AssignmentController {
         }
     }
 
-    @GetMapping("/{unitCode}")
-    public List<AssignmentDto> getPendingAssignmentsByUnit(@PathVariable String unitCode){
-        return assignmentService.pendingAssignmentsByUnit(unitCode);
+    @PostMapping("/unit")
+    public List<AssignmentDto> getPendingAssignmentsByUnit(@RequestBody MiscRequest miscRequest){
+        return assignmentService.pendingAssignmentsByUnit(miscRequest.getData());
     }
 }

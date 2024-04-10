@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.api;
 
+import com.andrew.AssignmentSubmission.dto.MiscRequest;
 import com.andrew.AssignmentSubmission.dto.UnitDto;
 import com.andrew.AssignmentSubmission.services.UnitService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
@@ -86,8 +87,8 @@ public class UnitController {
         }
     }
 
-    @GetMapping("/{courseName}")
-    public List<UnitDto> getUnitsFromCourse(@PathVariable String courseName){
-        return unitService.getUnitsFromCourse(courseName);
+    @PostMapping("/course")
+    public List<UnitDto> getUnitsFromCourse(@RequestBody MiscRequest miscRequest){
+        return unitService.getUnitsFromCourse(miscRequest.getData());
     }
 }

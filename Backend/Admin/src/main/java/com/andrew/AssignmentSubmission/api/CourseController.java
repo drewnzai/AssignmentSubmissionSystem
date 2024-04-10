@@ -1,6 +1,7 @@
 package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.CourseDto;
+import com.andrew.AssignmentSubmission.dto.MiscRequest;
 import com.andrew.AssignmentSubmission.services.CourseService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -66,9 +67,9 @@ public class CourseController {
         }
     }
 
-    @GetMapping("/{unitCode}")
-    public List<String> getAssignedCourses(@PathVariable String unitCode){
-        return courseService.getAssignedCourses(unitCode);
+    @PostMapping("/assigned")
+    public List<String> getAssignedCourses(@RequestBody MiscRequest miscRequest){
+        return courseService.getAssignedCourses(miscRequest.getData());
     }
 
 }
