@@ -60,6 +60,7 @@ function Student(){
             <p>{studentDetails.fullName}</p>
             <p>{studentDetails.courseName}</p>
 
+            <div style={{display: "flex"}}>
             {units.map(
                 (unit, index) => (
                 <div>
@@ -67,6 +68,7 @@ function Student(){
                 </div>
                 )
             )}
+            </div>
             </div>
             
         </div>

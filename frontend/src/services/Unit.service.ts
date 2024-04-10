@@ -15,7 +15,7 @@ export default class UnitService{
     let userDetails = authService.getCurrentUser();
 
     const miscRequest: MiscRequest = {
-        data: "Bsc. Computer Science"
+        data: userDetails.course
     };
     
     let units: Unit[];
