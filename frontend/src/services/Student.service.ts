@@ -1,6 +1,6 @@
 import axios from "axios";
 import { StudentDetails } from "../models/StudentDetails";
-import { DetailsRequest } from "../models/DetailsRequest"
+import { DetailsRequest as MiscRequest } from "../models/MiscRequest"
 import AuthHeader from "../auth/Auth.header";
 import AuthService from "./Auth.service";
 
@@ -16,8 +16,8 @@ export default class StudentService{
     
     let userDetails = authService.getCurrentUser();
 
-    const detailsRequest: DetailsRequest = {
-        registration: userDetails.registration
+    const detailsRequest: MiscRequest = {
+        data: userDetails.registration
     }
 
     const studentDetails: StudentDetails = {
