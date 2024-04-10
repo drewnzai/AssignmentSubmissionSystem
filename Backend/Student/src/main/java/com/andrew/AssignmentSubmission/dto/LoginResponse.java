@@ -16,4 +16,5 @@ public class LoginResponse {
     private String refreshToken;
     private Instant expiresAt;
     private String registration;
+    private String course;
 }

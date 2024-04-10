@@ -41,12 +41,18 @@ public class AuthService {
         Authentication authenticate = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getRegistration(),
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
+
         String token = jwtUtil.generateJwtToken(authenticate);
+
+        String registration = loginRequest.getRegistration();
+
         return LoginResponse.builder()
                 .authenticationToken(token)
                 .refreshToken(refreshTokenService.generateRefreshToken().getToken())
                 .expiresAt(Instant.now().plusSeconds(jwtUtil.getJwtExpiration()))
-                .registration(loginRequest.getRegistration())
+                .registration(registration)
+                .course(userRepository.findByRegistration(registration)
+                        .getEnrolledCourse().getName())
                 .build();
     }
 
