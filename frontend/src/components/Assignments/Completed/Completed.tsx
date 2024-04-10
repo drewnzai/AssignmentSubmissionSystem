@@ -3,7 +3,9 @@ import "./Completed.css";
 
 function Completed(){
     return(
-        <></>
+        <div>
+            <p>Completed</p>
+        </div>
     );
 }
 
