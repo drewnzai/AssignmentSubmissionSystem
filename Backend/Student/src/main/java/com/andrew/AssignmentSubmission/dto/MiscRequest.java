@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DetailsRequest {
+public class MiscRequest {
 
-    private String registration;
+    private String data;
 }

@@ -1,6 +1,6 @@
 package com.andrew.AssignmentSubmission.api;
 
-import com.andrew.AssignmentSubmission.dto.DetailsRequest;
+import com.andrew.AssignmentSubmission.dto.MiscRequest;
 import com.andrew.AssignmentSubmission.dto.Student;
 import com.andrew.AssignmentSubmission.services.StudentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,8 +16,8 @@ public class StudentController {
     private StudentService studentService;
 
     @PostMapping
-    public Student getDetails(@RequestBody DetailsRequest detailsRequest){
-        return studentService.getStudentDetails(detailsRequest.getRegistration());
+    public Student getDetails(@RequestBody MiscRequest miscRequest){
+        return studentService.getStudentDetails(miscRequest.getData());
     }
 
 }
