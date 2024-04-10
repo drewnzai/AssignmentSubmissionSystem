@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/auth/")
+@RequestMapping("/api/auth")
 @AllArgsConstructor
 @Tag(name = "Auth", description = "User Access and Management APIs")
 public class AuthController {
@@ -29,7 +29,7 @@ public class AuthController {
     private final AuthService authService;
     private final RefreshTokenService refreshTokenService;
 
-    @PostMapping("signup")
+    @PostMapping("/signup")
     public ResponseEntity<APIResponse> signup(@RequestBody RegisterRequest registerRequest) {
         if(authService.signup(registerRequest)){
 
@@ -53,14 +53,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("batch")
-    public String batchSignup(@RequestBody List<RegisterRequest> registerRequests){
-        for (RegisterRequest registerRequest: registerRequests){
-            authService.signup(registerRequest);
-        }
-        return "OK";
-    }
-    @PostMapping("login")
+    @PostMapping("/login")
     public LoginResponse login(@RequestBody LoginRequest loginRequest) {
 
         if(authService.isLoggedIn()){
@@ -71,7 +64,7 @@ public class AuthController {
         }
     }
 
-    @PostMapping("refresh/token")
+    @PostMapping("/refresh")
     public ResponseEntity<APIResponse> refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
 
         APIResponse apiResponse = APIResponse.builder()
@@ -85,7 +78,7 @@ public class AuthController {
 
     }
 
-    @PostMapping("logout")
+    @PostMapping("/logout")
     public ResponseEntity<APIResponse> logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
 
