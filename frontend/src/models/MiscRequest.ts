@@ -1,3 +1,3 @@
-export interface DetailsRequest{
+export interface MiscRequest{
     data: string;
 }
