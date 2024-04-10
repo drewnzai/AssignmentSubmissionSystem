@@ -8,6 +8,8 @@ import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
 import HomeIcon from '@mui/icons-material/Home';
 import BookIcon from '@mui/icons-material/Book';
+import CheckIcon from '@mui/icons-material/Check';
+import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
@@ -40,8 +42,8 @@ function SidebarImpl(){
       <MenuItem icon={<HomeIcon/>} component={<Link to="/" />} ></MenuItem>
       <MenuItem icon={<PersonIcon/>} component={<Link to="/student" />}> Student Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
-        <MenuItem component={<Link to="/assignments/pending" />}> Pending</MenuItem>
-        <MenuItem component={<Link to="/assignments/completed" />}> Completed</MenuItem>
+        <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/pending" />}> Pending</MenuItem>
+        <MenuItem icon={<CheckIcon/>} component={<Link to="/assignments/completed" />}> Completed</MenuItem>
         </SubMenu>
         <SubMenu icon={<SchoolIcon/>} label="Current Units">
           {units.map(
