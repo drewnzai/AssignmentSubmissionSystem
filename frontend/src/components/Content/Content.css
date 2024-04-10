@@ -10,9 +10,11 @@
 
 .card-wrapper{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
     width: 1283px;
     height: 546px;
-    align-items: center;
 }
 
 .card-wrapper .around{

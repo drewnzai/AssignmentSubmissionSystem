@@ -1,13 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Content.css";
 
-import units from "../../temp/units.json";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import { Unit } from "../../models/Unit";
+import AuthService from "../../services/Auth.service";
+import UnitService from "../../services/Unit.service";
+import { useNavigate } from "react-router-dom";
 
 function Content(){
+    
+    const navigate = useNavigate();
+
+    const [units, setUnits] = 
+    useState<Unit[]>([]);
+
+    const authService = new AuthService();
+    const unitService = new UnitService();
+
+    useEffect((
+        () => {
+            const currentUser = authService.getCurrentUser();
+
+            if(!currentUser){
+                navigate("/login");
+              }
+            
+              unitService.getUnitsFromCourse()
+            .then(
+                (response: Unit[]) => {
+                    setUnits(response);
+                }
+            );
+
+        }
+    ), []);
     return(
         <div className="wrapper"> 
             <h1>Course Overview</h1>
@@ -19,6 +48,8 @@ function Content(){
                 <Card sx={{width: "200px"
                 , height: "200px"
                 , backgroundColor: "lightgrey"
+                , padding: "8px"
+                , borderRadius: "9px"
                 }}>
                     <CardContent>
                         <Typography variant="h6" textOverflow={"ellipsis"}>
