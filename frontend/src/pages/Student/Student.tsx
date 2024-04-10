@@ -7,6 +7,7 @@ import AuthService from "../../services/Auth.service";
 import StudentService from "../../services/Student.service";
 import { StudentDetails } from "../../models/StudentDetails";
 import UnitService from "../../services/Unit.service";
+import { UnitContext } from "../../contexts/UnitContext";
 
 
 function Student(){
@@ -45,15 +46,17 @@ function Student(){
 
     return(
         <div style={{display: "flex"}}>
+          <UnitContext.Provider value={units}>
             <SidebarImpl/>
             
             <div style={{display: "block", alignItems: "center", justifyContent: "center"}}>
+
             <p>{studentDetails.registration}</p>
             <p>{studentDetails.fullName}</p>
             <p>{studentDetails.courseName}</p>
 
             </div>
-            
+            </UnitContext.Provider>
         </div>
     );
 }
