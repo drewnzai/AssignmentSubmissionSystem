@@ -23,7 +23,6 @@ function Student(){
     
     const authService = new AuthService();
     const studentService = new StudentService();
-    const unitService = new UnitService();
 
     useEffect((
         () => {
@@ -41,13 +40,6 @@ function Student(){
                 }
               );
 
-            unitService.getUnitsFromCourse()
-            .then(
-                (response: Unit[]) => {
-                    setUnits(response);
-                }
-            );
-
             }
     ), [detailsRef, navigate]);
 
@@ -60,15 +52,6 @@ function Student(){
             <p>{studentDetails.fullName}</p>
             <p>{studentDetails.courseName}</p>
 
-            <div style={{display: "flex"}}>
-            {units.map(
-                (unit, index) => (
-                <div>
-                    <p>{unit.code}</p>
-                </div>
-                )
-            )}
-            </div>
             </div>
             
         </div>
