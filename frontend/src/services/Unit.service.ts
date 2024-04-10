@@ -8,19 +8,19 @@ const API_URL = "http://localhost:8080/api/unit";
 
 export default class UnitService{
 
-    getUnitsFromCourse(courseName: string){
+    getUnitsFromCourse(){
 
     const authService = new AuthService();
 
     let userDetails = authService.getCurrentUser();
 
     const miscRequest: MiscRequest = {
-        data: courseName
+        data: "Bsc. Computer Science"
     };
     
     let units: Unit[];
 
-  return axios.post(API_URL + "/course", miscRequest, {headers: AuthHeader()})
+  return axios.post(API_URL, miscRequest, {headers: AuthHeader()})
     .then(
         (response) => {
             
