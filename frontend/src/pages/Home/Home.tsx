@@ -8,8 +8,9 @@ import Content from "../Content/Content";
 import AuthService from "../../services/Auth.service";
 import { Unit } from "../../models/Unit";
 import UnitService from "../../services/Unit.service";
+import { UnitContext } from "../../contexts/UnitContext";
 
-function Home(props: any){
+function Home(){
 
   const authService = new AuthService();
   const unitService = new UnitService();
@@ -41,8 +42,10 @@ function Home(props: any){
   
   return (
     <div style={{display: "flex"}}>
+      <UnitContext.Provider value={units}>
     <SidebarImpl/>
     <Content/>
+    </UnitContext.Provider>
     </div>
   );
 

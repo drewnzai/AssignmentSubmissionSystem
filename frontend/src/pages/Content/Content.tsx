@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import "./Content.css";
 
@@ -9,13 +9,13 @@ import { Unit } from "../../models/Unit";
 import AuthService from "../../services/Auth.service";
 import UnitService from "../../services/Unit.service";
 import { useNavigate } from "react-router-dom";
+import { UnitContext } from "../../contexts/UnitContext";
 
 function Content(){
     
     const navigate = useNavigate();
 
-    const [units, setUnits] = 
-    useState<Unit[]>([]);
+    const units = useContext(UnitContext);
 
     const authService = new AuthService();
     const unitService = new UnitService();
@@ -28,12 +28,6 @@ function Content(){
                 navigate("/login");
               }
             
-              unitService.getUnitsFromCourse()
-            .then(
-                (response: Unit[]) => {
-                    setUnits(response);
-                }
-            );
 
         }
     ), []);
