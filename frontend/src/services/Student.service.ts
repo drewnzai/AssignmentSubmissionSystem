@@ -1,6 +1,6 @@
 import axios from "axios";
 import { StudentDetails } from "../models/StudentDetails";
-import { DetailsRequest as MiscRequest } from "../models/MiscRequest"
+import { MiscRequest } from "../models/MiscRequest"
 import AuthHeader from "../auth/Auth.header";
 import AuthService from "./Auth.service";
 
