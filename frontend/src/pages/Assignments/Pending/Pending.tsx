@@ -1,6 +1,6 @@
 import React from "react";
 import "./Pending.css";
-import SidebarImpl from "../../Sidebar/SidebarImpl";
+import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
 
 function Pending(){
     return(

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import SidebarImpl from "../Sidebar/SidebarImpl";
+import SidebarImpl from "../../components/Sidebar/SidebarImpl";
 import Content from "../Content/Content";
 
 import AuthService from "../../services/Auth.service";

@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './components/Login/Login';
-import Home from './components/Home/Home';
-import Completed from './components/Assignments/Completed/Completed';
-import Pending from './components/Assignments/Pending/Pending';
-import Student from './components/Student/Student';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
+import Completed from './pages/Assignments/Completed/Completed';
+import Pending from './pages/Assignments/Pending/Pending';
+import Student from './pages/Student/Student';
 
 const App: React.FC = () => (
 	<BrowserRouter>
