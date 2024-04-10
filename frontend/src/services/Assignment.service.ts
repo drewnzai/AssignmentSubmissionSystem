@@ -8,7 +8,7 @@ export default class AssignmentService{
 
         let user = authService.getCurrentUser();
 
-        //TO-DO maybe store user units in current context
-
+        //TO-DO implement this List<AssignmentDto> pendingAssignmentsByUnit(String unitCode)
+        
     }
 }
