@@ -41,7 +41,7 @@ function Student(){
                 }
               );
 
-            unitService.getUnitsFromCourse()
+            unitService.getUnitsFromCourse(studentDetails.courseName)
             .then(
                 (response: Unit[]) => {
                     setUnits(response);
