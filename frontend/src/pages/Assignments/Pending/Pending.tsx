@@ -15,6 +15,7 @@ function Pending(){
 
     const authService = new AuthService();
     const assignmentService = new AssignmentService();
+    const [loading, setLoading] = useState(true);
 
     const navigate = useNavigate();
 
@@ -28,17 +29,34 @@ function Pending(){
             navigate("/login");
           }
 
-        assignmentService.getPendingAssignments()
-        .then(
-            (response) => {
-                setAssignments(response);
+          setTimeout(
+            () => {
+                assignmentService.getPendingAssignments()
+            .then(
+                (response) => {
+                    setAssignments(response);
+                    setLoading(false);
+                }
+            );
             }
-        );
+            , 3000);
+
+        ;
     
         }, [navigate]
       );
     
     
+  if(loading){
+    return(
+        <div style={{display: "flex"}}>
+            <SidebarImpl/>
+      <div>
+        <p>Loading</p>
+      </div>
+      </div>
+    );
+  }
     return(
         <div style={{display: "flex"}}>
             <SidebarImpl/>
