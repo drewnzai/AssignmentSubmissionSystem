@@ -14,13 +14,17 @@ export default class AssignmentService{
     getPendingAssignments(){
     
     let assignments: Assignment[];
+
+    let unitList:string[] = [];
     
-    const unit = units[1];
+    for(const unit of units){
+        unitList.push(unit.code);
+    }
 
     const miscRequest: MiscRequest = {
-        data: unit.code
+        data: unitList
     }
-    
+
     //TO-DO implement this List<AssignmentDto> pendingAssignmentsByUnit(String unitCode) to allow multiple units
     return axios.post(API_URL, miscRequest, {headers: AuthHeader()})
     .then(
