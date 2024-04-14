@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Pending.css";
 
 import Card from '@mui/material/Card';
@@ -7,8 +7,26 @@ import Typography from '@mui/material/Typography';
 
 import assignments from "../../../temp/assignments.json";
 import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
+import AuthService from "../../../services/Auth.service";
+import { useNavigate } from "react-router-dom";
 
 function Pending(){
+
+    const authService = new AuthService();
+    const navigate = useNavigate();
+
+    useEffect(
+        () =>{
+          const currentUser = authService.getCurrentUser();
+          
+          if(!currentUser){
+            navigate("/login");
+          }
+    
+        }, [navigate]
+      );
+    
+    
     return(
         <div style={{display: "flex"}}>
             <SidebarImpl/>
