@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./Pending.css";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-import assignments from "../../../temp/assignments.json";
+import { Link, useNavigate } from "react-router-dom";
 import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
 import AuthService from "../../../services/Auth.service";
-import { Link, useNavigate } from "react-router-dom";
+import assignments from "../../../temp/assignments.json";
 
 function Pending(){
 

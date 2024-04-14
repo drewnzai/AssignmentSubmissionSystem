@@ -1,21 +1,20 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import "./SidebarImpl.css";
 
 import AuthService from "../../services/Auth.service";
 
-import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { Link, useNavigate } from "react-router-dom";
-import HomeIcon from '@mui/icons-material/Home';
-import BookIcon from '@mui/icons-material/Book';
-import CheckIcon from '@mui/icons-material/Check';
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
-import LogoutIcon from '@mui/icons-material/Logout';
-import PersonIcon from '@mui/icons-material/Person';
+import BookIcon from '@mui/icons-material/Book';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import CheckIcon from '@mui/icons-material/Check';
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import HomeIcon from '@mui/icons-material/Home';
+import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
+import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
-import { UnitContext } from "../../contexts/UnitContext";
+import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
+import { Link, useNavigate } from "react-router-dom";
 import { Unit } from "../../models/Unit";
 
 function SidebarImpl(){

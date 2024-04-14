@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Student.css";
-import { Unit } from "../../models/Unit";
 import SidebarImpl from "../../components/Sidebar/SidebarImpl";
+import { StudentDetails } from "../../models/StudentDetails";
 import AuthService from "../../services/Auth.service";
 import StudentService from "../../services/Student.service";
-import { StudentDetails } from "../../models/StudentDetails";
-import UnitService from "../../services/Unit.service";
+import "./Student.css";
 
 
 function Student(){
