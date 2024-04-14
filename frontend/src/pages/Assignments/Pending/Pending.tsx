@@ -36,7 +36,9 @@ function Pending(){
         {assignments.map(
                     (assignment, index) => (
                         <div className="around">
-                    <Link to={"/submission/" + assignment.title}>
+                    <Link to={"/submission/" + assignment.title}
+                    state={{assignment: assignment}}
+                    style={{textDecoration: "none"}}>
                             
                     <Card sx={{width: "200px"
                 , height: "200px"
