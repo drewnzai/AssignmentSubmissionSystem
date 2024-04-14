@@ -25,8 +25,10 @@ export default class UnitService{
         (response) => {
             
             if(response.data){
-                console.log(response.data);
+
                 units = response.data;
+
+                localStorage.setItem("units", JSON.stringify(units));
             }
 
             return units;
