@@ -21,7 +21,7 @@ export default class AssignmentService{
         data: unit.code
     }
     
-    //TO-DO implement this List<AssignmentDto> pendingAssignmentsByUnit(String unitCode)
+    //TO-DO implement this List<AssignmentDto> pendingAssignmentsByUnit(String unitCode) to allow multiple units
     return axios.post(API_URL, miscRequest, {headers: AuthHeader()})
     .then(
         (response) => {
