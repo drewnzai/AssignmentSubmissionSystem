@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SidebarImpl from "../../components/Sidebar/SidebarImpl";
+import Loader from "../../components/Loader/Loader";
 import Content from "../Content/Content";
 import "./Home.css";
 
@@ -42,7 +43,7 @@ function Home(){
   if(loading){
     return(
       <div>
-        <p>Loading</p>
+        <Loader/>
       </div>
     );
   }

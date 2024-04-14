@@ -4,7 +4,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 function Loader(){
     return(
         <div>
-            <ClimbingBoxLoader color="rgba(12, 237, 41, 1)" />
+            <ClimbingBoxLoader loading={true} color="rgba(12, 237, 41, 1)" />
         </div>
     );
 }
