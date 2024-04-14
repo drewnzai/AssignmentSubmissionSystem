@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Pending.css";
 
 import Card from '@mui/material/Card';
@@ -8,13 +8,18 @@ import Typography from '@mui/material/Typography';
 import { Link, useNavigate } from "react-router-dom";
 import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
 import AuthService from "../../../services/Auth.service";
-import assignments from "../../../temp/assignments.json";
+import { Assignment } from "../../../models/Assignment";
+import AssignmentService from "../../../services/Assignment.service";
 
 function Pending(){
 
     const authService = new AuthService();
+    const assignmentService = new AssignmentService();
+
     const navigate = useNavigate();
 
+    const [assignments, setAssignments] = useState<Assignment[]>([]);
+    
     useEffect(
         () =>{
           const currentUser = authService.getCurrentUser();
@@ -22,6 +27,13 @@ function Pending(){
           if(!currentUser){
             navigate("/login");
           }
+
+        assignmentService.getPendingAssignments()
+        .then(
+            (response) => {
+                setAssignments(response);
+            }
+        );
     
         }, [navigate]
       );
@@ -61,7 +73,7 @@ function Pending(){
                         </Typography>
 
                         <Typography sx={{color: "red"}}>
-                            {assignment.due}
+                            {assignment.due.toString()}
                         </Typography>
                     </CardContent>
 

@@ -1,9 +1,8 @@
 import axios from "axios";
 import AuthHeader from "../auth/Auth.header";
+import { Assignment } from "../models/Assignment";
 import { MiscRequest } from "../models/MiscRequest";
 import { Unit } from "../models/Unit";
-import { useState } from "react";
-import { Assignment } from "../models/Assignment";
 
 const API_URL = "http://localhost:8080/api/assignment";
 
@@ -14,7 +13,7 @@ export default class AssignmentService{
 
     getPendingAssignments(){
     
-    const [assignments, setAssignments] = useState<Assignment[]>([]);
+    let assignments: Assignment[];
     
     const unit = units[1];
 
@@ -27,8 +26,10 @@ export default class AssignmentService{
     .then(
         (response) => {
             if(response.data){
-                setAssignments(response.data);
+            
+                assignments = response.data;
             }
+
             return assignments;
         }
     );
