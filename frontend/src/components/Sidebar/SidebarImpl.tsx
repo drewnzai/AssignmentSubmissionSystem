@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./SidebarImpl.css";
 
 import AuthService from "../../services/Auth.service";
@@ -22,11 +22,15 @@ function SidebarImpl(){
   
   const navigate = useNavigate();
 
-  const units: Unit[] = JSON.parse(
-    localStorage.getItem("units")!
-);
+  const [units, setUnits] = useState<Unit[]>([]);
   
   const authService = new AuthService();
+
+  useEffect((
+    () => (
+      setUnits(JSON.parse(localStorage.getItem("units")!))
+    )
+  ), []);
 
   const handleToggleSidebar = () => {
 

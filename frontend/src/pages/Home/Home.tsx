@@ -5,10 +5,12 @@ import Content from "../Content/Content";
 import "./Home.css";
 
 import AuthService from "../../services/Auth.service";
+import UnitService from "../../services/Unit.service";
 
 function Home(){
 
   const authService = new AuthService();
+  const unitService = new UnitService();
 
   
   const navigate = useNavigate();
@@ -20,6 +22,8 @@ function Home(){
       if(!currentUser){
         navigate("/login");
       }
+
+      unitService.getUnitsFromCourse();
 
     }, [navigate]
   );
