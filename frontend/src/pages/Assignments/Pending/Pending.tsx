@@ -36,7 +36,7 @@ function Pending(){
         {assignments.map(
                     (assignment, index) => (
                         <div className="around">
-                    <a href={"/submission/" + assignment.title}>
+                    <Link to={"/submission/" + assignment.title}>
                             
                     <Card sx={{width: "200px"
                 , height: "200px"
@@ -65,7 +65,7 @@ function Pending(){
 
 
                 </Card>
-                </a>
+                </Link>
                         </div>
                     )
                 )}
