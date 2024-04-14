@@ -18,29 +18,33 @@ public class AssignmentService {
 
     private AssignmentRepository assignmentRepository;
     private UnitRepository unitRepository;
-    public List<AssignmentDto> pendingAssignmentsByUnit(String unitCode){
-
-        Unit unit = unitRepository.findByCode(unitCode);
-
-        List<Assignment> assignments = assignmentRepository.findAllByUnit(unit);
+    public List<AssignmentDto> pendingAssignmentsByUnit(List<String> units) {
 
         List<AssignmentDto> pendingAssignments = new ArrayList<>();
 
-        for(Assignment assignment: assignments){
+        for (String unitCode : units) {
 
-            if(LocalDate.now().isBefore(assignment.getDue())){
+            Unit unit = unitRepository.findByCode(unitCode);
 
-                AssignmentDto assignmentDto = new AssignmentDto();
+            List<Assignment> assignments = assignmentRepository.findAllByUnit(unit);
 
-                assignmentDto.setUnitCode(unitCode);
-                assignmentDto.setTitle(assignment.getTitle());
-                assignmentDto.setDescription(assignment.getDescription());
-                assignmentDto.setDue(assignment.getDue());
-                assignmentDto.setLecturerEmail(assignment.getLecturer().getEmail());
+            for (Assignment assignment : assignments) {
 
-                pendingAssignments.add(assignmentDto);
+                if (LocalDate.now().isBefore(assignment.getDue())) {
 
+                    AssignmentDto assignmentDto = new AssignmentDto();
+
+                    assignmentDto.setUnitCode(unitCode);
+                    assignmentDto.setTitle(assignment.getTitle());
+                    assignmentDto.setDescription(assignment.getDescription());
+                    assignmentDto.setDue(assignment.getDue());
+                    assignmentDto.setLecturerEmail(assignment.getLecturer().getEmail());
+
+                    pendingAssignments.add(assignmentDto);
+
+                }
             }
+
         }
         return pendingAssignments;
     }
