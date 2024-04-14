@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SidebarImpl from "../../components/Sidebar/SidebarImpl";
 import Content from "../Content/Content";
@@ -12,6 +12,7 @@ function Home(){
   const authService = new AuthService();
   const unitService = new UnitService();
 
+  const [loading, setLoading] = useState(true);
   
   const navigate = useNavigate();
   
@@ -23,11 +24,28 @@ function Home(){
         navigate("/login");
       }
 
-      unitService.getUnitsFromCourse();
+      setTimeout(
+        () => {
+          unitService.getUnitsFromCourse()
+          .then(
+            (response) => {
+              setLoading(false);
+            }
+          );
+        }
+      , 3000);
+      
 
     }, [navigate]
   );
 
+  if(loading){
+    return(
+      <div>
+        <p>Loading</p>
+      </div>
+    );
+  }
   
   return (
     <div style={{display: "flex"}}>
