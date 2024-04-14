@@ -13,10 +13,6 @@ import { UnitContext } from "../../contexts/UnitContext";
 function Home(){
 
   const authService = new AuthService();
-  const unitService = new UnitService();
-
-  const [units, setUnits] = 
-    useState<Unit[]>([]);
 
   
   const navigate = useNavigate();
@@ -29,23 +25,14 @@ function Home(){
         navigate("/login");
       }
 
-      unitService.getUnitsFromCourse()
-      .then(
-          (response: Unit[]) => {
-              setUnits(response);
-          }
-      );
-
-    }, [navigate, unitService]
+    }, [navigate]
   );
 
   
   return (
     <div style={{display: "flex"}}>
-      <UnitContext.Provider value={units}>
     <SidebarImpl/>
     <Content/>
-    </UnitContext.Provider>
     </div>
   );
 

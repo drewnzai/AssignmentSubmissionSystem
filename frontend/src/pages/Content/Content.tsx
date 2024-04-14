@@ -14,8 +14,7 @@ import { UnitContext } from "../../contexts/UnitContext";
 function Content(){
     
     const navigate = useNavigate();
-
-    const units = useContext(UnitContext);
+    const [units, setUnits] = useState<Unit[]>([]);
 
     const authService = new AuthService();
     const unitService = new UnitService();
@@ -27,7 +26,12 @@ function Content(){
             if(!currentUser){
                 navigate("/login");
               }
-            
+              
+              setUnits(
+                JSON.parse(
+                    localStorage.getItem("units")!
+                )
+              );
 
         }
     ), []);

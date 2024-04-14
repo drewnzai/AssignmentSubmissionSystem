@@ -16,13 +16,16 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import SchoolIcon from '@mui/icons-material/School';
 import { UnitContext } from "../../contexts/UnitContext";
+import { Unit } from "../../models/Unit";
 
 function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
   
   const navigate = useNavigate();
-  
-  const units = useContext(UnitContext);
+
+  const units: Unit[] = JSON.parse(
+    localStorage.getItem("units")!
+);
   
   const authService = new AuthService();
 
