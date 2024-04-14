@@ -36,7 +36,7 @@ function Student(){
               );
 
             }
-    ), [detailsRef, navigate]);
+    ), [navigate]);
 
     return(
         <div style={{display: "flex"}}>
