@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import assignments from "../../../temp/assignments.json";
 import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
 import AuthService from "../../../services/Auth.service";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Pending(){
 
@@ -36,7 +36,9 @@ function Pending(){
         {assignments.map(
                     (assignment, index) => (
                         <div className="around">
-                        <Card sx={{width: "200px"
+                    <a href={"/submission/" + assignment.title}>
+                            
+                    <Card sx={{width: "200px"
                 , height: "200px"
                 , backgroundColor: "lightgrey"
                 , padding: "8px"
@@ -63,6 +65,7 @@ function Pending(){
 
 
                 </Card>
+                </a>
                         </div>
                     )
                 )}
