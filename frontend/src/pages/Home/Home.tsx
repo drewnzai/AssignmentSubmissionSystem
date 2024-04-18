@@ -42,7 +42,7 @@ function Home(){
 
   if(loading){
     return(
-      <div>
+      <div className="loader">
         <Loader/>
       </div>
     );
