@@ -20,3 +20,8 @@
 .card-wrapper .around{
     margin: 8px;
 }
+
+.loader{
+    align-items: center;
+    justify-content: center;
+}

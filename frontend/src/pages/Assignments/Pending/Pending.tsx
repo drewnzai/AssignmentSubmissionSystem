@@ -52,7 +52,7 @@ function Pending(){
     return(
         <div style={{display: "flex"}}>
             <SidebarImpl/>
-      <div>
+      <div className="loader">
             <Loader/>
       </div>
       </div>
