@@ -1,0 +1,49 @@
+.dropzone {
+    border: 2px dashed #eeeeee;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: border .3s ease-in-out;
+  }
+  
+  .dropzone.active {
+    border-color: #2196f3;
+  }
+  
+  /* Additional styling to match the provided design */
+  .dropzone p {
+    color: #aaaaaa;
+    font-size: 16px;
+  }
+
+  .container {
+    text-align: center;
+  }
+  
+  .preview {
+    margin-top: 20px;
+  }
+  
+  .image-preview {
+    width: auto; /* or 100% for full width */
+    max-height: 200px; /* adjust as necessary */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196f3;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #1e88e5;
+  }
