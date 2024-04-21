@@ -1,11 +1,13 @@
 package com.andrew.AssignmentSubmission.services;
 
+import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.models.*;
 import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -41,6 +43,23 @@ public class PendingService {
 
     }
 
+    public void deletePending(AssignmentDto assignmentDto){
+        List<Pending> pendings = pendingRepository.findAllByTitle(assignmentDto.getTitle());
 
+        pendingRepository.deleteAll(pendings);
+    }
+
+    public void deleteAllOverdue(){
+
+        LocalDate localDate = LocalDate.now();
+
+        List<Pending> pendings = pendingRepository.findAll();
+
+        for(Pending pending: pendings){
+            if(localDate.isAfter(pending.getDue())){
+                pendingRepository.delete(pending);
+            }
+        }
+    }
 
 }
