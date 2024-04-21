@@ -22,6 +22,7 @@ public class AssignmentService {
     private AssignmentRepository assignmentRepository;
     private UserRepository userRepository;
     private UnitRepository unitRepository;
+    private PendingService pendingService;
 
     public boolean addAssignment(AssignmentDto assignmentDto){
 
@@ -44,6 +45,8 @@ public class AssignmentService {
             assignment.setLecturer(lecturer);
 
             assignmentRepository.save(assignment);
+
+            pendingService.populate(assignment);
 
             return true;
         }
