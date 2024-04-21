@@ -19,7 +19,7 @@ public class AssignmentController {
 
     private AssignmentService assignmentService;
     @PostMapping()
-    public List<AssignmentDto> getPendingAssignmentsByUnit(@RequestBody MiscRequest miscRequest){
+    public List<AssignmentDto> getPendingAssignments(@RequestBody MiscRequest miscRequest){
 
         return assignmentService.pendingAssignments(miscRequest.getData());
     }

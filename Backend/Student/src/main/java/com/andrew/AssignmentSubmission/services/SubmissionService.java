@@ -3,9 +3,10 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.SubmissionDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Assignment;
+import com.andrew.AssignmentSubmission.models.Pending;
 import com.andrew.AssignmentSubmission.models.Submission;
 import com.andrew.AssignmentSubmission.models.User;
-import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
+import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -22,29 +23,24 @@ import java.time.ZoneId;
 public class SubmissionService {
 
     private SubmissionRepository submissionRepository;
-    private AssignmentRepository assignmentRepository;
+    private PendingRepository pendingRepository;
     private AmazonService amazonService;
     private UserRepository userRepository;
 
 
     public boolean submit(SubmissionDto submissionDto, MultipartFile multipartFile) throws IOException {
 
-        if(!assignmentRepository.existsByTitle(submissionDto.getAssignmentTitle())
+        if(!pendingRepository.existsByTitle(submissionDto.getAssignmentTitle())
         || !userRepository.existsByRegistration(submissionDto.getStudentRegistration())){
 
             throw new AssignmentException("Assignment or User details are wrong");
 
         }
-        else if(LocalDate.now().isAfter(
-                assignmentRepository.findByTitle(submissionDto.getAssignmentTitle()).getDue()
-        )){
-              throw new AssignmentException("Assignment is overdue");
-        }
         else{
 
             Submission submission = new Submission();
 
-            Assignment assignment = assignmentRepository.findByTitle(submissionDto.getAssignmentTitle());
+            Pending pending = pendingRepository.findByTitle(submissionDto.getAssignmentTitle());
             User student = userRepository.findByRegistration(submissionDto.getStudentRegistration());
 
             String fullName = student.getFirstName() + " " + student.getLastName();
@@ -54,7 +50,7 @@ public class SubmissionService {
             String path = year + "/" + submissionDto.getUnitCode() + "/" + submissionDto.getAssignmentTitle()
                     + "/" + fullName + "/";
 
-            submission.setAssignment(assignment);
+            submission.setAssignment(pending);
             submission.setPath(path);
             submission.setAccepted(false);
             submission.setScore(0);
