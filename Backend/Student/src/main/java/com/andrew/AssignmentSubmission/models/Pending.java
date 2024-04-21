@@ -17,7 +17,7 @@ public class Pending {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long assignmentId;
+    private Long pendingId;
     private String title;
     private String description;
 
