@@ -13,4 +13,6 @@ public interface OfferingRepository extends JpaRepository<UnitCourseOffering, Lo
     List<UnitCourseOffering> findAllByUnit(Unit unit);
 
     List<UnitCourseOffering> findAllByCourse(Course course);
+
+    UnitCourseOffering findByUnit(Unit unit);
 }
