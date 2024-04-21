@@ -4,6 +4,8 @@ import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.models.*;
 import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -51,6 +53,7 @@ public class PendingService {
     }
 
     @Scheduled(cron = "0 0 0 * * ?")
+    @EventListener(value = ApplicationReadyEvent.class)
     public void deleteAllOverdue(){
 
         LocalDate localDate = LocalDate.now();
