@@ -9,6 +9,8 @@ import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -44,5 +46,19 @@ public class AssignmentService {
 
 
         return pendingAssignments;
+    }
+
+    @EventListener(value = ApplicationReadyEvent.class)
+    public void deleteAllOverdue(){
+
+        LocalDate localDate = LocalDate.now();
+
+        List<Pending> pendings = pendingRepository.findAll();
+
+        for(Pending pending: pendings){
+            if(localDate.isAfter(pending.getDue())){
+                pendingRepository.delete(pending);
+            }
+        }
     }
 }
