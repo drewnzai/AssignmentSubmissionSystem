@@ -11,7 +11,7 @@ import java.util.List;
 public interface PendingRepository extends JpaRepository<Pending, Long> {
     boolean existsByTitle(String title);
 
-    Pending findByTitle(String title);
-
     List<Pending> findAllByUser(User user);
+
+    Pending findByTitleAndUser(String title, User user);
 }
