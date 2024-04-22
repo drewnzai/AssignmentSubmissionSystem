@@ -39,8 +39,8 @@ public class SubmissionService {
 
             Submission submission = new Submission();
 
-            Pending pending = pendingRepository.findByTitle(submissionDto.getAssignmentTitle());
             User student = userRepository.findByRegistration(submissionDto.getStudentRegistration());
+            Pending pending = pendingRepository.findByTitleAndUser(submissionDto.getAssignmentTitle(), student);
 
             String fullName = student.getFirstName() + " " + student.getLastName();
 
@@ -62,6 +62,8 @@ public class SubmissionService {
             amazonService.save(multipartFile, path);
 
             submissionRepository.save(submission);
+
+            pendingRepository.delete(pending);
 
             return true;
         }
