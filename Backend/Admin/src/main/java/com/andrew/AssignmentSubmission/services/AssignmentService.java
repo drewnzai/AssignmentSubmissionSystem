@@ -3,9 +3,11 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Assignment;
+import com.andrew.AssignmentSubmission.models.Pending;
 import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
+import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -58,6 +60,8 @@ public class AssignmentService {
                 || unitRepository.existsByCode(assignmentDto.getUnitCode())){
 
             Assignment assignment = assignmentRepository.findByTitle(assignmentDto.getTitle());
+
+            pendingService.deletePending(assignmentDto.getTitle());
 
             assignmentRepository.delete(assignment);
 

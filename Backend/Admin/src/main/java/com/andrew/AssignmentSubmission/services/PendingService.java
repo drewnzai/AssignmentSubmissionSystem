@@ -46,10 +46,9 @@ public class PendingService {
 
     }
 
-    public void deletePending(AssignmentDto assignmentDto){
-        List<Pending> pendings = pendingRepository.findAllByTitle(assignmentDto.getTitle());
+    public void deletePending(String title){
 
-        pendingRepository.deleteAll(pendings);
+        pendingRepository.deleteAll(pendingRepository.findAllByTitle(title));
     }
 
     @Scheduled(cron = "0 0 0 * * ?")
