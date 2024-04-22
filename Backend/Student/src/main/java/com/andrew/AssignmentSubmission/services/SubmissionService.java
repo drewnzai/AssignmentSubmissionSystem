@@ -2,7 +2,6 @@ package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.SubmissionDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
-import com.andrew.AssignmentSubmission.models.Assignment;
 import com.andrew.AssignmentSubmission.models.Pending;
 import com.andrew.AssignmentSubmission.models.Submission;
 import com.andrew.AssignmentSubmission.models.User;

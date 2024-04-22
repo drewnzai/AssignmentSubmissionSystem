@@ -1,12 +1,8 @@
 package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
-import com.andrew.AssignmentSubmission.models.Assignment;
 import com.andrew.AssignmentSubmission.models.Pending;
-import com.andrew.AssignmentSubmission.models.Unit;
-import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
 import com.andrew.AssignmentSubmission.repositories.PendingRepository;
-import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
