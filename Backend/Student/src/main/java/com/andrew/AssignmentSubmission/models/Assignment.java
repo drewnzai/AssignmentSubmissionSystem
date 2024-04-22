@@ -27,7 +27,7 @@ public class Assignment {
 
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
-    private User lecturer;
+    private Lecturer lecturer;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate due;
