@@ -1,11 +1,11 @@
 package com.andrew.AssignmentSubmission.services;
 
-import com.andrew.AssignmentSubmission.dto.AssignmentDto;
-import com.andrew.AssignmentSubmission.models.*;
+import com.andrew.AssignmentSubmission.models.Assignment;
+import com.andrew.AssignmentSubmission.models.Course;
+import com.andrew.AssignmentSubmission.models.Pending;
+import com.andrew.AssignmentSubmission.models.Student;
 import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;

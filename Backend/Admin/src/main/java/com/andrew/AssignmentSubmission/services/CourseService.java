@@ -2,7 +2,6 @@ package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
-import com.andrew.AssignmentSubmission.models.Unit;
 import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.OfferingRepository;
