@@ -19,7 +19,7 @@ public class Submission {
 
     @ManyToOne
     @JoinColumn(name = "assignment_id")
-    private Pending assignment;
+    private Assignment assignment;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
