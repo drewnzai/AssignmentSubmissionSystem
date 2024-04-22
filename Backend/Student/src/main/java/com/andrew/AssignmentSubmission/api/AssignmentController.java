@@ -2,13 +2,14 @@ package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.dto.MiscRequest;
-import com.andrew.AssignmentSubmission.dto.UnitList;
 import com.andrew.AssignmentSubmission.services.AssignmentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
