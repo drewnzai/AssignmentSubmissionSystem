@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import "./Submission.css";
 import { useDropzone } from 'react-dropzone';
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthService from "../../services/Auth.service";
 import AuthHeader from "../../auth/Auth.header";
 import axios from "axios";
@@ -10,6 +10,7 @@ const API_URL = "http://localhost:8080/api/submission";
 
 function Submission(){
 
+    const navigate = useNavigate();
     const location = useLocation();
     const {assignment} = location.state;
     const [file, setFile] = useState<File | null>(null);
@@ -51,7 +52,9 @@ function Submission(){
             const response = await axios.post(API_URL, formData, {headers: AuthHeader()});
             
             console.log(response.data);            
-            alert('File submitted successfully');
+            alert('Assignment submission successful');
+
+            navigate("/assignments/pending");
 
         } catch (error) {
             

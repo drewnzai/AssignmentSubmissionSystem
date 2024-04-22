@@ -3,10 +3,9 @@ import AuthHeader from "../auth/Auth.header";
 import { Assignment } from "../models/Assignment";
 import { MiscRequest } from "../models/MiscRequest";
 import { Unit } from "../models/Unit";
+import AuthService from "./Auth.service";
 
 const API_URL = "http://localhost:8080/api/assignment";
-
-const units:Unit[] = JSON.parse(localStorage.getItem("units")!);
 
 
 export default class AssignmentService{
@@ -14,18 +13,15 @@ export default class AssignmentService{
     getPendingAssignments(){
     
     let assignments: Assignment[];
-
-    let unitList:string[] = [];
     
-    for(const unit of units){
-        unitList.push(unit.code);
-    }
-
+    const authService = new AuthService();
+    
+    let userDetails = authService.getCurrentUser();
+    
     const miscRequest: MiscRequest = {
-        data: unitList
+        data: userDetails.registration
     }
 
-    //TO-DO implement this List<AssignmentDto> pendingAssignmentsByUnit(String unitCode) to allow multiple units
     return axios.post(API_URL, miscRequest, {headers: AuthHeader()})
     .then(
         (response) => {
