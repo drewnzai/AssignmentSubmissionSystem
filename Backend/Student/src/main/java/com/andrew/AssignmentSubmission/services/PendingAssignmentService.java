@@ -15,7 +15,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class AssignmentService {
+public class PendingAssignmentService {
 
     private PendingRepository pendingRepository;
     private UserRepository userRepository;

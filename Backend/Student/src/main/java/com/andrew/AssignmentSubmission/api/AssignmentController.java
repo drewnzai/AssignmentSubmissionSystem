@@ -2,7 +2,7 @@ package com.andrew.AssignmentSubmission.api;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.dto.MiscRequest;
-import com.andrew.AssignmentSubmission.services.AssignmentService;
+import com.andrew.AssignmentSubmission.services.PendingAssignmentService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +18,10 @@ import java.util.List;
 @Tag(name = "Assignment", description = "Assignment Management APIs")
 public class AssignmentController {
 
-    private AssignmentService assignmentService;
+    private PendingAssignmentService pendingAssignmentService;
     @PostMapping()
     public List<AssignmentDto> getPendingAssignments(@RequestBody MiscRequest miscRequest){
 
-        return assignmentService.pendingAssignments(miscRequest.getData());
+        return pendingAssignmentService.pendingAssignments(miscRequest.getData());
     }
 }
