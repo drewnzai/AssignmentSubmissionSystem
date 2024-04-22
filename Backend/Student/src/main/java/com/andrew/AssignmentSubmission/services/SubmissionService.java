@@ -2,9 +2,11 @@ package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.SubmissionDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
+import com.andrew.AssignmentSubmission.models.Assignment;
 import com.andrew.AssignmentSubmission.models.Pending;
 import com.andrew.AssignmentSubmission.models.Submission;
 import com.andrew.AssignmentSubmission.models.User;
+import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
 import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
@@ -22,6 +24,7 @@ import java.time.ZoneId;
 public class SubmissionService {
 
     private SubmissionRepository submissionRepository;
+    private AssignmentRepository assignmentRepository;
     private PendingRepository pendingRepository;
     private AmazonService amazonService;
     private UserRepository userRepository;
@@ -41,6 +44,7 @@ public class SubmissionService {
 
             User student = userRepository.findByRegistration(submissionDto.getStudentRegistration());
             Pending pending = pendingRepository.findByTitleAndUser(submissionDto.getAssignmentTitle(), student);
+            Assignment assignment = assignmentRepository.findByTitle(submissionDto.getAssignmentTitle());
 
             String fullName = student.getFirstName() + " " + student.getLastName();
 
@@ -49,7 +53,7 @@ public class SubmissionService {
             String path = year + "/" + submissionDto.getUnitCode() + "/" + submissionDto.getAssignmentTitle()
                     + "/" + fullName + "/";
 
-            submission.setAssignment(pending);
+            submission.setAssignment(assignment);
             submission.setPath(path);
             submission.setAccepted(false);
             submission.setScore(0);
