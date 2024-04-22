@@ -53,7 +53,6 @@ public class PendingService {
     }
 
     @Scheduled(cron = "0 0 0 * * ?")
-    @EventListener(value = ApplicationReadyEvent.class)
     public void deleteAllOverdue(){
 
         LocalDate localDate = LocalDate.now();
