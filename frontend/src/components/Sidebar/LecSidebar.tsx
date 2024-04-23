@@ -18,7 +18,7 @@ import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
 import { Unit } from "../../models/Unit";
 
-function SidebarImplLecturer(){
+function LecSidebar(){
   const [collapsed, setCollapsed] = useState(true);
   
   const navigate = useNavigate();
@@ -70,4 +70,4 @@ function SidebarImplLecturer(){
       );
 }
 
-export default SidebarImplLecturer;
+export default LecSidebar;
