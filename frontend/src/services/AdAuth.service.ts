@@ -3,7 +3,7 @@ import { UserLoginRequest } from "../models/UserLoginRequest";
 
 const API_URL = "http://localhost:8081/api/auth/"
 
-export default class LecAuthService{
+export default class AdAuthService{
     login(loginRequest: UserLoginRequest) {
     
         return axios
