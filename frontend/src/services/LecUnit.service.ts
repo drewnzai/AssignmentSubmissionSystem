@@ -33,5 +33,12 @@ export default class LecUnitService{
     );
 
     }
+
+    getUnitsFromStorage(){
+    const units = localStorage.getItem("units");
+    if (units) return JSON.parse(units);
+        
+    return null;
+    }
 }
 
