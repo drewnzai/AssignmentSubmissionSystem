@@ -62,20 +62,4 @@ public class CourseService {
         }
     }
 
-    public List<String> getAssignedCourses(String unitCode){
-
-        List<UnitCourseOffering> offerings = offeringRepository
-                .findAllByUnit(
-                        unitRepository.findByCode(unitCode)
-                );
-
-        List<String> courses = new ArrayList<>();
-
-        for(UnitCourseOffering courseOffering: offerings){
-            courses.add(courseOffering.getCourse().getName());
-        }
-
-        return courses;
-    }
-
 }
