@@ -4,3 +4,25 @@
     align-items: center;
     justify-content: center;
 }
+
+.wrapper{
+    display: block;
+
+}
+
+.wrapper h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,166,81,255);
+}
+
+.card-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
+   height: 100%;
+}
+
+.card-wrapper .around{
+    margin: 8px;
+}
