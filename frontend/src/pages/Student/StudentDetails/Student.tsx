@@ -21,7 +21,7 @@ function Student(){
 
     useEffect((
         () => {
-            const currentUser = authService.getCurrentUser();
+          const currentUser: any | null = authService.getCurrentUser();
 
             if(!currentUser){
                 navigate("/login");
