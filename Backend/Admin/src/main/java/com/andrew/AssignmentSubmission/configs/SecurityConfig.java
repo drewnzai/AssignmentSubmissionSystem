@@ -46,6 +46,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/submission/**").hasRole("LECTURER")
                         .requestMatchers("/api/unit").hasRole("ADMIN")
                         .requestMatchers("/api/unit/**").hasRole("ADMIN")
+                        .requestMatchers("/api/unit/lecturer").hasRole("LECTURER")
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider).addFilterBefore(
