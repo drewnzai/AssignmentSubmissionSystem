@@ -11,6 +11,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import PersonIcon from '@mui/icons-material/Person';
+import AddIcon from '@mui/icons-material/Add';
 import SchoolIcon from '@mui/icons-material/School';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -46,18 +47,17 @@ function LecSidebar(){
 
 
     return (
-      <Sidebar collapsed={collapsed} style={{height: "100vh", marginLeft: "0px", backgroundColor: "rgba(0,166,81,255)"}} className="pro-sidebar">
+      <Sidebar collapsed={collapsed} style={{height: "100vh", marginLeft: "0px", backgroundColor: "rgba(0,166,81,255)" }} className="pro-sidebar">
       <Menu>
       <MenuItem className="menu1" icon={<MenuRoundedIcon />} onClick={handleToggleSidebar}> </MenuItem>
-      <MenuItem icon={<HomeIcon/>} component={<Link to="/" />} ></MenuItem>
-      <MenuItem icon={<PersonIcon/>} component={<Link to="/student" />}> Student Details</MenuItem>
+      <MenuItem icon={<HomeIcon/>} component={<Link to="/lecturerDashboard" />} ></MenuItem>
+      <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Student Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
-        <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/pending" />}> Pending</MenuItem>
-        <MenuItem icon={<CheckIcon/>} component={<Link to="/assignments/completed" />}> Completed</MenuItem>
+        <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
+        <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments" />}> Due</MenuItem>
         </SubMenu>
           <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
-          <MenuItem icon={<CalendarTodayOutlinedIcon />}>Calendar</MenuItem>
       </Menu>
     </Sidebar>
       );
