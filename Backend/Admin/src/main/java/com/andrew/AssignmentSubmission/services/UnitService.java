@@ -105,6 +105,11 @@ public class UnitService {
         return units;
     }
 
+    public List<Unit> getUnitsAssignedToLecturer(String email){
+        User lecturer = userRepository.findByEmail(email);
+        return unitRepository.findAllByLecturer(lecturer);
+    }
+
     private void map(UnitDto unitDto, Unit unit) {
         User lecturer = userRepository.findByEmail(unitDto.getLecturerEmail());
         Semester semester = semesterRepository.findByName(unitDto.getSemester());
