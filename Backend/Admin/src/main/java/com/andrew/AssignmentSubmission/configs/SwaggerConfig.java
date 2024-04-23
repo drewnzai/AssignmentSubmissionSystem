@@ -21,10 +21,10 @@ public class SwaggerConfig {
         License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
 
         Info info = new Info()
-                .title("Assignment Submission API")
+                .title("Assignment Submission Admin and Lecturer API")
                 .version("1.0")
                 .contact(contact)
-                .description("This API exposes backend endpoints.")
+                .description("This API exposes backend for lecturer and admin endpoints.")
                 .license(mitLicense);
 
         return new OpenAPI().info(info);
