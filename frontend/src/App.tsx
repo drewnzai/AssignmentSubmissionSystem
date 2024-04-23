@@ -9,6 +9,7 @@ import Student from './pages/Student/StudentDetails/Student';
 import Submission from './pages/Student/Submission/Submission';
 import LecLogin from './pages/Lecturer/Login/Login';
 import LecDashboard from './pages/Lecturer/Dashboard/Dashboard';
+import AssignmentForm from './pages/Lecturer/AssignmentForm/AssignmentForm';
 
 const App: React.FC = () => (
 	<BrowserRouter>
@@ -20,6 +21,7 @@ const App: React.FC = () => (
 	 <Route path="/submission/:assignmentTitle" Component={Submission} />
      <Route path='/login' Component={Login}/>
 	 <Route path='/lecturerLogin' Component={LecLogin}/>
+	 <Route path='/assignments/create' Component={AssignmentForm}/>
 	 <Route path='/lecturerDashboard' Component={LecDashboard}/>
 		</Routes>
 	</BrowserRouter>
