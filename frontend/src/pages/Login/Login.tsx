@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../../services/Auth.service";
 import { LoginRequest } from "../../models/LoginRequest";
+import Navbar from "../../components/Navbar/Navbar";
 
 
 
@@ -36,7 +37,10 @@ function Login(props: any){
       };
 
   return (
+    <div>
+     <Navbar/>
    <div className="login-container">
+      
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         <div className="input-group">
@@ -50,6 +54,7 @@ function Login(props: any){
         <button type="submit" className="submit-button">Submit</button>
         <a href="/forgot-password">Forgot password?</a>
       </form>
+    </div>
     </div>
   );
 }
