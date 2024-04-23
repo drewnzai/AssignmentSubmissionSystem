@@ -36,7 +36,7 @@ function LecLogin(){
         <div className="login-container">
       
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Sign In</h2>
+        <h2>Lecturer Sign In</h2>
         <div className="input-group">
           <label htmlFor="email">Email</label>
           <input type="text" id="email" name="email" value={loginRequest.email} onChange={handleInputChange} required />
