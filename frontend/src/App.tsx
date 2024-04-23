@@ -5,7 +5,7 @@ import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Completed from './pages/Assignments/Completed/Completed';
 import Pending from './pages/Assignments/Pending/Pending';
-import Student from './pages/Student/Student';
+import Student from './pages/StudentDetails/Student';
 import Submission from './pages/Submission/Submission';
 
 const App: React.FC = () => (
