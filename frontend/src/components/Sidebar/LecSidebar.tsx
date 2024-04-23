@@ -55,13 +55,6 @@ function LecSidebar(){
         <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/pending" />}> Pending</MenuItem>
         <MenuItem icon={<CheckIcon/>} component={<Link to="/assignments/completed" />}> Completed</MenuItem>
         </SubMenu>
-        <SubMenu icon={<SchoolIcon/>} label="Current Units">
-          {units.map(
-            (unit, index) => (
-              <MenuItem>{unit.code}</MenuItem>
-            )
-          )}
-        </SubMenu>
           <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
           <MenuItem icon={<CalendarTodayOutlinedIcon />}>Calendar</MenuItem>
