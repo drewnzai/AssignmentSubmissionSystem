@@ -11,10 +11,10 @@ function Navbar(){
         <div className="nav-elements">
           <ul>
             <li>
-              <Link to="/adminLogin">Admin</Link>
+              <Link to={"/adminLogin"}>Admin</Link>
             </li>
             <li>
-              <Link to="/lecturerLogin">Lecturer</Link>
+              <Link to={"/lecturerLogin"}>Lecturer</Link>
             </li>
           </ul>
         </div>
