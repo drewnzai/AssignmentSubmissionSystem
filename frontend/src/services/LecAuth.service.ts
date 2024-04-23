@@ -1,7 +1,7 @@
 import axios from "axios";
 import { UserLoginRequest } from "../models/UserLoginRequest";
 
-const API_URL = "http://localhost:8080/api/auth/"
+const API_URL = "http://localhost:8081/api/auth/"
 
 export default class LecAuthService{
     login(loginRequest: UserLoginRequest) {
