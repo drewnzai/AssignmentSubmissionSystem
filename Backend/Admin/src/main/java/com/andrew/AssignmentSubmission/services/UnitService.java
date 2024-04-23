@@ -89,14 +89,7 @@ public class UnitService {
         for(UnitCourseOffering courseOffering: offerings){
             Unit unit = courseOffering.getUnit();
 
-            UnitDto unitDto = new UnitDto();
-
-            unitDto.setName(unit.getName());
-            unitDto.setCode(unit.getCode());
-            unitDto.setSemester(unit.getSemester().getName());
-            unitDto.setDescription(unit.getDescription());
-            unitDto.setCredits(unit.getCredits());
-            unitDto.setLecturerEmail(unit.getLecturer().getEmail());
+            UnitDto unitDto = mapToDto(unit);
 
             units.add(unitDto);
 
@@ -105,9 +98,29 @@ public class UnitService {
         return units;
     }
 
-    public List<Unit> getUnitsAssignedToLecturer(String email){
+    public List<UnitDto> getUnitsAssignedToLecturer(String email){
         User lecturer = userRepository.findByEmail(email);
-        return unitRepository.findAllByLecturer(lecturer);
+        List<UnitDto> units = new ArrayList<>();
+
+        for(Unit unit: unitRepository.findAllByLecturer(lecturer)){
+
+            UnitDto unitDto = mapToDto(unit);
+
+            units.add(unitDto);
+        }
+        return units;
+    }
+
+    private UnitDto mapToDto(Unit unit) {
+        UnitDto unitDto = new UnitDto();
+        unitDto.setName(unit.getName());
+        unitDto.setCode(unit.getCode());
+        unitDto.setSemester(unit.getSemester().getName());
+        unitDto.setDescription(unit.getDescription());
+        unitDto.setCredits(unit.getCredits());
+        unitDto.setLecturerEmail(unit.getLecturer().getEmail());
+
+        return unitDto;
     }
 
     private void map(UnitDto unitDto, Unit unit) {
