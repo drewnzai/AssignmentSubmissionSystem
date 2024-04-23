@@ -14,7 +14,7 @@ function AdDashboard(){
         navigate("/login");
       }
 
-    }, []);
+    }, [navigate]);
 
     return (
         <div>
