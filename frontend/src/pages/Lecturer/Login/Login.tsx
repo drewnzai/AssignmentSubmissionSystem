@@ -22,7 +22,7 @@ function LecLogin(){
         
            authService.login(loginRequest)
            .then(
-            () => navigate("/")
+            () => navigate("/lecturerDashboard")
            );
 
       
