@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Login from './pages/Login/Login';
+import Login from './pages/Student/Login/Login';
 import Home from './pages/Student/Home/Home';
 import Completed from './pages/Assignments/Completed/Completed';
 import Pending from './pages/Assignments/Pending/Pending';

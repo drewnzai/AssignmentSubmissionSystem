@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
-import AuthService from "../../services/Auth.service";
-import { LoginRequest } from "../../models/LoginRequest";
-import Navbar from "../../components/Navbar/Navbar";
+import AuthService from "../../../services/Auth.service";
+import { LoginRequest } from "../../../models/LoginRequest";
+import Navbar from "../../../components/Navbar/Navbar";
 
 
 
