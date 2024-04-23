@@ -87,6 +87,10 @@ public class UnitController {
         }
     }
 
+    @PostMapping("/lecturer")
+    public List<UnitDto> getUnitsByLecturer(@RequestBody MiscRequest miscRequest){
+        return null;
+    }
     @PostMapping("/course")
     public List<UnitDto> getUnitsFromCourse(@RequestBody MiscRequest miscRequest){
         return unitService.getUnitsFromCourse(miscRequest.getData());
