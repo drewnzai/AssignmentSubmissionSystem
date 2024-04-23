@@ -1,24 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar(){
 
+  const navigate = useNavigate();
+
+  const navigateToLecturerLogin = () => {
+    navigate('/lecturerLogin');
+  };
+
+  const navigateToAdminLogin = () => {
+    navigate('/adminLogin');
+  };
     return(
-        <nav className="navbar">
-      <div className="container">
-        <div className="logo">
-        </div>
-        <div className="nav-elements">
-          <ul>
-            <li>
-              <Link to={"/adminLogin"}>Admin</Link>
-            </li>
-            <li>
-              <Link to={"/lecturerLogin"}>Lecturer</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <nav className="navbar">
+      <button onClick={navigateToLecturerLogin} className="navbar-button">
+        Lecturer Login
+      </button>
+      <button onClick={navigateToAdminLogin} className="navbar-button">
+        Admin Login
+      </button>
     </nav>
     );
 }
