@@ -42,14 +42,14 @@ function Home(){
 
   if(loading){
     return(
-      <div className="loader">
+      <div className="container">
         <Loader/>
       </div>
     );
   }
   
   return (
-    <div style={{display: "flex"}}>
+    <div className="home">
     <SidebarImpl/>
     <Content/>
     </div>
