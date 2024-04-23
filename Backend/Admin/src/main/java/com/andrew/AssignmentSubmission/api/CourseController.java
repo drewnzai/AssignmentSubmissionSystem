@@ -67,9 +67,4 @@ public class CourseController {
         }
     }
 
-    @PostMapping("/assigned")
-    public List<String> getAssignedCourses(@RequestBody MiscRequest miscRequest){
-        return courseService.getAssignedCourses(miscRequest.getData());
-    }
-
 }
