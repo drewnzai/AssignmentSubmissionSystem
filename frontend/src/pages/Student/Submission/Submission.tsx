@@ -2,8 +2,8 @@ import React, { useState, useCallback } from "react";
 import "./Submission.css";
 import { useDropzone } from 'react-dropzone';
 import { useLocation, useNavigate } from "react-router-dom";
-import AuthService from "../../services/Auth.service";
-import AuthHeader from "../../auth/Auth.header";
+import AuthService from "../../../services/Auth.service";
+import AuthHeader from "../../../auth/Auth.header";
 import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/submission";

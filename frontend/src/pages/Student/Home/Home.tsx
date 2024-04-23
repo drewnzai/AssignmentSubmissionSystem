@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SidebarImpl from "../../components/Sidebar/SidebarImpl";
-import Loader from "../../components/Loader/Loader";
+import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
+import Loader from "../../../components/Loader/Loader";
 import Content from "../Content/Content";
 import "./Home.css";
 
-import AuthService from "../../services/Auth.service";
-import UnitService from "../../services/Unit.service";
+import AuthService from "../../../services/Auth.service";
+import UnitService from "../../../services/Unit.service";
 
 function Home(){
 

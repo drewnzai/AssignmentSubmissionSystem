@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SidebarImpl from "../../components/Sidebar/SidebarImpl";
-import { StudentDetails } from "../../models/StudentDetails";
-import AuthService from "../../services/Auth.service";
-import StudentService from "../../services/Student.service";
+import SidebarImpl from "../../../components/Sidebar/SidebarImpl";
+import { StudentDetails } from "../../../models/StudentDetails";
+import AuthService from "../../../services/Auth.service";
+import StudentService from "../../../services/Student.service";
 import "./Student.css";
 
 
