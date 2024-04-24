@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-import AuthService from "../../services/Auth.service";
-import "./SidebarImpl.css";
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import BookIcon from '@mui/icons-material/Book';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
@@ -12,11 +10,11 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
 import { Unit } from "../../models/Unit";
+import AuthService from "../../services/Auth.service";
+import "./SidebarImpl.css";
 
 function SidebarImpl(){
   const [collapsed, setCollapsed] = useState(true);
