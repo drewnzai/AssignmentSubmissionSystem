@@ -18,7 +18,7 @@ export default class LecSubmissionService{
             data: user.email
         }
 
-        return axios.post(API_URL, miscRequest, {headers: LecAuthHeader()})
+        return axios.post(API_URL + "/lecturer", miscRequest, {headers: LecAuthHeader()})
         .then(
             (response) => {
                 if(response.data){
