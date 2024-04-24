@@ -5,14 +5,17 @@ import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.Assignment;
 import com.andrew.AssignmentSubmission.models.Student;
 import com.andrew.AssignmentSubmission.models.Submission;
+import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
+import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -21,6 +24,7 @@ public class SubmissionService {
     private SubmissionRepository submissionRepository;
     private AssignmentRepository assignmentRepository;
     private StudentRepository studentRepository;
+    private UserRepository userRepository;
 
 
     public boolean update(SubmissionDto submissionDto){
@@ -51,25 +55,31 @@ public class SubmissionService {
         }
     }
 
-    public List<SubmissionDto> getSubmissionsByAssignment(String assignmentTitle){
+    public List<SubmissionDto> getAllSubmissions(String email){
 
         List<SubmissionDto> submissionDtos = new ArrayList<>();
 
-        Assignment assignment = assignmentRepository.findByTitle(assignmentTitle);
+        User lecturer = userRepository.findByEmail(email);
 
-        List<Submission> submissions = submissionRepository.findAllByAssignment(assignment);
+        List<Assignment> assignments = assignmentRepository.findAllByLecturer(lecturer);
 
-        for(Submission submission: submissions){
+        for(Assignment assignment: assignments) {
 
-            SubmissionDto submissionDto = new SubmissionDto();
+            List<Submission> submissions = submissionRepository.findAllByAssignment(assignment);
 
-            submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
-            submissionDto.setUnitCode(assignment.getUnit().getCode());
-            submissionDto.setScore(submission.getScore());
-            submissionDto.setAccepted(submission.isAccepted());
-            submissionDto.setPath(submission.getPath());
+            for (Submission submission : submissions) {
+                if(Objects.equals(submission.getFeedback(), "")) {
+                    SubmissionDto submissionDto = new SubmissionDto();
 
-            submissionDtos.add(submissionDto);
+                    submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
+                    submissionDto.setUnitCode(assignment.getUnit().getCode());
+                    submissionDto.setScore(submission.getScore());
+                    submissionDto.setAccepted(submission.isAccepted());
+                    submissionDto.setPath(submission.getPath());
+
+                    submissionDtos.add(submissionDto);
+                }
+            }
         }
 
         return submissionDtos;
