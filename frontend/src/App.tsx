@@ -19,6 +19,7 @@ import ModifySub from './pages/Lecturer/ModifySub/ModifySub';
 import 'react-toastify/dist/ReactToastify.css';
 import DeleteAssignment from './pages/Lecturer/DeleteAssignment/DeleteAssignment';
 import LecAssignments from './pages/Lecturer/Assignments/LecAssignments';
+import StudentManagement from './pages/Admin/StudentManagement/StudentManagement';
 
 const App: React.FC = () => (
 	<BrowserRouter>
@@ -35,6 +36,7 @@ const App: React.FC = () => (
 	 <Route path='/lecturer' Component={Lecturer}/>
 	 <Route path='/modify/:assignmentTitle' Component={ModifySub}/>
 	 <Route path='/adminLogin' Component={AdLogin}/>
+	 <Route path='admin/student-management' Component={StudentManagement}/>
 	 <Route path='/assignments/lecturer' Component={LecAssignments}/>
 	 <Route path='/submissions/lecturer' Component={DisplaySubs}/>
 	 <Route path='/adminDashboard' Component={AdDashboard}/>

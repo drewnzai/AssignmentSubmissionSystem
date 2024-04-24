@@ -40,7 +40,7 @@ function AdSidebar(){
 
             <SubMenu icon={<Person2Icon/>} label="Management">
             <MenuItem component={<Link to="/unit-management" />}>Unit Management</MenuItem>
-            <MenuItem component={<Link to="/student-management" />}>Student Management</MenuItem>
+            <MenuItem component={<Link to="admin/student-management" />}>Student Management</MenuItem>
             <MenuItem component={<Link to="/lecturer-management" />}>Lecturer Management</MenuItem>
             </SubMenu>
 
