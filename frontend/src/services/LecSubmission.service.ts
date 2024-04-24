@@ -31,7 +31,7 @@ export default class LecSubmissionService{
     }
 
     modifySubmission(submission: Submission){
-        return axios.post(API_URL, submission, {headers: LecAuthHeader()})
+        return axios.post(API_URL + "/modify", submission, {headers: LecAuthHeader()})
         .then(
             (response) => {
                 if(response.data)
