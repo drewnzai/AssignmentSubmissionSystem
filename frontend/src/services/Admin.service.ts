@@ -4,7 +4,7 @@ import { StudentDetails } from "../models/StudentDetails";
 import { LecturerRequest } from "../models/LecturerRequest";
 import { Unit } from "../models/Unit";
 
-const API_URL = "http://localhost:8080/api/";
+const API_URL = "http://localhost:8081/api/";
 
 
 export default class AdminService{
