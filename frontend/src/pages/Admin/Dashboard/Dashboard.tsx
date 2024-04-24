@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AdAuthService from "../../../services/AdAuth.service";
 import { useNavigate } from "react-router-dom";
 import AdSidebar from "../../../components/Sidebar/AdSidebar";
+import "./Dashboard.css";
 
 function AdDashboard(){
     const authService = new AdAuthService();
