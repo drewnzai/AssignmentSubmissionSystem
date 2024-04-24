@@ -20,7 +20,7 @@ public class UnitController {
 
     private UnitService unitService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<APIResponse> addUnit(@RequestBody UnitDto unitDto){
         if(unitService.addUnit(unitDto)){
             APIResponse apiResponse = APIResponse.builder()
@@ -42,7 +42,7 @@ public class UnitController {
         }
     }
 
-    @DeleteMapping
+    @PostMapping("/delete")
     public ResponseEntity<APIResponse> deleteUnit(@RequestBody UnitDto unitDto){
         if(unitService.deleteUnit(unitDto)){
             APIResponse apiResponse = APIResponse.builder()
