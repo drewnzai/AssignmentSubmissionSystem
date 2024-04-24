@@ -13,6 +13,7 @@ import AssignmentForm from './pages/Lecturer/AssignmentForm/AssignmentForm';
 import AdLogin from './pages/Admin/Login/AdLogin';
 import AdDashboard from './pages/Admin/Dashboard/Dashboard';
 import Redirect from './pages/Redirect/Redirect';
+import Lecturer from './pages/Lecturer/Lecturer/Lecturer';
 
 const App: React.FC = () => (
 	<BrowserRouter>
@@ -25,6 +26,7 @@ const App: React.FC = () => (
 	 <Route path="/submission/:assignmentTitle" Component={Submission} />
      <Route path='/login' Component={Login}/>
 	 <Route path='/lecturerLogin' Component={LecLogin}/>
+	 <Route path='/lecturer' Component={Lecturer}/>
 	 <Route path='/adminLogin' Component={AdLogin}/>
 	 <Route path='/adminDashboard' Component={AdDashboard}/>
 	 <Route path='/assignments/create' Component={AssignmentForm}/>

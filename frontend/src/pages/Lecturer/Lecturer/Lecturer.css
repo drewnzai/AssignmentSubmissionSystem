@@ -1,0 +1,42 @@
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.person-details {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .person-details h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .person-details h2 {
+    color: #555;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .person-details ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .person-details li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    margin: 5px 0;
+    border-radius: 4px;
+  }
+  
