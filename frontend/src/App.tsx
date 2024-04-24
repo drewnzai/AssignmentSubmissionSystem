@@ -16,6 +16,7 @@ import Redirect from './pages/Redirect/Redirect';
 import Lecturer from './pages/Lecturer/Lecturer/Lecturer';
 import DisplaySubs from './pages/Lecturer/Submissions/DisplaySubs';
 import ModifySub from './pages/Lecturer/ModifySub/ModifySub';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App: React.FC = () => (
 	<BrowserRouter>
