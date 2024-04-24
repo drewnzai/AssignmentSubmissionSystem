@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import AuthService from "../../services/Auth.service";
 import "./SidebarImpl.css";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BookIcon from '@mui/icons-material/Book';
@@ -56,6 +57,7 @@ function LecSidebar(){
       <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Student Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
         <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
+        <MenuItem icon={<DeleteForeverIcon/>} component={<Link to="/assignments/delete" />}> Delete</MenuItem> 
         <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/lecturer" />}> Due</MenuItem>
         </SubMenu>
         <MenuItem icon={<AssignmentIcon/>} component={<Link to="/submissions/lecturer" />}> Submissions</MenuItem>  
