@@ -1,50 +1,51 @@
 import React, { useEffect, useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './AssignmentForm.css';
 import LecUnitService from '../../../services/LecUnit.service';
 import { Unit } from '../../../models/Unit';
 import LecAuthService from '../../../services/LecAuth.service';
+import { format } from 'date-fns';
 
-const formatDate = (date: Date): string => {
-  let day = date.getDate().toString().padStart(2, '0');
-  let month = (date.getMonth() + 1).toString().padStart(2, '0'); // JavaScript months are 0-indexed
-  let year = date.getFullYear();
-  return `${day}/${month}/${year}`;
-};
-
-// Utility function to parse dates
-const parseDate = (dateStr: string): Date => {
-  const [day, month, year] = dateStr.split('/');
-  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
-};
 
 const AssignmentForm = () => {
   const authService = new LecAuthService();
   const unitService = new LecUnitService();
+  const lecturer = authService.getCurrentUser();
 
   const [formData, setFormData] = useState({
     title: '',
-    lecturerEmail: '',
+    lecturerEmail: lecturer.email,
     description: '',
     unitCode: '', // Default to the first dummy value
     due: new Date()
   });
 
   const [units, setUnits] = useState<Unit[]>([]);
-  const lecturer = authService.getCurrentUser();
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-
+    
     setFormData(prevFormData => ({
       ...prevFormData,
-      [name]: name === 'due' ? new Date(value) : value
+      [name]: value
     }));
   };
 
+  const handleDateChange = (date: Date) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      due: date
+    }));
+  };
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormData({...formData, lecturerEmail: lecturer.email})
-    console.log(formData);
+    const formattedDate = format(formData.due, 'dd/MM/yyyy');
+
+    console.log({...formData, due: formattedDate});
   };
 
   useEffect(() => {
@@ -87,15 +88,11 @@ const AssignmentForm = () => {
       </select>
 
       <label htmlFor="due">Due Date</label>
-      <input
-        type="date"
-        id="due"
-        name="due"
-        value={formatDate(formData.due)} // Convert the Date object to a string in 'dd/MM/yyyy' format
-        onChange={handleChange}
-        pattern="\d{2}/\d{2}/\d{4}"
-        placeholder="DD/MM/YYYY"
-        required
+      <DatePicker
+        selected={formData.due}
+        onChange={handleDateChange}
+        dateFormat="dd/MM/yyyy"
+        wrapperClassName="date-picker"
       />
 
       <button type="submit">Submit</button>
