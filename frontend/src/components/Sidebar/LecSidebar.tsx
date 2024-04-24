@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import AuthService from "../../services/Auth.service";
 import "./SidebarImpl.css";
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import BookIcon from '@mui/icons-material/Book';
 import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import CheckIcon from '@mui/icons-material/Check';
@@ -18,6 +19,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
 import { Link, useNavigate } from "react-router-dom";
 import { Unit } from "../../models/Unit";
+import LecAuthService from "../../services/LecAuth.service";
 
 function LecSidebar(){
   const [collapsed, setCollapsed] = useState(true);
@@ -26,7 +28,7 @@ function LecSidebar(){
 
   const [units, setUnits] = useState<Unit[]>([]);
   
-  const authService = new AuthService();
+  const authService = new LecAuthService();
 
   useEffect((
     () => (
@@ -56,6 +58,7 @@ function LecSidebar(){
         <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
         <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments" />}> Due</MenuItem>
         </SubMenu>
+        <MenuItem icon={<AssignmentIcon/>} component={<Link to="/submissions/lecturer" />}> Submissions</MenuItem>  
           <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>
       </Menu>
