@@ -64,4 +64,13 @@ export default class AdminService{
             }
         );
     }
+
+    getSystemDetails(){
+        return axios.get(API_URL + "/system", {headers: AdAuthHeader()})
+        .then(
+        (response) => {
+            return response.data;
+        }
+        );
+    }
 }
