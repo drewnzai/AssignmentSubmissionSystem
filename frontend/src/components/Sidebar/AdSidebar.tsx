@@ -39,9 +39,9 @@ function AdSidebar(){
           <MenuItem icon={<PersonIcon/>} component={<Link to="/admin" />}> Admin Details</MenuItem>
 
             <SubMenu icon={<Person2Icon/>} label="Management">
-            <MenuItem component={<Link to="/unit-management" />}>Unit Management</MenuItem>
+            <MenuItem component={<Link to="/admin/unit-management" />}>Unit Management</MenuItem>
             <MenuItem component={<Link to="admin/student-management" />}>Student Management</MenuItem>
-            <MenuItem component={<Link to="/lecturer-management" />}>Lecturer Management</MenuItem>
+            <MenuItem component={<Link to="/admin/lecturer-management" />}>Lecturer Management</MenuItem>
             </SubMenu>
 
               <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
