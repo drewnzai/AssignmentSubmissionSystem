@@ -34,7 +34,7 @@ function Completed(){
                 setSubmissions(response);
             }, (error) => {
                 alert("No submissions");
-                navigate("/lecturerDashboard");
+                navigate("/home");
             }
           );
         }
