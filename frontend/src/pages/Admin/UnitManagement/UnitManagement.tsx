@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import AdAuthService from "../../../services/AdAuth.service";
 import AdminService from "../../../services/Admin.service";
 import "./UnitManagement.css";
-import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
 
 export default function UnitManagement(){
     const navigate = useNavigate();
