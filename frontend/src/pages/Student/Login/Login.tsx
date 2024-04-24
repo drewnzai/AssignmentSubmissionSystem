@@ -53,7 +53,12 @@ function Login(props: any){
         <h2>Sign In</h2>
         <div className="input-group">
           <label htmlFor="registration">Registration Number</label>
-          <input type="text" id="registration" name="registration" value={loginRequest.registration} onChange={handleInputChange} required />
+          <input type="text" 
+          id="registration" 
+          name="registration" 
+          value={loginRequest.registration} onChange={handleInputChange} 
+          pattern="[A-Z]?P?/\d{2}/\d{5}/\d{2}"
+          required />
         </div>
         <div className="input-group">
           <label htmlFor="password">Password</label>
