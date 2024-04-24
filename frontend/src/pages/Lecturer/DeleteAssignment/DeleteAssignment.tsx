@@ -6,6 +6,7 @@ import './DeleteAssignment.css';
 import LecAssignmentService from '../../../services/LecAssignment.service';
 import { useNavigate } from 'react-router-dom';
 import { MiscRequest } from '../../../models/MiscRequest';
+import LecSidebar from '../../../components/Sidebar/LecSidebar';
 
 const DeleteAssignment = () => {
   const [assignmentTitle, setAssignmentTitle] = useState('');
@@ -48,6 +49,8 @@ const DeleteAssignment = () => {
   };
 
   return (
+    <div>
+      <LecSidebar/>
     <div className="delete-assignment-container">
       <input
         type="text"
@@ -58,6 +61,7 @@ const DeleteAssignment = () => {
       />
       <button onClick={handleDelete} className="delete-button">Delete</button>
       <ToastContainer position="top-center" autoClose={5000} />
+    </div>
     </div>
   );
 };

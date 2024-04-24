@@ -5,6 +5,7 @@ import LecAuthService from "../../../services/LecAuth.service";
 import LecSubmissionService from "../../../services/LecSubmission.service";
 import { FormControlLabel, Checkbox, IconButton } from "@mui/material";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import LecSidebar from "../../../components/Sidebar/LecSidebar";
 
 export default function ModifySub(){
     const location = useLocation();
@@ -64,6 +65,8 @@ export default function ModifySub(){
     };
 
     return (
+        <div>
+      <LecSidebar/>
         <div className="assignment-container">
             <h2>Assignment: {details.assignmentTitle}</h2>
             <p><strong>Registration:</strong> {details.studentRegistration}</p>
@@ -84,6 +87,7 @@ export default function ModifySub(){
                 <CloudDownloadIcon />
             </IconButton>
             <button onClick={handleSubmitChanges}>Submit Changes</button>
+        </div>
         </div>
     );
 }

@@ -56,7 +56,7 @@ function LecSidebar(){
       <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Student Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
         <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
-        <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments" />}> Due</MenuItem>
+        <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/lecturer" />}> Due</MenuItem>
         </SubMenu>
         <MenuItem icon={<AssignmentIcon/>} component={<Link to="/submissions/lecturer" />}> Submissions</MenuItem>  
           <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
