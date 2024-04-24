@@ -14,4 +14,14 @@ export default class LecAssignmentService{
     );
     }
 
+    deleteAssignment(assignment: any){
+        return axios.post(API_URL + "/delete", assignment, {headers: LecAuthHeader()})
+    .then(
+        (response) => {
+            return response.data;
+        }
+    );
+    }
+
+
 }
