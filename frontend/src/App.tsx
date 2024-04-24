@@ -15,6 +15,7 @@ import AdDashboard from './pages/Admin/Dashboard/Dashboard';
 import Redirect from './pages/Redirect/Redirect';
 import Lecturer from './pages/Lecturer/Lecturer/Lecturer';
 import DisplaySubs from './pages/Lecturer/Submissions/DisplaySubs';
+import ModifySub from './pages/Lecturer/ModifySub/ModifySub';
 
 const App: React.FC = () => (
 	<BrowserRouter>
@@ -28,6 +29,7 @@ const App: React.FC = () => (
      <Route path='/login' Component={Login}/>
 	 <Route path='/lecturerLogin' Component={LecLogin}/>
 	 <Route path='/lecturer' Component={Lecturer}/>
+	 <Route path='/modify/:assignmentTitle' Component={ModifySub}/>
 	 <Route path='/adminLogin' Component={AdLogin}/>
 	 <Route path='/submissions/lecturer' Component={DisplaySubs}/>
 	 <Route path='/adminDashboard' Component={AdDashboard}/>
