@@ -10,17 +10,23 @@ import Submission from './pages/Student/Submission/Submission';
 import LecLogin from './pages/Lecturer/Login/Login';
 import LecDashboard from './pages/Lecturer/Dashboard/Dashboard';
 import AssignmentForm from './pages/Lecturer/AssignmentForm/AssignmentForm';
+import AdLogin from './pages/Admin/Login/AdLogin';
+import AdDashboard from './pages/Admin/Dashboard/Dashboard';
+import Redirect from './pages/Redirect/Redirect';
 
 const App: React.FC = () => (
 	<BrowserRouter>
 		<Routes>
-     <Route path='/' Component={Home}/>
+	 <Route path='/' Component={Redirect}/>
+     <Route path='/home' Component={Home}/>
 	 <Route path="/assignments/completed" Component={Completed} />
      <Route path="/assignments/pending" Component={Pending} />
 	 <Route path="/student" Component={Student} />
 	 <Route path="/submission/:assignmentTitle" Component={Submission} />
      <Route path='/login' Component={Login}/>
 	 <Route path='/lecturerLogin' Component={LecLogin}/>
+	 <Route path='/adminLogin' Component={AdLogin}/>
+	 <Route path='/adminDashboard' Component={AdDashboard}/>
 	 <Route path='/assignments/create' Component={AssignmentForm}/>
 	 <Route path='/lecturerDashboard' Component={LecDashboard}/>
 		</Routes>
