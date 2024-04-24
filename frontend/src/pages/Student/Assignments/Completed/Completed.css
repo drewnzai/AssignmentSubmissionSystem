@@ -1,0 +1,33 @@
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.submission-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .submission-item {
+    flex: 0 1 300px; /* grow, shrink, basis */
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submission-item p {
+    margin: 5px 0;
+  }
+  
+  .submission-item strong {
+    color: #0056b3;
+  }
+  
