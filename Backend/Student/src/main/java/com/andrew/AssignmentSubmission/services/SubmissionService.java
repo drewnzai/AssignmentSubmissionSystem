@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Year;
 import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -71,6 +73,27 @@ public class SubmissionService {
 
             return true;
         }
+    }
+
+    public List<SubmissionDto> getAllSubmissions(String registration){
+        User user = userRepository.findByRegistration(registration);
+
+        List<Submission> submissions = submissionRepository.findAllByStudent(user);
+
+        List<SubmissionDto> submissionDtos = new ArrayList<>();
+
+        for(Submission submission: submissions){
+            SubmissionDto submissionDto = new SubmissionDto();
+
+            submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
+            submissionDto.setUnitCode(submission.getAssignment().getUnit().getCode());
+            submissionDto.setScore(submission.getScore());
+            submissionDto.setAccepted(submission.isAccepted());
+            submissionDto.setPath(submission.getPath());
+
+            submissionDtos.add(submissionDto);
+        }
+        return submissionDtos;
     }
 
 }
