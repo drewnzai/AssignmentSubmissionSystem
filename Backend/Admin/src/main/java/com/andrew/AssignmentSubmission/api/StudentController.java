@@ -17,7 +17,7 @@ public class StudentController {
 
     private StudentService studentService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<APIResponse> addStudent(@RequestBody StudentDto studentDto) {
         if (studentService.addStudent(studentDto)) {
             APIResponse apiResponse = APIResponse.builder()
@@ -39,7 +39,7 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping
+    @PostMapping("/delete")
     public ResponseEntity<APIResponse> dropStudent(@RequestBody StudentDto studentDto){
         if(studentService.deleteStudent(studentDto)){
             APIResponse apiResponse = APIResponse.builder()
