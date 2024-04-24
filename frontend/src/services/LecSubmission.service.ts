@@ -4,11 +4,11 @@ import LecAuthHeader from "../auth/LecAuth.header";
 import { Submission } from "../models/Submission";
 import LecAuthService from "./LecAuth.service";
 
-const API_URL = "http://localhost:8080/api/submission";
+const API_URL = "http://localhost:8081/api/submission";
 
 export default class LecSubmissionService{
     
-    getAllSubmission(email: string){
+    getAllSubmission(){
         let submissions: Submission[];
 
         const authService = new LecAuthService();
