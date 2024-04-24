@@ -6,12 +6,18 @@ import LecUnitService from '../../../services/LecUnit.service';
 import { Unit } from '../../../models/Unit';
 import LecAuthService from '../../../services/LecAuth.service';
 import { format } from 'date-fns';
+import LecAssignmentService from '../../../services/LecAssignment.service';
+import { useNavigate } from 'react-router-dom';
 
 
 const AssignmentForm = () => {
+
+  const navigate = useNavigate();
+
   const authService = new LecAuthService();
   const unitService = new LecUnitService();
   const lecturer = authService.getCurrentUser();
+  const assignmentService = new LecAssignmentService();
 
   const [formData, setFormData] = useState({
     title: '',
@@ -44,8 +50,20 @@ const AssignmentForm = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const formattedDate = format(formData.due, 'dd/MM/yyyy');
-
     console.log({...formData, due: formattedDate});
+
+    assignmentService.addAssignment({...formData, due: formattedDate})
+    .then(
+      (response) => {
+        alert("Assignment is created");
+        navigate("/lecturerDashboard");
+      }
+      ,(error) => {
+
+      alert("The assignment already exists or the inputs are invalid");
+
+      }
+    );
   };
 
   useEffect(() => {
