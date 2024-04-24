@@ -43,14 +43,18 @@ function Student(){
           
             <SidebarImpl/>
             
-            <div style={{display: "block", alignItems: "center", justifyContent: "center"}}>
-
-            <p>{studentDetails.registration}</p>
-            <p>{studentDetails.fullName}</p>
-            <p>{studentDetails.courseName}</p>
-
-            </div>
-
+            <div className="student-details-container">
+      <h1>Student Details</h1>
+      <div className="detail">
+        <strong>Registration Number:</strong> {studentDetails.registration}
+      </div>
+      <div className="detail">
+        <strong>Full Name:</strong> {studentDetails.fullName}
+      </div>
+      <div className="detail">
+        <strong>Course Name:</strong> {studentDetails.courseName}
+      </div>
+    </div>
         </div>
     );
 }
