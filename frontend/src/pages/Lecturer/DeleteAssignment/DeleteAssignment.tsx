@@ -28,6 +28,8 @@ const DeleteAssignment = () => {
         data: assignmentTitle
     }
 
+    if (window.confirm(`Are you sure you want to delete the assignment titled "${assignmentTitle}"?`)) {
+
     assignmentService.deleteAssignment(miscRequest)
     .then(
         () => {
@@ -38,7 +40,10 @@ const DeleteAssignment = () => {
             toast.error("No such assignment exists");
             
         }
+      
 );
+
+    }
 
   };
 
