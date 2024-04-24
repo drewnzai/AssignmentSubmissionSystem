@@ -31,6 +31,7 @@ export default function DisplaySubs(){
           .then(
             (response) => {
                 setSubmissions(response);
+                setLoading(false);
             }, (error) => {
                 alert("No submissions");
                 navigate("/lecturerDashboard");

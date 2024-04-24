@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Submission } from "../../../models/Submission";
 import { useState } from "react";
 import LecAuthService from "../../../services/LecAuth.service";
@@ -8,6 +8,7 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 
 export default function ModifySub(){
     const location = useLocation();
+    const navigate = useNavigate();
 
     const authService = new LecAuthService();
     const submissionService = new LecSubmissionService();
@@ -46,6 +47,19 @@ export default function ModifySub(){
 
     const handleSubmitChanges = () => {
         console.log('Updated Details:', details);
+
+        submissionService.modifySubmission(details)
+        .then(
+            (response) => {
+                console.log(response);
+                alert("Submission modified successfully");
+                navigate("/lecturerDashboard");
+            },
+            (error) => {
+                alert("Could not modify the assignment");
+                navigate("/lecturerDashboard");
+            }
+        );
         // Implement functionality to handle updated details
     };
 
