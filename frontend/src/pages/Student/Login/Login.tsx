@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../../../services/Auth.service";
 import { LoginRequest } from "../../../models/LoginRequest";
 import Navbar from "../../../components/Navbar/Navbar";
+import { toast, ToastContainer } from "react-toastify";
 
 
 
@@ -26,8 +27,15 @@ function Login(props: any){
         
            authService.login(loginRequest)
            .then(
-            () => navigate("/")
-           );
+            () => {
+              toast.success('Logged In successfully!');
+              navigate("/home")
+
+            },
+            (error) => {
+              toast.error("Wrong user details");
+              
+            });
 
       
         } catch (error) {
@@ -55,6 +63,7 @@ function Login(props: any){
         <a href="/forgot-password">Forgot password?</a>
       </form>
     </div>
+    <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
   );
 }

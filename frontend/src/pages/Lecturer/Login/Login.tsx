@@ -3,6 +3,7 @@ import { UserLoginRequest } from "../../../models/UserLoginRequest";
 import "./Login.css";
 import { useState } from "react";
 import LecAuthService from "../../../services/LecAuth.service";
+import { ToastContainer, toast } from "react-toastify";
 
 function LecLogin(){
 
@@ -22,7 +23,15 @@ function LecLogin(){
         
            authService.login(loginRequest)
            .then(
-            () => navigate("/lecturerDashboard")
+            () => {
+              toast.success('Logged In successfully!');
+              navigate("/lecturerDashboard")
+
+            },
+            (error) => {
+              toast.error("Wrong user details");
+              
+            }
            );
 
       
@@ -48,6 +57,7 @@ function LecLogin(){
         <button type="submit" className="submit-button">Submit</button>
         <a href="/forgot-password">Forgot password?</a>
       </form>
+      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
     );
 }

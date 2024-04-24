@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserLoginRequest } from "../../../models/UserLoginRequest";
 import AdAuthService from "../../../services/AdAuth.service";
+import { toast, ToastContainer } from "react-toastify";
 
 function AdLogin(){
   const authService = new AdAuthService();
@@ -20,8 +21,16 @@ function AdLogin(){
         
            authService.login(loginRequest)
            .then(
-            () => navigate("/adminDashboard")
-           );
+            () => {
+              toast.success('Logged In successfully!');
+              navigate("/adminDashboard")
+
+            },
+            (error) => {
+              toast.error("Wrong user details");
+              
+            }
+          );
 
       
         } catch (error) {
@@ -46,6 +55,7 @@ function AdLogin(){
         <button type="submit" className="submit-button">Submit</button>
         <a href="/forgot-password">Forgot password?</a>
       </form>
+      <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
     </div>
     );
 }
