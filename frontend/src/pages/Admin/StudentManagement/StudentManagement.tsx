@@ -6,6 +6,7 @@ import AdSidebar from "../../../components/Sidebar/AdSidebar";
 import AdminService from "../../../services/Admin.service";
 import AdAuthService from "../../../services/AdAuth.service";
 import { useNavigate } from "react-router-dom";
+import "./StudentManagement.css"
 
 export default function StudentManagement(){
     const navigate = useNavigate();
