@@ -54,7 +54,7 @@ function LecSidebar(){
       <Menu>
       <MenuItem className="menu1" icon={<MenuRoundedIcon />} onClick={handleToggleSidebar}> </MenuItem>
       <MenuItem icon={<HomeIcon/>} component={<Link to="/lecturerDashboard" />} ></MenuItem>
-      <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Student Details</MenuItem>
+      <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Lecturer Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
         <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
         <MenuItem icon={<DeleteForeverIcon/>} component={<Link to="/assignments/delete" />}> Delete</MenuItem> 
