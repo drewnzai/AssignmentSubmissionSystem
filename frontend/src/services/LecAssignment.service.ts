@@ -17,7 +17,7 @@ export default class LecAssignmentService{
     }
 
     deleteAssignment(assignment: any){
-        return axios.post(API_URL + "/delete", assignment, {headers: LecAuthHeader()})
+        return axios.post(API_URL + "/" + "delete", assignment, {headers: LecAuthHeader()})
     .then(
         (response) => {
             return response.data;
@@ -32,7 +32,7 @@ export default class LecAssignmentService{
         const miscRequest: MiscRequest = {
             data: currentUser.email
         }
-        return axios.post(API_URL + "/lecturer", miscRequest, {headers: LecAuthHeader()})
+        return axios.post(API_URL + "/" + "lecturer", miscRequest, {headers: LecAuthHeader()})
         .then(
             (response) => {
                 return response.data
