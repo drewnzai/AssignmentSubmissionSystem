@@ -56,6 +56,7 @@ export default function DisplaySubs(){
         }
 
         try {
+
             const response = await axios.post("http://localhost:8081/api/file/download", miscRequest, {
                 headers: LecAuthHeader(),
                 responseType: "blob"
@@ -63,7 +64,7 @@ export default function DisplaySubs(){
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', 'file.pdf'); // Use the file name from the response or choose a default
+            link.setAttribute('download', `${path.replace(/\//g, '_')}.zip`); // Use the file name from the response or choose a default
             document.body.appendChild(link);
             link.click();
             // @ts-ignore
@@ -85,10 +86,7 @@ export default function DisplaySubs(){
             <LecSidebar/>
             <div className="submission-list">
       {submissions.map((detail, index) => (
-        <Link to={"/modify/" + detail.assignmentTitle}
-        state={{submission: detail}}
-        style={{textDecoration: "none"}}
-        >
+        
         <div key={index} className="submission-item">
           <p><strong>Title:</strong> {detail.assignmentTitle}</p>
           <p><strong>Registration:</strong> {detail.studentRegistration}</p>
@@ -96,11 +94,19 @@ export default function DisplaySubs(){
           <p><strong>Score:</strong> {detail.score}</p>
           <p><strong>Feedback:</strong> {detail.feedback}</p>
           <p><strong>Accepted:</strong> {detail.accepted ? "Yes" : "No"}</p>
+          <Link to={"/modify/" + detail.assignmentTitle}
+        state={{submission: detail}}
+        style={{textDecoration: "none"}}
+        > 
+        <div>
+          <p>Modify</p>
+        </div>
+        
+        </Link>
             <IconButton onClick={() => handleDownload(detail.path)} aria-label="download">
                 <CloudDownloadIcon />
             </IconButton>
         </div>
-        </Link>
       ))}
     </div>
         </div>
