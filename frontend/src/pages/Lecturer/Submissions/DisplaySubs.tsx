@@ -5,7 +5,12 @@ import { Submission } from "../../../models/Submission";
 import LecSubmissionService from "../../../services/LecSubmission.service";
 import LecAuthService from "../../../services/LecAuth.service";
 import { Link, useNavigate } from "react-router-dom";
+import { IconButton } from '@mui/material';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import Loader from "../../../components/Loader/Loader";
+import axios from "axios";
+import {MiscRequest} from "../../../models/MiscRequest";
+import LecAuthHeader from "../../../auth/LecAuth.header";
 
 export default function DisplaySubs(){
     const authService = new LecAuthService();
@@ -44,6 +49,29 @@ export default function DisplaySubs(){
         
         ,[navigate]);
 
+    const handleDownload = async (path: string) => {
+
+        const miscRequest: MiscRequest = {
+            data: path
+        }
+
+        try {
+            const response = await axios.post("http://localhost:8081/api/file/download", miscRequest, {
+                headers: LecAuthHeader(),
+                responseType: "blob"
+            });
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'file.pdf'); // Use the file name from the response or choose a default
+            document.body.appendChild(link);
+            link.click();
+            // @ts-ignore
+            link.parentNode.removeChild(link);
+        } catch (error) {
+            console.error('Download failed:', error);
+        }
+    };
         if(loading){
             return(
               <div className="container">
@@ -68,6 +96,9 @@ export default function DisplaySubs(){
           <p><strong>Score:</strong> {detail.score}</p>
           <p><strong>Feedback:</strong> {detail.feedback}</p>
           <p><strong>Accepted:</strong> {detail.accepted ? "Yes" : "No"}</p>
+            <IconButton onClick={() => handleDownload(detail.path)} aria-label="download">
+                <CloudDownloadIcon />
+            </IconButton>
         </div>
         </Link>
       ))}
