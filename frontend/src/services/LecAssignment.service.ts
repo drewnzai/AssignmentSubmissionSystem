@@ -32,6 +32,7 @@ export default class LecAssignmentService{
         const miscRequest: MiscRequest = {
             data: currentUser.email
         }
+        
         return axios.post(API_URL + "/" + "lecturer", miscRequest, {headers: LecAuthHeader()})
         .then(
             (response) => {
