@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { Link, useNavigate } from "react-router-dom";
 import AuthService from "../../../services/Auth.service";
 import { LoginRequest } from "../../../models/LoginRequest";
 import Navbar from "../../../components/Navbar/Navbar";
 import { toast, ToastContainer } from "react-toastify";
+import AdAuthService from "../../../services/AdAuth.service";
+import LecAuthService from "../../../services/LecAuth.service";
 
 
 
 function Login(props: any){
 
   const authService = new AuthService();
+  const lecService = new LecAuthService();
+  const admService = new AdAuthService();
 
   const navigate = useNavigate();
  
@@ -43,6 +47,22 @@ function Login(props: any){
           // Handle error (e.g., show an error message)
         }
       };
+
+      useEffect(() => {
+        const stu: any | null = authService.getCurrentUser();
+        const lec: any | null = lecService.getCurrentUser();
+        const adm: any | null = admService.getCurrentUser();
+
+        if(adm){
+            navigate("/adminDashboard");
+        }
+        else if(lec){
+            navigate("/lecturerDashboard");
+        }
+        else if(stu){
+            navigate("/home");
+        }
+    },[navigate]);
 
   return (
     <div>
