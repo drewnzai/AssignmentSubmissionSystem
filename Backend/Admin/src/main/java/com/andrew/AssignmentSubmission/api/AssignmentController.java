@@ -43,7 +43,7 @@ public class AssignmentController {
         }
     }
 
-    @DeleteMapping
+    @PostMapping("/delete")
     public ResponseEntity<APIResponse> deleteAssignment(@RequestBody AssignmentDto assignmentDto){
         if(assignmentService.deleteAssignment(assignmentDto)){
 

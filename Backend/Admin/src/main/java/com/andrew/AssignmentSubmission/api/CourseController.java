@@ -43,7 +43,7 @@ public class CourseController {
         }
     }
 
-    @DeleteMapping
+    @PostMapping("/delete")
     public ResponseEntity<APIResponse> deleteCourse(@RequestBody CourseDto courseDto){
         if(courseService.deleteCourse(courseDto.getName())){
 
