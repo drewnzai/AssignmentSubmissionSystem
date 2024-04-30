@@ -8,7 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/download")
+@RequestMapping("/api/file/download")
 @AllArgsConstructor
 @Tag(name = "File Download", description = "Retrieve File from AWS S3 Bucket")
 public class FileDownloaderController {
