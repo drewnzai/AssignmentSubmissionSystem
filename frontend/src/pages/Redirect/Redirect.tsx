@@ -29,7 +29,7 @@ function Redirect(){
         else{
             navigate("/login");
         }
-    },[]);
+    },[navigate]);
 
     return(
         <></>
