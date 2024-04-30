@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import {useEffect} from "react";
 import AuthService from "../../services/Auth.service";
 import LecAuthService from "../../services/LecAuth.service";
 import AdAuthService from "../../services/AdAuth.service";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Redirect(){
     const authService = new AuthService();

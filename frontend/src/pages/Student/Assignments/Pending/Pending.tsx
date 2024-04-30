@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import "./Pending.css";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-import { Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import SidebarImpl from "../../../../components/Sidebar/SidebarImpl";
 import Loader from "../../../../components/Loader/Loader";
-import { Assignment } from "../../../../models/Assignment";
+import {Assignment} from "../../../../models/Assignment";
 import AssignmentService from "../../../../services/Assignment.service";
 import AuthService from "../../../../services/Auth.service";
 

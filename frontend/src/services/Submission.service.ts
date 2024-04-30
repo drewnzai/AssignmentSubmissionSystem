@@ -1,6 +1,6 @@
 import axios from "axios";
-import { MiscRequest } from "../models/MiscRequest";
-import { Submission } from "../models/Submission";
+import {MiscRequest} from "../models/MiscRequest";
+import {Submission} from "../models/Submission";
 import AuthHeader from "../auth/Auth.header";
 import AuthService from "./Auth.service";
 

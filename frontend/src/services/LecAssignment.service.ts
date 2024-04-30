@@ -1,6 +1,6 @@
 import axios from "axios";
 import LecAuthHeader from "../auth/LecAuth.header";
-import { MiscRequest } from "../models/MiscRequest";
+import {MiscRequest} from "../models/MiscRequest";
 import LecAuthService from "./LecAuth.service";
 
 const API_URL = "http://localhost:8081/api/assignment";

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import AuthService from "../../../services/Auth.service";
-import { LoginRequest } from "../../../models/LoginRequest";
+import {LoginRequest} from "../../../models/LoginRequest";
 import Navbar from "../../../components/Navbar/Navbar";
-import { toast, ToastContainer } from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 import AdAuthService from "../../../services/AdAuth.service";
 import LecAuthService from "../../../services/LecAuth.service";
-
 
 
 function Login(props: any){

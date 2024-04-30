@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import AssignmentLateIcon from '@mui/icons-material/AssignmentLate';
 import BookIcon from '@mui/icons-material/Book';
@@ -9,10 +9,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import PersonIcon from '@mui/icons-material/Person';
-import SchoolIcon from '@mui/icons-material/School';
-import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
-import { Link, useNavigate } from "react-router-dom";
-import { Unit } from "../../models/Unit";
+import {Menu, MenuItem, Sidebar, SubMenu} from 'react-pro-sidebar';
+import {Link, useNavigate} from "react-router-dom";
+import {Unit} from "../../models/Unit";
 import AuthService from "../../services/Auth.service";
 import "./SidebarImpl.css";
 

@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from "react";
+import React, {useCallback, useState} from "react";
 import "./Submission.css";
-import { useDropzone } from 'react-dropzone';
-import { useLocation, useNavigate } from "react-router-dom";
+import {useDropzone} from 'react-dropzone';
+import {useLocation, useNavigate} from "react-router-dom";
 import AuthService from "../../../services/Auth.service";
 import AuthHeader from "../../../auth/Auth.header";
 import axios from "axios";

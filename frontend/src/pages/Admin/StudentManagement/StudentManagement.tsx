@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import Student from "../../Student/StudentDetails/Student";
-import { StudentDetails } from "../../../models/StudentDetails";
+import {useEffect, useState} from "react";
+import {toast, ToastContainer} from "react-toastify";
+import {StudentDetails} from "../../../models/StudentDetails";
 import AdSidebar from "../../../components/Sidebar/AdSidebar";
 import AdminService from "../../../services/Admin.service";
 import AdAuthService from "../../../services/AdAuth.service";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import "./StudentManagement.css"
 
 export default function StudentManagement(){

@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
 import "./DisplaySubs.css";
-import { Submission } from "../../../models/Submission";
+import {Submission} from "../../../models/Submission";
 import LecSubmissionService from "../../../services/LecSubmission.service";
 import LecAuthService from "../../../services/LecAuth.service";
-import { Link, useNavigate } from "react-router-dom";
-import { IconButton } from '@mui/material';
+import {Link, useNavigate} from "react-router-dom";
+import {IconButton} from '@mui/material';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import Loader from "../../../components/Loader/Loader";
 import axios from "axios";

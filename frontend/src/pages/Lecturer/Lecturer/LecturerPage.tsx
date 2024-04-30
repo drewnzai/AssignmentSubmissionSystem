@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
-import { LecturerDetails } from "../../../models/LecturerDetails";
+import {LecturerDetails} from "../../../models/LecturerDetails";
 import LecturerService from "../../../services/Lecturer.service";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import LecAuthService from "../../../services/LecAuth.service";
 import Loader from "../../../components/Loader/Loader";
 import "./Lecturer.css";

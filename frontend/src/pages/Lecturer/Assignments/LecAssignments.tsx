@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
 import LecAssignmentService from "../../../services/LecAssignment.service";
 import "./LecAssignments.css";
-import { Assignment } from "../../../models/Assignment";
-import { toast } from "react-toastify";
+import {Assignment} from "../../../models/Assignment";
+import {toast} from "react-toastify";
 import Loader from "../../../components/Loader/Loader";
 
 export default function LecAssignments(){

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./Completed.css";
 import SidebarImpl from "../../../../components/Sidebar/SidebarImpl";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Loader from "../../../../components/Loader/Loader";
 import AuthService from "../../../../services/Auth.service";
 import SubmissionService from "../../../../services/Submission.service";
-import { Submission } from "../../../../models/Submission";
+import {Submission} from "../../../../models/Submission";
 
 
 function Completed(){

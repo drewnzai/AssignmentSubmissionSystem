@@ -1,9 +1,9 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import { Submission } from "../../../models/Submission";
-import { useState } from "react";
+import {useLocation, useNavigate} from "react-router-dom";
+import {Submission} from "../../../models/Submission";
+import {useState} from "react";
 import LecAuthService from "../../../services/LecAuth.service";
 import LecSubmissionService from "../../../services/LecSubmission.service";
-import { FormControlLabel, Checkbox, IconButton } from "@mui/material";
+import {Checkbox, FormControlLabel, IconButton} from "@mui/material";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import "./ModifySub.css";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";

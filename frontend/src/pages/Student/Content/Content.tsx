@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import "./Content.css";
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import { useNavigate } from "react-router-dom";
-import { Unit } from "../../../models/Unit";
+import {useNavigate} from "react-router-dom";
+import {Unit} from "../../../models/Unit";
 import AuthService from "../../../services/Auth.service";
 
 function Content(){

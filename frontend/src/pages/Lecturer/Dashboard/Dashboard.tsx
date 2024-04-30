@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 import LecAuthService from "../../../services/LecAuth.service";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
-import { Unit } from "../../../models/Unit";
+import {Unit} from "../../../models/Unit";
 import LecUnitService from "../../../services/LecUnit.service";
 import Loader from "../../../components/Loader/Loader";
 import "./Dashboard.css";
-import { Card, CardContent, Typography } from "@mui/material";
+import {Card, CardContent, Typography} from "@mui/material";
 
 function LecDashboard(){
     const authService = new LecAuthService();

@@ -1,8 +1,8 @@
 import axios from "axios";
 import AdAuthHeader from "../auth/AdAuth.header";
-import { StudentDetails } from "../models/StudentDetails";
-import { LecturerRequest } from "../models/LecturerRequest";
-import { Unit } from "../models/Unit";
+import {StudentDetails} from "../models/StudentDetails";
+import {LecturerRequest} from "../models/LecturerRequest";
+import {Unit} from "../models/Unit";
 
 const API_URL = "http://localhost:8081/api/";
 

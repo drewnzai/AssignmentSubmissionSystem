@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
 import AddIcon from '@mui/icons-material/Add';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -10,9 +10,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import PersonIcon from '@mui/icons-material/Person';
-import { Menu, MenuItem, Sidebar, SubMenu } from 'react-pro-sidebar';
-import { Link, useNavigate } from "react-router-dom";
-import { Unit } from "../../models/Unit";
+import {Menu, MenuItem, Sidebar, SubMenu} from 'react-pro-sidebar';
+import {Link, useNavigate} from "react-router-dom";
+import {Unit} from "../../models/Unit";
 import LecAuthService from "../../services/LecAuth.service";
 import "./SidebarImpl.css";
 

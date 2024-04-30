@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { UserLoginRequest } from "../../../models/UserLoginRequest";
+import {useNavigate} from "react-router-dom";
+import {UserLoginRequest} from "../../../models/UserLoginRequest";
 import "./Login.css";
-import { useState } from "react";
+import {useState} from "react";
 import LecAuthService from "../../../services/LecAuth.service";
-import { ToastContainer, toast } from "react-toastify";
+import {toast, ToastContainer} from "react-toastify";
 
 function LecLogin(){
 
