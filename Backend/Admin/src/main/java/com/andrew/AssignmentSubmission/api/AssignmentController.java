@@ -71,4 +71,9 @@ public class AssignmentController {
     public List<AssignmentDto> getPendingAssignmentsByUnit(@RequestBody MiscRequest miscRequest){
         return assignmentService.pendingAssignmentsByUnit(miscRequest.getData());
     }
+
+    @PostMapping("/lecturer")
+    public List<AssignmentDto> getPendingAssignments(@RequestBody MiscRequest miscRequest){
+        return assignmentService.getAssignmentsFromLecturer(miscRequest.getData());
+    }
 }
