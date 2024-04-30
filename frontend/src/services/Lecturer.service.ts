@@ -4,8 +4,9 @@ import { UserDetails } from "../models/UserDetails";
 import LecAuthService from "./LecAuth.service";
 import LecAuthHeader from "../auth/LecAuth.header";
 import { LecturerDetails } from "../models/LecturerDetails";
+import { LecturerDets } from "../models/Lecturer";
 
-const API_URL = "http://localhost:8080/api/lecturer";
+const API_URL = "http://localhost:8081/api/lecturer";
 
 export default class LecturerService{
 
@@ -15,8 +16,8 @@ export default class LecturerService{
         
         let userDetails = authService.getCurrentUser();
     
-        const detailsRequest: MiscRequest = {
-            data: userDetails.registration
+        const detailsRequest:LecturerDets = {
+            email: userDetails.email 
         }
     
         const details: LecturerDetails = {

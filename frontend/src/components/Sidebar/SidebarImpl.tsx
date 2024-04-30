@@ -47,18 +47,11 @@ function SidebarImpl(){
       <Sidebar collapsed={collapsed} style={{height: "100vh", marginLeft: "0px", backgroundColor: "rgba(0,166,81,255)"}} className="pro-sidebar">
       <Menu>
       <MenuItem className="menu1" icon={<MenuRoundedIcon />} onClick={handleToggleSidebar}> </MenuItem>
-      <MenuItem icon={<HomeIcon/>} component={<Link to="/" />} ></MenuItem>
+      <MenuItem icon={<HomeIcon/>} component={<Link to="/home" />} ></MenuItem>
       <MenuItem icon={<PersonIcon/>} component={<Link to="/student" />}> Student Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
         <MenuItem icon={<AssignmentLateIcon/>} component={<Link to="/assignments/pending" />}> Pending</MenuItem>
         <MenuItem icon={<CheckIcon/>} component={<Link to="/assignments/completed" />}> Completed</MenuItem>
-        </SubMenu>
-        <SubMenu icon={<SchoolIcon/>} label="Current Units">
-          {units.map(
-            (unit, index) => (
-              <MenuItem>{unit.code}</MenuItem>
-            )
-          )}
         </SubMenu>
           <MenuItem icon={<LogoutIcon/> } onClick={logout}>Logout</MenuItem>
           <MenuItem icon={<HelpOutlineOutlinedIcon />}>FAQ</MenuItem>

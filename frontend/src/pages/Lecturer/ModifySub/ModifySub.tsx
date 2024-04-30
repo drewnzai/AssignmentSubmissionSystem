@@ -5,6 +5,7 @@ import LecAuthService from "../../../services/LecAuth.service";
 import LecSubmissionService from "../../../services/LecSubmission.service";
 import { FormControlLabel, Checkbox, IconButton } from "@mui/material";
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import "./ModifySub.css";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
 
 export default function ModifySub(){
@@ -61,11 +62,11 @@ export default function ModifySub(){
                 navigate("/lecturerDashboard");
             }
         );
-        // Implement functionality to handle updated details
+        
     };
 
     return (
-        <div>
+        <div style={{display: "flex"}}>
       <LecSidebar/>
         <div className="assignment-container">
             <h2>Assignment: {details.assignmentTitle}</h2>

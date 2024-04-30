@@ -57,7 +57,7 @@ function Login(props: any){
           id="registration" 
           name="registration" 
           value={loginRequest.registration} onChange={handleInputChange} 
-          pattern="[A-Z]?P?/\d{2}/\d{5}/\d{2}"
+          pattern="[A-Z]?|[A-Z]P?\d{2}/\d{5}/\d{2}"
           required />
         </div>
         <div className="input-group">

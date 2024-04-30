@@ -1,13 +1,14 @@
 .delete-assignment-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     padding: 20px;
     gap: 10px;
   }
   
   .delete-input {
-    flex-grow: 1;
+    margin-left: 300px;
+    width: 500px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;

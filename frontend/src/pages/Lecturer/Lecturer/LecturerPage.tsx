@@ -7,7 +7,7 @@ import LecAuthService from "../../../services/LecAuth.service";
 import Loader from "../../../components/Loader/Loader";
 import "./Lecturer.css";
 
-function Lecturer(){
+export default function LecturerPage(){
     const authService = new LecAuthService();
     const lecturerService = new LecturerService();
     const navigate = useNavigate();
@@ -40,15 +40,16 @@ function Lecturer(){
         ,[]);
 
         if(loading){
+          return(
+            <div className="container">
+              <Loader/>
+            </div>
+          );
+        }
+
+
             return(
-              <div className="container">
-                <Loader/>
-              </div>
-            );
-          }
-          
-    return(
-        <div>
+              <div style={{display: "flex"}}>
             <LecSidebar/>
 
             <div className="person-details">
@@ -63,5 +64,3 @@ function Lecturer(){
             </div>
     );
 }
-
-export default Lecturer;

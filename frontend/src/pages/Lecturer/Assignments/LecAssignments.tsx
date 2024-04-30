@@ -18,16 +18,22 @@ export default function LecAssignments(){
 
     useEffect(
         () => {
-            assignmentService.getAllAssignments()
-            .then(
-                (response) => {
-                    setAssignments(response);
-                    setLoading(false);
-                },
-                (error) => {
-                    toast.error("No assignments");
+
+            setTimeout(
+                () => {
+                    assignmentService.getAllAssignments()
+                    .then(
+                        (response) => {
+                            setAssignments(response);
+                            setLoading(false);
+                        },
+                        (error) => {
+                            toast.error("No assignments");
+                        }
+                    )
                 }
-            )
+              , 3000);
+            
         }
     ,[]);
 

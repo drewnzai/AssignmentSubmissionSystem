@@ -4,7 +4,7 @@ import { Submission } from "../models/Submission";
 import AuthHeader from "../auth/Auth.header";
 import AuthService from "./Auth.service";
 
-const API_URL = "http://localhost:8081/api/submission";
+const API_URL = "http://localhost:8080/api/submission/";
 
 export default class SubmissionService{
     getAllSubmission(){
@@ -17,11 +17,12 @@ export default class SubmissionService{
             data: user.registration
         }
 
-        return axios.post(API_URL, miscRequest, {headers: AuthHeader()})
+        return axios.post(API_URL + "all", miscRequest, {headers: AuthHeader()})
         .then(
             (response) => {
                 if(response.data){
                     submissions = response.data;
+                    console.log(submissions);
                 }
 
                 return submissions;

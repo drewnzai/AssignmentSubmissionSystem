@@ -31,6 +31,7 @@ export default function DisplaySubs(){
           .then(
             (response) => {
                 setSubmissions(response);
+                console.log(response);
                 setLoading(false);
             }, (error) => {
                 alert("No submissions");
@@ -38,10 +39,10 @@ export default function DisplaySubs(){
             }
           );
         }
-      , 3000);
+      , 50);
         }
         
-        ,[]);
+        ,[navigate]);
 
         if(loading){
             return(
@@ -52,7 +53,7 @@ export default function DisplaySubs(){
           }
 
     return(
-        <div>
+        <div style={{display: "flex"}}>
             <LecSidebar/>
             <div className="submission-list">
       {submissions.map((detail, index) => (

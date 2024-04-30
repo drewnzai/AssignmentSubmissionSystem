@@ -13,10 +13,9 @@ import AssignmentForm from './pages/Lecturer/AssignmentForm/AssignmentForm';
 import AdLogin from './pages/Admin/Login/AdLogin';
 import AdDashboard from './pages/Admin/Dashboard/Dashboard';
 import Redirect from './pages/Redirect/Redirect';
-import Lecturer from './pages/Lecturer/Lecturer/Lecturer';
+import LecturerPage from './pages/Lecturer/Lecturer/LecturerPage';
 import DisplaySubs from './pages/Lecturer/Submissions/DisplaySubs';
 import ModifySub from './pages/Lecturer/ModifySub/ModifySub';
-import 'react-toastify/dist/ReactToastify.css';
 import DeleteAssignment from './pages/Lecturer/DeleteAssignment/DeleteAssignment';
 import LecAssignments from './pages/Lecturer/Assignments/LecAssignments';
 import StudentManagement from './pages/Admin/StudentManagement/StudentManagement';
@@ -34,8 +33,8 @@ const App: React.FC = () => (
 	 <Route path="/submission/:assignmentTitle" Component={Submission} />
      <Route path='/login' Component={Login}/>
 	 <Route path='/lecturerLogin' Component={LecLogin}/>
-	 <Route path='/assignment/delete' Component={DeleteAssignment}/>
-	 <Route path='/lecturer' Component={Lecturer}/>
+	 <Route path='/assignments/delete' Component={DeleteAssignment}/>
+	 <Route path='/lecturer' Component={LecturerPage}/>
 	 <Route path='/modify/:assignmentTitle' Component={ModifySub}/>
 	 <Route path='/adminLogin' Component={AdLogin}/>
 	 <Route path='admin/student-management' Component={StudentManagement}/>

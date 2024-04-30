@@ -49,7 +49,7 @@ const DeleteAssignment = () => {
   };
 
   return (
-    <div>
+    <div style={{display: "flex"}}>
       <LecSidebar/>
     <div className="delete-assignment-container">
       <input

@@ -20,7 +20,7 @@ function Completed(){
     useEffect(
         () => {
       
-            const currentUser: any | null = authService.getCurrentUser();
+            const currentUser = authService.getCurrentUser();
       
       if(!currentUser){
         navigate("/login");
@@ -32,16 +32,18 @@ function Completed(){
           .then(
             (response) => {
                 setSubmissions(response);
+                setLoading(false);
             }, (error) => {
+              console.log(error);
                 alert("No submissions");
                 navigate("/home");
             }
           );
         }
-      , 3000);
+      , 50);
         }
         
-        ,[]);
+        ,[navigate]);
 
         if(loading){
             return(
@@ -54,6 +56,7 @@ function Completed(){
     return(
         <div>
             <SidebarImpl/>
+            <div style={{height: "100vh", }}>
             <div className="submission-list">
       {submissions.map((detail, index) => (
         <div key={index} className="submission-item">
@@ -66,6 +69,7 @@ function Completed(){
         </div>
       ))}
     </div>
+        </div>
         </div>
     );
 }
