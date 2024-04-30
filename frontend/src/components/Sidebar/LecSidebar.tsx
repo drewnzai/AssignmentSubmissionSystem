@@ -14,6 +14,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import PersonIcon from '@mui/icons-material/Person';
 import AddIcon from '@mui/icons-material/Add';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import SchoolIcon from '@mui/icons-material/School';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -56,6 +57,7 @@ function LecSidebar(){
       <MenuItem icon={<HomeIcon/>} component={<Link to="/lecturerDashboard" />} ></MenuItem>
       <MenuItem icon={<PersonIcon/>} component={<Link to="/lecturer" />}> Lecturer Details</MenuItem>
         <SubMenu icon={<BookIcon/>} label="Assignments">
+        <MenuItem icon={<AssignmentIndIcon/>} component={<Link to="/assignments/lecturer" />}> Pending </MenuItem>    
         <MenuItem icon={<AddIcon/>} component={<Link to="/assignments/create" />}> Create</MenuItem>  
         <MenuItem icon={<DeleteForeverIcon/>} component={<Link to="/assignments/delete" />}> Delete</MenuItem> 
         </SubMenu>
