@@ -29,7 +29,7 @@ export default class LecturerService{
     .then(
         (response) => {
 
-            if(response.data.registration){
+            if(response.data){
             details.unitCodes = response.data.unitCodes;
             details.fullName = response.data.fullName;
             }
