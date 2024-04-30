@@ -29,6 +29,7 @@ export default function LecturerPage(){
           .then(
             (response: LecturerDetails) => {
               setData(response);
+              console.log(response);
               setLoading(false);
             }
           );
@@ -37,7 +38,7 @@ export default function LecturerPage(){
 
 
         }
-        ,[]);
+        ,[navigate]);
 
         if(loading){
           return(
