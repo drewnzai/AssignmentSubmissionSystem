@@ -25,9 +25,8 @@ public class StudentService {
     private final PasswordEncoder passwordEncoder;
 
     private AuthService authService;
-    private final User user = authService.getCurrentUser();
 
-    private Logger logger = LoggerFactory.getLogger(StudentService.class);
+    private static final Logger logger = LoggerFactory.getLogger(StudentService.class);
 
 
     public boolean addStudent(StudentDto studentDto){
@@ -57,7 +56,7 @@ public class StudentService {
 
             studentRepository.save(student);
 
-            logger.info(user.getEmail() + " created student: " + student.getEmail());
+            logger.info(authService.getCurrentUser().getEmail() + " created student: " + student.getEmail());
 
             return true;
 
@@ -75,7 +74,7 @@ public class StudentService {
 
             studentRepository.delete(student);
 
-            logger.info(user.getEmail() + " dropped student: " + student.getEmail());
+            logger.info(authService.getCurrentUser().getEmail() + " dropped student: " + student.getEmail());
             return true;
 
         } else {

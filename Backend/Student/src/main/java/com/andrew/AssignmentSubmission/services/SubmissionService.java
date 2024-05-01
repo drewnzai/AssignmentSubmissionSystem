@@ -11,6 +11,7 @@ import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -34,9 +35,8 @@ public class SubmissionService {
     private UserRepository userRepository;
 
     private AuthService authService;
-    private final User user = authService.getCurrentUser();
 
-    private Logger logger = LoggerFactory.getLogger(SubmissionService.class);
+    private static final Logger logger = LoggerFactory.getLogger(SubmissionService.class);
 
 
     public boolean submit(SubmissionDto submissionDto, MultipartFile multipartFile) throws IOException {
@@ -78,7 +78,7 @@ public class SubmissionService {
 
             pendingRepository.delete(pending);
 
-            logger.info(user.getEmail() + " submitted assignment: " + assignment.getTitle());
+            logger.info(authService.getCurrentUser().getEmail() + " submitted assignment: " + assignment.getTitle());
 
             return true;
         }

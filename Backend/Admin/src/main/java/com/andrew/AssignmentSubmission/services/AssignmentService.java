@@ -25,9 +25,8 @@ public class AssignmentService {
     private PendingService pendingService;
     private AuthService authService;
 
-    private final User user = authService.getCurrentUser();
 
-    private Logger logger = LoggerFactory.getLogger(AssignmentService.class);
+    private static final Logger logger = LoggerFactory.getLogger(AssignmentService.class);
 
     public boolean addAssignment(AssignmentDto assignmentDto){
 
@@ -49,7 +48,7 @@ public class AssignmentService {
             assignment.setDue(assignmentDto.getDue());
             assignment.setLecturer(lecturer);
 
-            logger.info(user.getEmail() + " created assignment: " + assignment.getTitle());
+            logger.info(authService.getCurrentUser().getEmail() + " created assignment: " + assignment.getTitle());
             assignmentRepository.save(assignment);
 
             pendingService.populate(assignment);
@@ -67,7 +66,7 @@ public class AssignmentService {
             pendingRepository.deleteAll(pendingRepository.findAllByTitle(title));
             assignmentRepository.delete(assignment);
 
-            logger.info(user.getEmail() + " deleted assignment: " + assignment.getTitle());
+            logger.info(authService.getCurrentUser().getEmail() + " deleted assignment: " + assignment.getTitle());
             return true;
         }
         else{
