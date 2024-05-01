@@ -46,7 +46,7 @@ export default function LecAssignments(){
       }
 
     return (
-        <div>
+        <div style={{display: "flex"}}>
       <LecSidebar/>
         <div className="assignments-container">
             {assignments.map((assignment, index) => (

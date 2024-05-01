@@ -9,15 +9,17 @@
 .assignments-container {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     justify-content: space-around;
     padding: 20px;
-    gap: 20px;
+    gap: 5px;
 }
 
 .assignment-card {
-    flex-basis: 300px; /* Sets a base size for each card */
+    flex-basis: 200px; /* Sets a base size for each card */
     background-color: #f9f9f9;
-    padding: 15px;
+    padding: 8px;
+    height: fit-content;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
