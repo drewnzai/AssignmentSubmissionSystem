@@ -71,6 +71,8 @@ public class SubmissionService {
                 if(Objects.equals(submission.getFeedback(), "")) {
                     SubmissionDto submissionDto = new SubmissionDto();
 
+                    submissionDto.setAssignmentTitle(assignment.getTitle());
+                    submissionDto.setFeedback(submission.getFeedback());
                     submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
                     submissionDto.setUnitCode(assignment.getUnit().getCode());
                     submissionDto.setScore(submission.getScore());
