@@ -5,6 +5,8 @@ import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
 import com.andrew.AssignmentSubmission.models.*;
 import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -21,6 +23,11 @@ public class AssignmentService {
     private PendingRepository pendingRepository;
     private SubmissionRepository submissionRepository;
     private PendingService pendingService;
+    private AuthService authService;
+
+    private final User user = authService.getCurrentUser();
+
+    private Logger logger = LoggerFactory.getLogger(AssignmentService.class);
 
     public boolean addAssignment(AssignmentDto assignmentDto){
 
@@ -42,6 +49,7 @@ public class AssignmentService {
             assignment.setDue(assignmentDto.getDue());
             assignment.setLecturer(lecturer);
 
+            logger.info(user.getEmail() + " created assignment: " + assignment.getTitle());
             assignmentRepository.save(assignment);
 
             pendingService.populate(assignment);
@@ -59,6 +67,7 @@ public class AssignmentService {
             pendingRepository.deleteAll(pendingRepository.findAllByTitle(title));
             assignmentRepository.delete(assignment);
 
+            logger.info(user.getEmail() + " deleted assignment: " + assignment.getTitle());
             return true;
         }
         else{
