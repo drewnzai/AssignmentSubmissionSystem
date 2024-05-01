@@ -11,6 +11,8 @@ import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -25,6 +27,10 @@ public class SubmissionService {
     private AssignmentRepository assignmentRepository;
     private StudentRepository studentRepository;
     private UserRepository userRepository;
+
+    private AuthService authService;
+
+    private static final Logger logger = LoggerFactory.getLogger(SubmissionService.class);
 
 
     public boolean update(SubmissionDto submissionDto){
@@ -46,6 +52,10 @@ public class SubmissionService {
             submission.setFeedback(submissionDto.getFeedback());
 
             submissionRepository.save(submission);
+
+            logger.info(authService.getCurrentUser().getEmail()
+                    + " modified the submission by student "
+                    + student.getRegistration());
 
             return true;
 
