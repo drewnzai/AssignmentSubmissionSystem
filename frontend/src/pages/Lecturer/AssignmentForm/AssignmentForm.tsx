@@ -8,6 +8,7 @@ import LecAuthService from '../../../services/LecAuth.service';
 import {format} from 'date-fns';
 import LecAssignmentService from '../../../services/LecAssignment.service';
 import {useNavigate} from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const AssignmentForm = () => {
@@ -60,7 +61,7 @@ const AssignmentForm = () => {
       }
       ,(error) => {
 
-      alert("The assignment already exists or the inputs are invalid");
+      toast.error("The assignment already exists or the inputs are invalid");
 
       }
     );
@@ -69,10 +70,18 @@ const AssignmentForm = () => {
   useEffect(() => {
     setUnits(unitService.getUnitsFromStorage());
 
-  }, []);
+    if (units.length > 0 && !formData.unitCode) {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        unitCode: units[0].code
+      }));
+    }
+    
+  }, [units]);
 
 
   return (
+    <div>
     <form className="assignment-form" onSubmit={handleSubmit}>
       <label htmlFor="title">Title</label>
       <input
@@ -115,6 +124,8 @@ const AssignmentForm = () => {
 
       <button type="submit">Submit</button>
     </form>
+    <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+    </div>
   );
 };
 
