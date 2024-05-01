@@ -2,12 +2,8 @@ package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.exceptions.AssignmentException;
-import com.andrew.AssignmentSubmission.models.Assignment;
-import com.andrew.AssignmentSubmission.models.Unit;
-import com.andrew.AssignmentSubmission.models.User;
-import com.andrew.AssignmentSubmission.repositories.AssignmentRepository;
-import com.andrew.AssignmentSubmission.repositories.UnitRepository;
-import com.andrew.AssignmentSubmission.repositories.UserRepository;
+import com.andrew.AssignmentSubmission.models.*;
+import com.andrew.AssignmentSubmission.repositories.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +18,8 @@ public class AssignmentService {
     private AssignmentRepository assignmentRepository;
     private UserRepository userRepository;
     private UnitRepository unitRepository;
+    private PendingRepository pendingRepository;
+    private SubmissionRepository submissionRepository;
     private PendingService pendingService;
 
     public boolean addAssignment(AssignmentDto assignmentDto){
@@ -52,15 +50,13 @@ public class AssignmentService {
         }
     }
 
-    public boolean deleteAssignment(AssignmentDto assignmentDto){
-        if(assignmentRepository.existsByTitle(assignmentDto.getTitle())
-                || userRepository.existsByEmail(assignmentDto.getLecturerEmail())
-                || unitRepository.existsByCode(assignmentDto.getUnitCode())){
+    public boolean deleteAssignment(String title){
+        if(assignmentRepository.existsByTitle(title)){
 
-            Assignment assignment = assignmentRepository.findByTitle(assignmentDto.getTitle());
+            Assignment assignment = assignmentRepository.findByTitle(title);
 
-            pendingService.deletePending(assignmentDto.getTitle());
-
+            submissionRepository.deleteAll(submissionRepository.findAllByAssignment(assignment));
+            pendingRepository.deleteAll(pendingRepository.findAllByTitle(title));
             assignmentRepository.delete(assignment);
 
             return true;

@@ -44,8 +44,8 @@ public class AssignmentController {
     }
 
     @PostMapping("/delete")
-    public ResponseEntity<APIResponse> deleteAssignment(@RequestBody AssignmentDto assignmentDto){
-        if(assignmentService.deleteAssignment(assignmentDto)){
+    public ResponseEntity<APIResponse> deleteAssignment(@RequestBody MiscRequest miscRequest){
+        if(assignmentService.deleteAssignment(miscRequest.getData())){
 
             APIResponse apiResponse = APIResponse.builder()
                     .message("Assignment Deleted Successfully")
