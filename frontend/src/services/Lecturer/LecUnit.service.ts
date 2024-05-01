@@ -1,6 +1,6 @@
-import {MiscRequest} from "../models/MiscRequest";
-import {Unit} from "../models/Unit";
-import LecAuthHeader from "../auth/LecAuth.header";
+import {MiscRequest} from "../../models/MiscRequest";
+import {Unit} from "../../models/Unit";
+import LecAuthHeader from "../../auth/LecAuth.header";
 import LecAuthService from "./LecAuth.service";
 import axios from "axios";
 

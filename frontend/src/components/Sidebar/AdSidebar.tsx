@@ -7,7 +7,7 @@ import Person2Icon from '@mui/icons-material/Person2';
 import {useState} from "react";
 import {Menu, MenuItem, Sidebar, SubMenu} from 'react-pro-sidebar';
 import {Link, useNavigate} from "react-router-dom";
-import AdAuthService from "../../services/AdAuth.service";
+import AdAuthService from "../../services/Admin/AdAuth.service";
 import "./SidebarImpl.css";
 
 function AdSidebar(){

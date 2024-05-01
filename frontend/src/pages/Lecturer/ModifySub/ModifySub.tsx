@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
 import { Submission } from "../../../models/Submission";
-import LecAuthService from "../../../services/LecAuth.service";
-import LecSubmissionService from "../../../services/LecSubmission.service";
+import LecAuthService from "../../../services/Lecturer/LecAuth.service";
+import LecSubmissionService from "../../../services/Lecturer/LecSubmission.service";
 import "./ModifySub.css";
 
 export default function ModifySub(){

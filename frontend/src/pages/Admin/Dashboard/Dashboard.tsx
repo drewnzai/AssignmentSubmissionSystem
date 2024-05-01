@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react";
-import AdAuthService from "../../../services/AdAuth.service";
+import AdAuthService from "../../../services/Admin/AdAuth.service";
 import {useNavigate} from "react-router-dom";
 import AdSidebar from "../../../components/Sidebar/AdSidebar";
 import "./Dashboard.css";
 import Loader from "../../../components/Loader/Loader";
-import AdminService from "../../../services/Admin.service";
+import AdminService from "../../../services/Admin/Admin.service";
 import {SystemDetails} from "../../../models/SystemDetails";
 import {Bar, Line} from "react-chartjs-2";
 

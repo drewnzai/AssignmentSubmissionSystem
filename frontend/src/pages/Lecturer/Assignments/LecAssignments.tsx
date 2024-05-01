@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
-import LecAssignmentService from "../../../services/LecAssignment.service";
+import LecAssignmentService from "../../../services/Lecturer/LecAssignment.service";
 import "./LecAssignments.css";
 import {Assignment} from "../../../models/Assignment";
 import {toast} from "react-toastify";

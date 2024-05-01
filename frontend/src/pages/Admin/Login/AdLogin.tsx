@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {UserLoginRequest} from "../../../models/UserLoginRequest";
-import AdAuthService from "../../../services/AdAuth.service";
+import AdAuthService from "../../../services/Admin/AdAuth.service";
 import {toast, ToastContainer} from "react-toastify";
 
 function AdLogin(){

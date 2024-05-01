@@ -1,7 +1,7 @@
 import {useEffect} from "react";
-import AuthService from "../../services/Auth.service";
-import LecAuthService from "../../services/LecAuth.service";
-import AdAuthService from "../../services/AdAuth.service";
+import AuthService from "../../services/Student/Auth.service";
+import LecAuthService from "../../services/Lecturer/LecAuth.service";
+import AdAuthService from "../../services/Admin/AdAuth.service";
 import {useNavigate} from "react-router-dom";
 
 function Redirect(){

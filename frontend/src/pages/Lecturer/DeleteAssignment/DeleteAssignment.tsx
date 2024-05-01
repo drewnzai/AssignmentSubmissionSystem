@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './DeleteAssignment.css';
-import LecAssignmentService from '../../../services/LecAssignment.service';
+import LecAssignmentService from '../../../services/Lecturer/LecAssignment.service';
 import {useNavigate} from 'react-router-dom';
 import {MiscRequest} from '../../../models/MiscRequest';
 import LecSidebar from '../../../components/Sidebar/LecSidebar';

@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './AssignmentForm.css';
-import LecUnitService from '../../../services/LecUnit.service';
+import LecUnitService from '../../../services/Lecturer/LecUnit.service';
 import {Unit} from '../../../models/Unit';
-import LecAuthService from '../../../services/LecAuth.service';
+import LecAuthService from '../../../services/Lecturer/LecAuth.service';
 import {format} from 'date-fns';
-import LecAssignmentService from '../../../services/LecAssignment.service';
+import LecAssignmentService from '../../../services/Lecturer/LecAssignment.service';
 import {useNavigate} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 

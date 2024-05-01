@@ -2,7 +2,7 @@ import {useNavigate} from "react-router-dom";
 import {UserLoginRequest} from "../../../models/UserLoginRequest";
 import "./Login.css";
 import {useState} from "react";
-import LecAuthService from "../../../services/LecAuth.service";
+import LecAuthService from "../../../services/Lecturer/LecAuth.service";
 import {toast, ToastContainer} from "react-toastify";
 
 function LecLogin(){

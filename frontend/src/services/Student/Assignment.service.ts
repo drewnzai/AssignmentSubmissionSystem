@@ -1,7 +1,7 @@
 import axios from "axios";
-import AuthHeader from "../auth/Auth.header";
-import {Assignment} from "../models/Assignment";
-import {MiscRequest} from "../models/MiscRequest";
+import AuthHeader from "../../auth/Auth.header";
+import {Assignment} from "../../models/Assignment";
+import {MiscRequest} from "../../models/MiscRequest";
 import AuthService from "./Auth.service";
 
 const API_URL = "http://localhost:8080/api/assignment";

@@ -3,8 +3,8 @@ import "./Completed.css";
 import SidebarImpl from "../../../../components/Sidebar/SidebarImpl";
 import {useNavigate} from "react-router-dom";
 import Loader from "../../../../components/Loader/Loader";
-import AuthService from "../../../../services/Auth.service";
-import SubmissionService from "../../../../services/Submission.service";
+import AuthService from "../../../../services/Student/Auth.service";
+import SubmissionService from "../../../../services/Student/Submission.service";
 import {Submission} from "../../../../models/Submission";
 
 

@@ -1,8 +1,8 @@
 import axios from "axios";
 import LecAuthService from "./LecAuth.service";
-import LecAuthHeader from "../auth/LecAuth.header";
-import {LecturerDetails} from "../models/LecturerDetails";
-import {LecturerDets} from "../models/Lecturer";
+import LecAuthHeader from "../../auth/LecAuth.header";
+import {LecturerDetails} from "../../models/LecturerDetails";
+import {LecturerDets} from "../../models/Lecturer";
 
 const API_URL = "http://localhost:8081/api/lecturer";
 

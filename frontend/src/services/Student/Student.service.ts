@@ -1,7 +1,7 @@
 import axios from "axios";
-import AuthHeader from "../auth/Auth.header";
-import {MiscRequest} from "../models/MiscRequest";
-import {StudentDetails} from "../models/StudentDetails";
+import AuthHeader from "../../auth/Auth.header";
+import {MiscRequest} from "../../models/MiscRequest";
+import {StudentDetails} from "../../models/StudentDetails";
 import AuthService from "./Auth.service";
 
 

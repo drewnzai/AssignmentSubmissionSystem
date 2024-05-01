@@ -2,8 +2,8 @@ import {useEffect, useState} from "react";
 import {toast, ToastContainer} from "react-toastify";
 import {StudentDetails} from "../../../models/StudentDetails";
 import AdSidebar from "../../../components/Sidebar/AdSidebar";
-import AdminService from "../../../services/Admin.service";
-import AdAuthService from "../../../services/AdAuth.service";
+import AdminService from "../../../services/Admin/Admin.service";
+import AdAuthService from "../../../services/Admin/AdAuth.service";
 import {useNavigate} from "react-router-dom";
 import "./StudentManagement.css"
 

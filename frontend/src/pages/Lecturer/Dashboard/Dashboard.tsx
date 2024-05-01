@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import LecAuthService from "../../../services/LecAuth.service";
+import LecAuthService from "../../../services/Lecturer/LecAuth.service";
 import LecSidebar from "../../../components/Sidebar/LecSidebar";
 import {Unit} from "../../../models/Unit";
-import LecUnitService from "../../../services/LecUnit.service";
+import LecUnitService from "../../../services/Lecturer/LecUnit.service";
 import Loader from "../../../components/Loader/Loader";
 import "./Dashboard.css";
 import {Card, CardContent, Typography} from "@mui/material";

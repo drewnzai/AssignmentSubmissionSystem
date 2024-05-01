@@ -1,7 +1,7 @@
 import axios from "axios";
-import {MiscRequest} from "../models/MiscRequest";
-import LecAuthHeader from "../auth/LecAuth.header";
-import {Submission} from "../models/Submission";
+import {MiscRequest} from "../../models/MiscRequest";
+import LecAuthHeader from "../../auth/LecAuth.header";
+import {Submission} from "../../models/Submission";
 import LecAuthService from "./LecAuth.service";
 
 const API_URL = "http://localhost:8081/api/submission";

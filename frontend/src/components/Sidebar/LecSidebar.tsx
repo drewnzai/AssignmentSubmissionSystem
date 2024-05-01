@@ -13,7 +13,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import {Menu, MenuItem, Sidebar, SubMenu} from 'react-pro-sidebar';
 import {Link, useNavigate} from "react-router-dom";
 import {Unit} from "../../models/Unit";
-import LecAuthService from "../../services/LecAuth.service";
+import LecAuthService from "../../services/Lecturer/LecAuth.service";
 import "./SidebarImpl.css";
 
 function LecSidebar(){

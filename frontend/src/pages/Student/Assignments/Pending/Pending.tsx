@@ -9,8 +9,8 @@ import {Link, useNavigate} from "react-router-dom";
 import SidebarImpl from "../../../../components/Sidebar/SidebarImpl";
 import Loader from "../../../../components/Loader/Loader";
 import {Assignment} from "../../../../models/Assignment";
-import AssignmentService from "../../../../services/Assignment.service";
-import AuthService from "../../../../services/Auth.service";
+import AssignmentService from "../../../../services/Student/Assignment.service";
+import AuthService from "../../../../services/Student/Auth.service";
 
 function Pending(){
 

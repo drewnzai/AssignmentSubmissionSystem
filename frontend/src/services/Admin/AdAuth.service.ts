@@ -1,5 +1,5 @@
 import axios from "axios";
-import {UserLoginRequest} from "../models/UserLoginRequest";
+import {UserLoginRequest} from "../../models/UserLoginRequest";
 
 const API_URL = "http://localhost:8081/api/auth/"
 

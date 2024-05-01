@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import "./Login.css";
 import {useNavigate} from "react-router-dom";
-import AuthService from "../../../services/Auth.service";
+import AuthService from "../../../services/Student/Auth.service";
 import {LoginRequest} from "../../../models/LoginRequest";
 import Navbar from "../../../components/Navbar/Navbar";
 import {toast, ToastContainer} from "react-toastify";
-import AdAuthService from "../../../services/AdAuth.service";
-import LecAuthService from "../../../services/LecAuth.service";
+import AdAuthService from "../../../services/Admin/AdAuth.service";
+import LecAuthService from "../../../services/Lecturer/LecAuth.service";
 
 
 function Login(props: any){
