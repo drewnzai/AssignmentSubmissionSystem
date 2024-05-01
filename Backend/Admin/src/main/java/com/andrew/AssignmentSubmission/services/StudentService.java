@@ -3,10 +3,13 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.StudentDto;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
+import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.CourseRepository;
 import com.andrew.AssignmentSubmission.repositories.StudentRepository;
 import com.andrew.AssignmentSubmission.repositories.SubmissionRepository;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +23,11 @@ public class StudentService {
     private CourseRepository courseRepository;
     private SubmissionRepository submissionRepository;
     private final PasswordEncoder passwordEncoder;
+
+    private AuthService authService;
+    private final User user = authService.getCurrentUser();
+
+    private Logger logger = LoggerFactory.getLogger(StudentService.class);
 
 
     public boolean addStudent(StudentDto studentDto){
@@ -49,6 +57,8 @@ public class StudentService {
 
             studentRepository.save(student);
 
+            logger.info(user.getEmail() + " created student: " + student.getEmail());
+
             return true;
 
         }
@@ -65,6 +75,7 @@ public class StudentService {
 
             studentRepository.delete(student);
 
+            logger.info(user.getEmail() + " dropped student: " + student.getEmail());
             return true;
 
         } else {
