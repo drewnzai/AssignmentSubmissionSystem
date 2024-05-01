@@ -52,7 +52,6 @@ export default function LecAssignments(){
             {assignments.map((assignment, index) => (
                 <div key={index} className="assignment-card">
                     <h2>{assignment.title}</h2>
-                    <p><strong>Lecturer Email:</strong> {assignment.lecturerEmail}</p>
                     <p><strong>Description:</strong> {assignment.description}</p>
                     <p><strong>Unit Code:</strong> {assignment.unitCode}</p>
                     <p><strong>Due Date:</strong> {assignment.due.toString()}</p>
