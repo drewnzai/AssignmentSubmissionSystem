@@ -46,11 +46,6 @@ public class PendingService {
 
     }
 
-    public void deletePending(String title){
-
-        pendingRepository.deleteAll(pendingRepository.findAllByTitle(title));
-    }
-
     @Scheduled(cron = "0 0 0 * * ?")
     public void deleteAllOverdue(){
 
