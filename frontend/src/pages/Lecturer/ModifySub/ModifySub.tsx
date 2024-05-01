@@ -1,12 +1,12 @@
-import {useLocation, useNavigate} from "react-router-dom";
-import {Submission} from "../../../models/Submission";
-import {useState} from "react";
+import { Checkbox, FormControlLabel } from "@mui/material";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import LecSidebar from "../../../components/Sidebar/LecSidebar";
+import { Submission } from "../../../models/Submission";
 import LecAuthService from "../../../services/LecAuth.service";
 import LecSubmissionService from "../../../services/LecSubmission.service";
-import {Checkbox, FormControlLabel, IconButton} from "@mui/material";
-import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import "./ModifySub.css";
-import LecSidebar from "../../../components/Sidebar/LecSidebar";
 
 export default function ModifySub(){
     const location = useLocation();
@@ -41,12 +41,6 @@ export default function ModifySub(){
         });
     };
 
-    const handleDownload = () => {
-        // Assuming the 'path' contains a valid URL to a downloadable file
-        window.open(details.path, '_blank');
-    };
-
-
     const handleSubmitChanges = () => {
         console.log('Updated Details:', details);
 
@@ -54,11 +48,11 @@ export default function ModifySub(){
         .then(
             (response) => {
                 console.log(response);
-                alert("Submission modified successfully");
+                toast.success("Submission modified successfully");
                 navigate("/lecturerDashboard");
             },
             (error) => {
-                alert("Could not modify the assignment");
+                toast.error("Could not modify the assignment");
                 navigate("/lecturerDashboard");
             }
         );
@@ -84,11 +78,9 @@ export default function ModifySub(){
                 control={<Checkbox checked={details.accepted} onChange={handleAcceptedChange} color="primary" />}
                 label="Accepted"
             />
-            <IconButton onClick={handleDownload} aria-label="download" size="large">
-                <CloudDownloadIcon />
-            </IconButton>
             <button onClick={handleSubmitChanges}>Submit Changes</button>
         </div>
+        <ToastContainer position="top-center" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
         </div>
     );
 }
