@@ -1,6 +1,14 @@
+.loader-container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dropzone {
     border: 2px dashed #eeeeee;
     border-radius: 5px;
+    width: 100px;
     padding: 20px;
     text-align: center;
     cursor: pointer;
@@ -18,7 +26,8 @@
   }
 
   .container {
-    text-align: center;
+    display: block;
+    align-items: center;
   }
   
   .preview {
@@ -26,7 +35,7 @@
   }
   
   .image-preview {
-    width: auto; /* or 100% for full width */
+    width: fit-content;/* or 100% for full width */
     max-height: 200px; /* adjust as necessary */
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -37,6 +46,7 @@
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
+    width: fit-content;
     border: none;
     border-radius: 5px;
     background-color: #2196f3;

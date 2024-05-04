@@ -5,6 +5,8 @@ import {useLocation, useNavigate} from "react-router-dom";
 import AuthService from "../../../services/Student/Auth.service";
 import AuthHeader from "../../../auth/Auth.header";
 import axios from "axios";
+import Loader from "../../../components/Loader/Loader";
+import { toast } from "react-toastify";
 
 const API_URL = "http://localhost:8080/api/submission";
 
@@ -14,6 +16,7 @@ function Submission(){
     const location = useLocation();
     const {assignment} = location.state;
     const [file, setFile] = useState<File | null>(null);
+    const [loading, setLoading] = useState(false);
     const [previewSrc, setPreviewSrc] = useState<string | null>(null);
 
     const authService = new AuthService();
@@ -49,18 +52,21 @@ function Submission(){
         formData.append('file', file);
 
         try{
-            const response = await axios.post(API_URL, formData, {headers: AuthHeader()});
+
+            setLoading(true);
             
-            console.log(response.data);            
+            await axios.post(API_URL, formData, {headers: AuthHeader()});
+            
+            setLoading(false);
+
             alert('Assignment submission successful');
 
-            navigate("/assignments/pending");
+            navigate("/home");
 
         } catch (error) {
             
-            console.error('Error submitting the form', error);
+            toast.error("File submission failed");
 
-            alert('Failed to submit the file');
         }
     };
 
@@ -69,6 +75,15 @@ function Submission(){
         multiple: false,
         accept: {}
       });
+
+
+    if(loading){
+        return(
+          <div className="loader-container">
+            <Loader/>
+          </div>
+        );
+      }
 
     return(
         <div className="container">
@@ -82,8 +97,7 @@ function Submission(){
         </div>
         {previewSrc && (
           <div className="preview">
-            <p>Preview:</p>
-            <img src={previewSrc} alt="Preview" className="image-preview" />
+            <p>File Name: {file?.name}</p>
           </div>
         )}
         <button onClick={handleSubmit} className="submit-button">Submit</button>
