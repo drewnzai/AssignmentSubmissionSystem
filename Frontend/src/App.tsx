@@ -20,9 +20,9 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Dashboard/>}/>
-      <Route path='/students' element={<Students/>}/>
-      <Route path='/forms' element={<Forms/>}/>
-      <Route path='/faq' element={<FAQ/>}/>
+      <Route path='/admin/students' element={<Students/>}/>
+      <Route path='/admin/forms' element={<Forms/>}/>
+      <Route path='/admin/faq' element={<FAQ/>}/>
       <Route path='/login' element={<Login/>}/>
     </Routes>
     </BrowserRouter>

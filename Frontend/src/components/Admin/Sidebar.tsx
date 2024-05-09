@@ -119,21 +119,21 @@ export default function Sidebar(){
               </Typography>
               <Item
                 title="Students"
-                to="/students"
+                to="/admin/students"
                 icon={<PersonOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="Profile Form"
-                to="/forms"
+                to="/admin/forms"
                 icon={<AssignmentIndIcon />}
                 selected={selected}
                 setSelected={setSelected}
               />
               <Item
                 title="FAQ Page"
-                to="/faq"
+                to="/admin/faq"
                 icon={<HelpOutlineOutlinedIcon />}
                 selected={selected}
                 setSelected={setSelected}
