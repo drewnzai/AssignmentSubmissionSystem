@@ -6,6 +6,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ColorModeContext, useMode } from './theme';
 import Forms from './pages/Admin/Forms';
 import FAQ from './pages/Admin/FAQ';
+import Login from "./pages/Login.tsx";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -22,6 +23,7 @@ function App() {
       <Route path='/students' element={<Students/>}/>
       <Route path='/forms' element={<Forms/>}/>
       <Route path='/faq' element={<FAQ/>}/>
+      <Route path='/login' element={<Login/>}/>
     </Routes>
     </BrowserRouter>
     </ThemeProvider>
