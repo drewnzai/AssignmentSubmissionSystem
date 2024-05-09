@@ -1,14 +1,13 @@
-
-import { styled } from '@mui/system';
-import { TabsList as BaseTabsList } from '@mui/base/TabsList';
-import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
-import { buttonClasses } from '@mui/base/Button';
-import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
-import { Tabs } from '@mui/base/Tabs';
+import {styled} from '@mui/system';
+import {TabsList as BaseTabsList} from '@mui/base/TabsList';
+import {TabPanel as BaseTabPanel} from '@mui/base/TabPanel';
+import {buttonClasses} from '@mui/base/Button';
+import {Tab as BaseTab, tabClasses} from '@mui/base/Tab';
+import {Tabs} from '@mui/base/Tabs';
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import Header from "../../components/Header/Header";
-import { tokens } from "../../theme";
+import {tokens} from "../../theme";
 import useTheme from "@mui/material/styles/useTheme";
 import StudentManagement from '../../components/Admin/StudentManagement';
 import LecturerManagement from '../../components/Admin/LecturerManagement';

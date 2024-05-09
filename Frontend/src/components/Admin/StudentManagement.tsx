@@ -1,5 +1,5 @@
-import { Box, Button, TextField, useMediaQuery } from "@mui/material";
-import { Formik } from "formik";
+import {Box, Button, TextField, useMediaQuery} from "@mui/material";
+import {Formik} from "formik";
 import * as yup from "yup";
 
 const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");

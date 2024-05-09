@@ -1,4 +1,4 @@
-import {Box, Button, TextField, useMediaQuery} from "@mui/material";
+import {Box} from "@mui/material";
 import {tokens} from "../theme.ts";
 import useTheme from "@mui/material/styles/useTheme";
 import {styled} from "@mui/system";
@@ -7,11 +7,6 @@ import {tabClasses} from "@mui/base/Tab";
 import {buttonClasses} from "@mui/base/Button";
 import {TabPanel as BaseTabPanel} from "@mui/base/TabPanel/TabPanel";
 import {TabsList as BaseTabsList} from "@mui/base/TabsList/TabsList";
-import * as yup from "yup";
-import {Formik} from "formik";
-import Typography from "@mui/material/Typography";
-import StudentManagement from "../components/Admin/StudentManagement.tsx";
-import LecturerManagement from "../components/Admin/LecturerManagement.tsx";
 import {Tabs} from "@mui/base/Tabs";
 import AdminLogin from "../components/Admin/AdminLogin.tsx";
 import LecturerLogin from "../components/Lecturer/LecturerLogin.tsx";

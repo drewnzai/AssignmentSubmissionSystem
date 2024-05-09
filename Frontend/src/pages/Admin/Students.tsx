@@ -1,11 +1,10 @@
-
-import { Box, useTheme } from "@mui/material";
+import {Box, useTheme} from "@mui/material";
 import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
-import { students } from "../../data/students";
+import {students} from "../../data/students";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
-import { tokens } from "../../theme";
+import {tokens} from "../../theme";
 
 
 export default function Students(){

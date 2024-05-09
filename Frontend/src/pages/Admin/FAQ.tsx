@@ -1,4 +1,4 @@
-import { useTheme } from "@mui/material";
+import {useTheme} from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
-import { tokens } from "../../theme";
+import {tokens} from "../../theme";
 
 export default function FAQ(){
 

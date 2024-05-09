@@ -1,5 +1,5 @@
-import { tokens } from "../../theme";
-import { Box, Typography, useTheme } from "@mui/material";
+import {tokens} from "../../theme";
+import {Box, Typography, useTheme} from "@mui/material";
 
 export default function Header({title, subtitle}: {title: string, subtitle:string}){
     const theme = useTheme();
