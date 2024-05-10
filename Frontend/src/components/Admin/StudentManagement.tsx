@@ -1,8 +1,8 @@
-import {Box, Button, TextField, useMediaQuery} from "@mui/material";
+import {Box, Button, InputLabel, MenuItem, Select, TextField, useMediaQuery} from "@mui/material";
 import {Formik} from "formik";
 import * as yup from "yup";
 import { StudentDto } from "../../models/StudentDto";
-import { useState } from "react";
+import AdminService from "../../services/Admin.service";
 
 const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");
 
@@ -11,26 +11,25 @@ const checkoutSchema = yup.object().shape({
     lastName: yup.string().required("required"),
     registration: yup.string()
     .matches(registrationRegEx, "Invalid Registration Number")
-    .required("required"),
-    courseName: yup.string().required("required")
+    .required("required")
 });
 
-
-
-export default function StudentManagement(){
-  const [student, setStudent] = useState<StudentDto>({
+const initialValues:StudentDto = {
   firstName: "",
   lastName: "",
   registration: "",
   courseName: ""
-  });
+};
 
+export default function StudentManagement(){
+  
   const isNonMobile = useMediaQuery("(min-width:600px)");
-    
-    const handleFormSubmit = (values: StudentDto) => {
-        setStudent(values);
-
-        console.log(values);
+  
+  const service =  new AdminService();
+  
+  const handleFormSubmit = (values: StudentDto) => {
+        
+        service.addStudent(values);
     };
 
 
@@ -38,7 +37,7 @@ export default function StudentManagement(){
         <Box m="20px">
         <Formik
         onSubmit={handleFormSubmit}
-        initialValues={student}
+        initialValues={initialValues}
         validationSchema={checkoutSchema}
       >
         {({
@@ -100,19 +99,19 @@ export default function StudentManagement(){
                 sx={{ gridColumn: "span 2" }}
               />
 
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Course Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.courseName}
-                name="courseName"
-                error={!!touched.courseName && !!errors.courseName}
-                helperText={touched.courseName && errors.courseName}
-                sx={{ gridColumn: "span 2" }}
-              />
+          <InputLabel id="demo-simple-select-label">Course Name</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={values.courseName}
+              label="Age"
+              name="courseName"
+              onChange={handleChange}
+            >
+              <MenuItem value={"Bsc. Computer Science"}>Bsc. Computer Science</MenuItem>
+              <MenuItem value={"BA. General Economics"}>BA. General Economics</MenuItem>
+              <MenuItem value={"BEng. Mechanical Engineering"}>BEng. Mechanical Engineering</MenuItem>
+            </Select>
               
             </Box>
             <Box display="flex" justifyContent="space-between" mt="20px">
