@@ -7,6 +7,7 @@ import {ColorModeContext, useMode} from './theme';
 import Forms from './pages/Admin/Forms';
 import FAQ from './pages/Admin/FAQ';
 import Login from "./pages/Login.tsx";
+import AdminProtectedRoutes from './auth/Routes/AdminProtectedRoutes.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -19,11 +20,13 @@ function App() {
     <CssBaseline/>
     <BrowserRouter>
     <Routes>
+      <Route element={<AdminProtectedRoutes/>}>
       <Route path='/' element={<Dashboard/>}/>
       <Route path='/admin/students' element={<Students/>}/>
       <Route path='/admin/forms' element={<Forms/>}/>
       <Route path='/admin/faq' element={<FAQ/>}/>
-      <Route path='/login' element={<Login/>}/>
+      </Route>
+    <Route path='/login' element={<Login/>}/>
     </Routes>
     </BrowserRouter>
     </ThemeProvider>
