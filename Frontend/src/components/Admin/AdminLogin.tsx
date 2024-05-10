@@ -4,10 +4,16 @@ import {Formik} from "formik";
 import * as yup from "yup";
 import useTheme from "@mui/material/styles/useTheme";
 import {tokens} from "../../theme.ts";
+import AdminService from "../../services/Admin.service.ts";
+import { LoginRequest } from "../../models/LoginRequest.ts";
+import { useNavigate } from "react-router-dom";
 
 export default function AdminLogin(){
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const navigate = useNavigate();
+    const service = new AdminService();
 
     const checkoutSchema = yup.object().shape({
         password: yup.string().required("required"),
@@ -17,13 +23,19 @@ export default function AdminLogin(){
 
     });
 
-    const initialValues = {
+    const initialValues:LoginRequest = {
         email: "",
         password: ""
     };
 
-    const handleFormSubmit = (values: any) => {
-        console.log(values);
+    const handleFormSubmit = (values: LoginRequest) => {
+        service.login(values)
+        .then(
+            (_response) => {
+                navigate("/");
+            }
+        )
+        
     };
 
     return(
