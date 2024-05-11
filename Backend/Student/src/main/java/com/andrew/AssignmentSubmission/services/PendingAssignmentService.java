@@ -3,6 +3,7 @@ package com.andrew.AssignmentSubmission.services;
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.models.Pending;
 import com.andrew.AssignmentSubmission.repositories.PendingRepository;
+import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -18,6 +19,7 @@ import java.util.List;
 public class PendingAssignmentService {
 
     private PendingRepository pendingRepository;
+    private UnitRepository unitRepository;
     private UserRepository userRepository;
 
     public List<AssignmentDto> pendingAssignments(String registration) {
@@ -42,6 +44,25 @@ public class PendingAssignmentService {
 
 
         return pendingAssignments;
+    }
+
+    public List<AssignmentDto> getAllPendingsFromUnit(String unitCode){
+        List<AssignmentDto> assignments = new ArrayList<>();
+
+
+        for(Pending pending: pendingRepository.findAllByUnit(unitRepository.findByCode(unitCode))){
+            AssignmentDto assignmentDto = new AssignmentDto();
+
+            assignmentDto.setUnitCode(pending.getUnit().getCode());
+            assignmentDto.setDescription(pending.getDescription());
+            assignmentDto.setDue(pending.getDue());
+            assignmentDto.setTitle(pending.getTitle());
+            assignmentDto.setLecturerEmail("");
+
+            assignments.add(assignmentDto);
+        }
+
+        return assignments;
     }
 
     @EventListener(value = ApplicationReadyEvent.class)
