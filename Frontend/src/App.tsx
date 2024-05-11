@@ -21,7 +21,7 @@ function App() {
     <BrowserRouter>
     <Routes>
       <Route element={<AdminProtectedRoutes/>}>
-      <Route path='/' element={<Dashboard/>}/>
+      <Route path='/admin/home' element={<Dashboard/>}/>
       <Route path='/admin/students' element={<Students/>}/>
       <Route path='/admin/forms' element={<Forms/>}/>
       <Route path='/admin/faq' element={<FAQ/>}/>
