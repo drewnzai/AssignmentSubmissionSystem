@@ -49,9 +49,6 @@ export default class AdminService{
         })
         .then(
             (response ) => {
-                    if(response.data){
-                        console.log(response.data);
-                    }
                     return response;
             }, (error) => {
                 console.error(error);
@@ -65,9 +62,6 @@ export default class AdminService{
         })
         .then(
             (response ) => {
-                    if(response.data){
-                        console.log(response.data);
-                    }
                     return response;
             }, (error) => {
                 console.error(error);
