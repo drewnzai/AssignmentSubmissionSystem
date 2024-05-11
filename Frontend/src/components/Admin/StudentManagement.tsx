@@ -128,9 +128,6 @@ export default function StudentManagement(){
                 )
             
             )}
-              
-              <MenuItem value={"BA. General Economics"}>BA. General Economics</MenuItem>
-              <MenuItem value={"BEng. Mechanical Engineering"}>BEng. Mechanical Engineering</MenuItem>
             </Select>
               
             </Box>
