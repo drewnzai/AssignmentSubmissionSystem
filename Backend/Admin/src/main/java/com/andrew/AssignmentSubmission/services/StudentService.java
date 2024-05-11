@@ -97,6 +97,7 @@ public class StudentService {
             studentDetails.setFullName(
                     student.getFirstName() + " " + student.getLastName()
             );
+            studentDetails.setCourseName(student.getEnrolledCourse().getName());
 
             students.add(studentDetails);
         }
