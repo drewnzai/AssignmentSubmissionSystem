@@ -59,6 +59,22 @@ export default class AdminService{
         )
     }
 
+    deleteStudent(student: StudentDto){
+        return axios.post(API_URL + "student/delete", student, {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`}
+        })
+        .then(
+            (response ) => {
+                    if(response.data){
+                        console.log(response.data);
+                    }
+                    return response;
+            }, (error) => {
+                console.error(error);
+            }
+        )
+    }
+
     getStudents(){
         return axios.get(API_URL + "student/all", {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`}
