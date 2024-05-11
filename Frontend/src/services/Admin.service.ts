@@ -9,7 +9,7 @@ export default class AdminService{
 
     private navigate = useNavigate();
 
-    getCurrentUserToken(){
+    private getCurrentUserToken(){
         const userStr = localStorage.getItem("admin");
         
         if(userStr){
@@ -17,6 +17,14 @@ export default class AdminService{
         return user.authenticationToken;
         }
 
+    }
+
+    getCurrentUser(){
+        const userStr = localStorage.getItem("admin");
+        
+        if(userStr){
+        return JSON.parse(userStr);
+        }
     }
    
     login(loginRequest: LoginRequest){
