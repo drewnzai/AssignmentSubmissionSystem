@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.services;
 
+import com.andrew.AssignmentSubmission.dto.CourseDto;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
 import com.andrew.AssignmentSubmission.models.UnitCourseOffering;
@@ -60,6 +61,17 @@ public class CourseService {
 
             return false;
         }
+    }
+
+    public List<CourseDto> getAllCourses(){
+       List<CourseDto> courses = new ArrayList<>();
+
+        for(Course course: courseRepository.findAll()){
+            CourseDto courseDto = new CourseDto(course.getName());
+            courses.add(courseDto);
+        }
+
+        return courses;
     }
 
 }

@@ -67,4 +67,9 @@ public class CourseController {
         }
     }
 
+    @GetMapping("/all")
+    public List<CourseDto> getAllCourses(){
+        return courseService.getAllCourses();
+    }
+
 }
