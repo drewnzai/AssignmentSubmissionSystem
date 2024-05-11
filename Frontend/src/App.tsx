@@ -43,7 +43,6 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
         />
     </ThemeProvider>
     </ColorModeContext.Provider>
