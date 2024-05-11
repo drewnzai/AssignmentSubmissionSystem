@@ -50,12 +50,28 @@ export default class AdminService{
         .then(
             (response ) => {
                     if(response.data){
-                        console.log(response.data)
+                        console.log(response.data);
                     }
                     return response;
             }, (error) => {
                 console.error(error);
             }
+        )
+    }
+
+    getStudents(){
+        return axios.get(API_URL + "student/all", {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`}
+        })
+        .then(
+            (response) => {
+                if(response.data){
+                    return (response.data);
+                }
+                return response;
+        }, (error) => {
+            console.error(error);
+        }
         )
     }
 
