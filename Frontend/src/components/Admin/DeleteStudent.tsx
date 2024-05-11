@@ -133,7 +133,7 @@ export default function DeleteStudent(){
             </Box>
             <Box display="flex" justifyContent="space-between" mt="20px">
             <Button type="submit" sx={{
-                color: "red"
+                backgroundColor: "red"
             }} 
             variant="contained">
                 Delete Student
