@@ -1,16 +1,22 @@
 import {Box, useTheme} from "@mui/material";
 import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
-import {students} from "../../data/students";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import {tokens} from "../../theme";
+import { useEffect, useState } from "react";
+import { StudentDetails } from "../../models/StudentDetails";
+import AdminService from "../../services/Admin.service";
 
 
 export default function Students(){
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     
+    const service = new AdminService();
+
+    const [students, setStudents] = useState<StudentDetails[]>([]);
+
     const columns: GridColDef[] = [
     {
         field: "id",
@@ -37,6 +43,16 @@ export default function Students(){
 
     ]
     
+    useEffect(
+      () => {
+        service.getStudents()
+        .then(
+          (response: StudentDetails[]) => {
+            setStudents(response);
+          }
+        )
+      }, []
+    );
 
     return(
         <>
