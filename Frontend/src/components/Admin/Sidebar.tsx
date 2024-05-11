@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useState} from "react";
+import {Dispatch, SetStateAction, useEffect, useState} from "react";
 import {Menu, MenuItem, ProSidebar} from "react-pro-sidebar";
 import {Box, IconButton, Typography, useTheme} from "@mui/material";
 import {Link} from "react-router-dom";
@@ -38,8 +38,18 @@ export default function Sidebar(){
   const colours = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
+  const [admin, setAdmin] = useState({
+    authenticationToken: "",
+    refreshToken: "",
+    expiresAt: "",
+    email: ""
+  });
 
   const service = new AdminService();
+
+  useEffect(() => {
+    setAdmin(service.getCurrentUser());
+  }, []);
 
     return(
         <Box
@@ -94,12 +104,12 @@ export default function Sidebar(){
                 
                 <Box textAlign="center">
                   <Typography
-                    variant="h2"
+                    variant="h4"
                     color={colours.grey[100]}
                     fontWeight="bold"
-                    sx={{ m: "10px 0 0 0" }}
+                    sx={{ m: "10px 0 0 0", wordBreak: "break-all"}}
                   >
-                    Default Admin
+                    {admin.email}
                   </Typography>
                   </Box>
               </Box>
