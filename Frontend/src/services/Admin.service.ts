@@ -75,6 +75,22 @@ export default class AdminService{
         )
     }
 
+    getCourses(){
+        return axios.get(API_URL + "course/all", {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`}
+        })
+        .then(
+            (response) => {
+                if(response.data){
+                    return (response.data);
+                }
+                return response;
+        }, (error) => {
+            console.error(error);
+        }
+        )
+    }
+
     logout(){
         localStorage.clear();
         this.navigate("/login");

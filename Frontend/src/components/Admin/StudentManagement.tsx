@@ -3,6 +3,8 @@ import {Formik} from "formik";
 import * as yup from "yup";
 import { StudentDto } from "../../models/StudentDto";
 import AdminService from "../../services/Admin.service";
+import { useEffect, useState } from "react";
+import { Course } from "../../models/Course";
 
 const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");
 
@@ -24,6 +26,8 @@ const initialValues:StudentDto = {
 export default function StudentManagement(){
   
   const isNonMobile = useMediaQuery("(min-width:600px)");
+
+  const [courses, setCourses] = useState<Course[]>([]);
   
   const service =  new AdminService();
   
@@ -32,7 +36,17 @@ export default function StudentManagement(){
         service.addStudent(values);
     };
 
+    useEffect(
+      () => {
+        service.getCourses()
+        .then(
+          (response: Course[]) => {
+            setCourses(response);
+          }
+        )
+      }, [])
 
+    
     return(
         <Box m="20px">
         <Formik
@@ -108,7 +122,13 @@ export default function StudentManagement(){
               name="courseName"
               onChange={handleChange}
             >
-              <MenuItem value={"Bsc. Computer Science"}>Bsc. Computer Science</MenuItem>
+              {courses.map(
+                (course) => (
+                  <MenuItem value={course.name}>{course.name}</MenuItem>
+                )
+            
+            )}
+              
               <MenuItem value={"BA. General Economics"}>BA. General Economics</MenuItem>
               <MenuItem value={"BEng. Mechanical Engineering"}>BEng. Mechanical Engineering</MenuItem>
             </Select>
