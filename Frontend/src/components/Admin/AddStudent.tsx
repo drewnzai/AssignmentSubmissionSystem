@@ -5,6 +5,7 @@ import { StudentDto } from "../../models/StudentDto";
 import AdminService from "../../services/Admin.service";
 import { useEffect, useState } from "react";
 import { Course } from "../../models/Course";
+import { toast } from "react-toastify";
 
 const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");
 
@@ -33,6 +34,7 @@ export default function AddStudent(){
   const handleFormSubmit = (values: StudentDto) => {
         
         service.addStudent(values);
+        toast.success("Student Added Successfully");
     };
 
     useEffect(
