@@ -5,10 +5,12 @@ import {Link} from "react-router-dom";
 import {tokens} from "../../theme";
 import "react-pro-sidebar/dist/css/styles.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import AdminService from "../../services/Admin.service";
 
 
 const Item = ({ title, to, icon, selected, setSelected }: 
@@ -36,6 +38,8 @@ export default function Sidebar(){
   const colours = tokens(theme.palette.mode);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
+
+  const service = new AdminService();
 
     return(
         <Box
@@ -138,6 +142,17 @@ export default function Sidebar(){
                 selected={selected}
                 setSelected={setSelected}
               />
+              <MenuItem
+              style={{
+                color: colours.grey[100],
+              }}
+              onClick={() => service.logout()}
+              icon={<LogoutIcon/>}
+            >
+              <Typography>Logout</Typography>
+              
+              
+              </MenuItem>
             </Box>
           </Menu>
         </ProSidebar>

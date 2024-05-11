@@ -1,10 +1,14 @@
 import axios from "axios";
 import { LoginRequest } from "../models/LoginRequest";
 import { StudentDto } from "../models/StudentDto";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:8081/api/";
 
 export default class AdminService{
+
+    private navigate = useNavigate();
+
     getCurrentUserToken(){
         const userStr = localStorage.getItem("admin");
         
@@ -45,5 +49,10 @@ export default class AdminService{
                 console.error(error);
             }
         )
+    }
+
+    logout(){
+        localStorage.clear();
+        this.navigate("/login");
     }
 }
