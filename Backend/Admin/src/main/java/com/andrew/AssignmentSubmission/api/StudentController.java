@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.api;
 
+import com.andrew.AssignmentSubmission.dto.StudentDetails;
 import com.andrew.AssignmentSubmission.dto.StudentDto;
 import com.andrew.AssignmentSubmission.services.StudentService;
 import com.andrew.AssignmentSubmission.utils.APIResponse;
@@ -8,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/student")
@@ -60,6 +63,11 @@ public class StudentController {
 
             return new ResponseEntity<>(apiResponse, HttpStatus.CONFLICT);
         }
+    }
+
+    @GetMapping("/all")
+    public List<StudentDetails> getAllStudents(){
+        return studentService.getAllStudents();
     }
 
 }

@@ -1,5 +1,6 @@
 package com.andrew.AssignmentSubmission.services;
 
+import com.andrew.AssignmentSubmission.dto.StudentDetails;
 import com.andrew.AssignmentSubmission.dto.StudentDto;
 import com.andrew.AssignmentSubmission.models.Course;
 import com.andrew.AssignmentSubmission.models.Student;
@@ -14,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -81,6 +84,23 @@ public class StudentService {
 
             return false;
         }
+    }
+
+    public List<StudentDetails> getAllStudents(){
+        List<StudentDetails> students = new ArrayList<>();
+
+        for(Student student: studentRepository.findAll()){
+            StudentDetails studentDetails = new StudentDetails();
+
+            studentDetails.setId(student.getStudentId().intValue());
+            studentDetails.setRegistration(student.getRegistration());
+            studentDetails.setFullName(
+                    student.getFirstName() + " " + student.getLastName()
+            );
+
+            students.add(studentDetails);
+        }
+        return students;
     }
 
 }
