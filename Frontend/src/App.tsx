@@ -1,4 +1,6 @@
 import './App.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Dashboard from './pages/Admin/Dashboard';
 import Students from './pages/Admin/Students';
@@ -31,6 +33,18 @@ function App() {
     <Route path='/login' element={<Login/>}/>
     </Routes>
     </BrowserRouter>
+    <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
     </ThemeProvider>
     </ColorModeContext.Provider>
    
