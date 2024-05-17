@@ -13,6 +13,8 @@ import AdminProtectedRoutes from './auth/Routes/AdminProtectedRoutes.tsx';
 import Redirect from './pages/Redirect.tsx';
 import LecturerProtectedRoutes from './auth/Routes/LecturerProtectedRoutes.tsx';
 import LecturerDashboard from './pages/Lecturer/Dashboard.tsx';
+import LecturerFAQ from './pages/Lecturer/FAQ.tsx';
+import LecturerForms from './pages/Lecturer/Forms.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -25,6 +27,7 @@ function App() {
     <CssBaseline/>
     <BrowserRouter>
     <Routes>
+      
       <Route element={<AdminProtectedRoutes/>}>
       <Route path='/admin/home' element={<Dashboard/>}/>
       <Route path='/admin/students' element={<Students/>}/>
@@ -34,7 +37,8 @@ function App() {
       
       <Route element={<LecturerProtectedRoutes/>}>
       <Route path='/lecturer/home' element={<LecturerDashboard/>}/>
-
+      <Route path='/lecturer/forms' element={<LecturerForms/>}/>
+      <Route path='/lecturer/faq' element={<LecturerFAQ/>}/>
       </Route>
 
     <Route path='/' element={<Redirect/>}/>
