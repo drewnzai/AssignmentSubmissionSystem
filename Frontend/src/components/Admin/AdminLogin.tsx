@@ -32,7 +32,7 @@ export default function AdminLogin(){
         service.login(values)
         .then(
             (_response) => {
-                navigate("/");
+                navigate("/admin/home");
             }
         )
         
