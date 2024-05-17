@@ -11,6 +11,8 @@ import FAQ from './pages/Admin/FAQ';
 import Login from "./pages/Login.tsx";
 import AdminProtectedRoutes from './auth/Routes/AdminProtectedRoutes.tsx';
 import Redirect from './pages/Redirect.tsx';
+import LecturerProtectedRoutes from './auth/Routes/LecturerProtectedRoutes.tsx';
+import LecturerDashboard from './pages/Lecturer/Dashboard.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -29,7 +31,13 @@ function App() {
       <Route path='/admin/forms' element={<Forms/>}/>
       <Route path='/admin/faq' element={<FAQ/>}/>
       </Route>
-      <Route path='/' element={<Redirect/>}/>
+      
+      <Route element={<LecturerProtectedRoutes/>}>
+      <Route path='/lecturer/home' element={<LecturerDashboard/>}/>
+
+      </Route>
+
+    <Route path='/' element={<Redirect/>}/>
     <Route path='/login' element={<Login/>}/>
     </Routes>
     </BrowserRouter>
