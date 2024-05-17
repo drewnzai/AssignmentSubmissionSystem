@@ -86,7 +86,7 @@ export default class LecturerService{
 
     getAssignedUnits(){
      const misc: MiscRequest = {
-            data: this.getCurrentUserEmail.toString()
+            data: this.getCurrentUserEmail().toString()
         }
 
      return axios.post(API_URL + "unit/lecturer", misc, {
