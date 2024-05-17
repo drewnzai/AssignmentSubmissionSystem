@@ -16,6 +16,7 @@ export default class LecturerService{
         .then(
             (response) => {
                     if(response.data){
+                        localStorage.clear();
                         localStorage.setItem("lecturer", JSON.stringify(response.data));
                         return response.data
                     }

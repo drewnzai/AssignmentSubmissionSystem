@@ -32,6 +32,7 @@ export default class AdminService{
         .then(
             (response) => {
                     if(response.data){
+                        localStorage.clear();
                         localStorage.setItem("admin", JSON.stringify(response.data));
                         return response.data
                     }
