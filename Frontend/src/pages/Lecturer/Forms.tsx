@@ -8,6 +8,7 @@ import Sidebar from "../../components/Lecturer/Sidebar";
 import Header from "../../components/Header/Header";
 import {tokens} from "../../theme";
 import useTheme from "@mui/material/styles/useTheme";
+import AddAssignment from '../../components/Lecturer/AddAssignment';
 
 
 export default function LecturerForms(){
@@ -83,7 +84,7 @@ const TabsList = styled(BaseTabsList)(
         <Tab value={0}>Create</Tab>
         <Tab value={1}>Delete</Tab>
       </TabsList>
-      <TabPanel value={0}>Create</TabPanel>
+      <TabPanel value={0}><AddAssignment/></TabPanel>
       <TabPanel value={1}>Delete</TabPanel>
       </Tabs>
                
