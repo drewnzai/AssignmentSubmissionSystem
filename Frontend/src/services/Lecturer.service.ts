@@ -84,6 +84,25 @@ export default class LecturerService{
     }
     )}
 
+    getAssignedUnits(){
+     const misc: MiscRequest = {
+            data: this.getCurrentUserEmail.toString()
+        }
+
+     return axios.post(API_URL + "unit/lecturer", misc, {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
+    }}).then(
+        (response) => {
+            if(response.data){
+                return (response.data);
+            }
+            return response;
+    }, (error) => {
+        console.error(error);
+    }
+    )
+    }
+
     getAssignmentsFromUnit(misc: MiscRequest){
         return axios.post(API_URL + "assignment/delete", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
