@@ -1,5 +1,6 @@
 import axios from "axios";
 import { LoginRequest } from "../models/LoginRequest";
+import { Assignment } from "../models/Assignment";
 
 const API_URL = "http://localhost:8081/api/";
 
@@ -37,4 +38,35 @@ export default class LecturerService{
         return JSON.parse(userStr);
         }
     }
+
+    createAssignment(assignment: Assignment){
+        return axios.post(API_URL + "assignment", assignment, {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
+    }}).then(
+        (response) => {
+            if(response.data){
+                return (response.data);
+            }
+            return response;
+    }, (error) => {
+        console.error(error);
+    }
+    )}
+
+    deleteAssignment(assignment: Assignment){
+        return axios.post(API_URL + "assignment/delete", assignment, {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
+    }}).then(
+        (response) => {
+            if(response.data){
+                return (response.data);
+            }
+            return response;
+    }, (error) => {
+        console.error(error);
+    }
+    )}
+
+    
+
 }
