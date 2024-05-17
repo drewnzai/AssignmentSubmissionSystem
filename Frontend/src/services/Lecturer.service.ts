@@ -7,6 +7,7 @@ import { Submission } from "../models/Submission";
 const API_URL = "http://localhost:8081/api/";
 
 export default class LecturerService{
+    
     login(loginRequest: LoginRequest){
         return axios.post(API_URL + "auth/login", loginRequest)
         .then(
