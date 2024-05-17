@@ -33,6 +33,7 @@ export default function LecturerLogin(){
         service.login(values)
         .then(
             (_response) => {
+                localStorage.clear();
                 navigate("/lecturer/home");
             }
         )

@@ -32,6 +32,7 @@ export default function AdminLogin(){
         service.login(values)
         .then(
             (_response) => {
+                localStorage.clear();
                 navigate("/admin/home");
             }
         )
