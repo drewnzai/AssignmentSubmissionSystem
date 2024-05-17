@@ -3,10 +3,13 @@ import { LoginRequest } from "../models/LoginRequest";
 import { Assignment } from "../models/Assignment";
 import { MiscRequest } from "../models/MiscRequest";
 import { Submission } from "../models/Submission";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = "http://localhost:8081/api/";
 
 export default class LecturerService{
+
+    private navigate = useNavigate();
     
     login(loginRequest: LoginRequest){
         return axios.post(API_URL + "auth/login", loginRequest)
@@ -163,5 +166,9 @@ export default class LecturerService{
         )
     }
 
+    logout(){
+        localStorage.clear();
+        this.navigate("/login");
+    }
 
 }
