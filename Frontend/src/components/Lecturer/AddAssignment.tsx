@@ -1,9 +1,12 @@
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { Assignment } from "../../models/Assignment";
 import {Formik} from "formik";
 import * as yup from "yup";
-import { Box, Button, InputLabel, MenuItem, Select, TextField } from "@mui/material";
+import { Box, Button, MenuItem, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Unit } from "../../models/Unit";
 import LecturerService from "../../services/Lecturer.service";
@@ -14,7 +17,7 @@ const initialValues: Assignment = {
     lecturerEmail: "",
     description: "",
     unitCode: "",
-    due: new Date
+    due: ""
 }
 
 const checkoutSchema = yup.object().shape({
@@ -23,16 +26,19 @@ const checkoutSchema = yup.object().shape({
     unitCode: yup.string().required()
 });
 
-const handleFormSubmit = (values: any) => {
-    values
-    console.log(values);
-}
+
 
 export default function AddAssignment(){
     const isNonMobile = useMediaQuery("(min-width:600px)");
 
-    
     const service = new LecturerService();
+
+
+    const handleFormSubmit = (values: Assignment) => {
+        values.lecturerEmail = service.getCurrentUserEmail();
+        
+        service.createAssignment(values);
+    }
 
     const [units, setUnits] = useState<Unit[]>([]);
     
@@ -99,27 +105,41 @@ export default function AddAssignment(){
                 helperText={touched.description && errors.description}
                 sx={{ gridColumn: "span 2" }}
               />
-             
-
-            <InputLabel id="demo-simple-select-label">Unit Code</InputLabel>
-                <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={values.unitCode}
-                label="Unit Code"
-                name="unitCode"
-                onChange={handleChange}
-                >
-              {units.map(
+              <TextField
+              label="Unit Code"
+              select
+              name="unitCode"
+              onChange={handleChange}
+              >
+                {units.map(
                 (unit) => (
                   <MenuItem value={unit.code}>{unit.name}</MenuItem>
                 )
             
             )}
-              
-            </Select>
+              </TextField>
+             
+            
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={['DatePicker']}>
+                    <DatePicker 
+                    label="Due Date" 
+                    onChange={(newValue) => {
+                        //Due date will never be null
+                        //@ts-ignore 
+                        const date = newValue.toDate();
+                        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1)
+                            .toString()
+                            .padStart(2, '0')}/${date.getFullYear()}`;
 
-              
+                        values.due = formattedDate;
+
+                        }}/>
+                        
+                </DemoContainer>
+            </LocalizationProvider>
+
+
             </Box>
             <Box display="flex" justifyContent="space-between" mt="20px">
             <Button type="submit" color="secondary" variant="contained">

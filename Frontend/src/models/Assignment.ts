@@ -3,5 +3,5 @@ export interface Assignment{
   lecturerEmail: string
   description: string
   unitCode: string
-  due: Date
+  due: string
 }

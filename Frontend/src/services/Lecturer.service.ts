@@ -38,7 +38,7 @@ export default class LecturerService{
 
     }
 
-    private getCurrentUserEmail(){
+    getCurrentUserEmail(){
         const userStr = localStorage.getItem("lecturer");
         
         if(userStr){
@@ -70,8 +70,12 @@ export default class LecturerService{
     }
     )}
 
-    deleteAssignment(assignment: Assignment){
-        return axios.post(API_URL + "assignment/delete", assignment, {
+    deleteAssignment(title: string){
+        const misc: MiscRequest = {
+            data: title
+        }
+        
+        return axios.post(API_URL + "assignment/delete", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
     }}).then(
         (response) => {
