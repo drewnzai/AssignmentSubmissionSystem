@@ -4,10 +4,17 @@ import * as yup from "yup";
 import {Box, Button, TextField} from "@mui/material";
 import {Formik} from "formik";
 import Typography from "@mui/material/Typography";
+import LecturerService from "../../services/Lecturer.service.ts";
+import { LoginRequest } from "../../models/LoginRequest.ts";
+import { useNavigate } from "react-router-dom";
 
 export default function LecturerLogin(){
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const navigate = useNavigate();
+    
+    const service = new LecturerService();
 
     const checkoutSchema = yup.object().shape({
         password: yup.string().required("required"),
@@ -17,13 +24,18 @@ export default function LecturerLogin(){
 
     });
 
-    const initialValues = {
+    const initialValues: LoginRequest = {
         email: "",
         password: ""
     };
 
-    const handleFormSubmit = (values: any) => {
-        console.log(values);
+    const handleFormSubmit = (values: LoginRequest) => {
+        service.login(values)
+        .then(
+            (_response) => {
+                navigate("/lecturer/home");
+            }
+        )
     };
 
     return(
