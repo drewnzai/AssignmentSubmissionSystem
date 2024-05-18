@@ -8,6 +8,7 @@ import { Typography } from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import { Link } from "react-router-dom";
+import Topbar from "../../components/Admin/Topbar";
 
 export default function LecturerDashboard(){
     
@@ -30,6 +31,7 @@ export default function LecturerDashboard(){
         <div className="app"> 
             <Sidebar/>
             <main className="content">
+                <Topbar/>
                 <Header title="Dashboard" subtitle="Lecturer Home"/>
                 <Box 
                 m="15px" 

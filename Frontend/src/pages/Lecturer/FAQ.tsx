@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Lecturer/Sidebar";
 import {tokens} from "../../theme";
+import Topbar from "../../components/Admin/Topbar";
 
 export default function LecturerFAQ(){
 
@@ -17,6 +18,7 @@ export default function LecturerFAQ(){
         <div className="app">
             <Sidebar/>
         <main className="content">
+            <Topbar/>
             <Header title="FAQ" subtitle="Frequently Asked Questions"/>
             <Accordion>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Submission } from "../../models/Submission";
 import Sidebar from "../../components/Lecturer/Sidebar";
 import Header from "../../components/Header/Header";
+import Topbar from "../../components/Admin/Topbar";
 
 export default function SubmissionsFromAssignment(){
     const location = useLocation();
@@ -19,6 +20,7 @@ export default function SubmissionsFromAssignment(){
         <div className="app"> 
         <Sidebar/>
         <main className="content">
+            <Topbar/>
             <Header title="Submissions" subtitle={`Submissions From ${assignment.title}`}/>
         </main>
         </div>

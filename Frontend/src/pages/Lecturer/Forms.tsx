@@ -10,6 +10,7 @@ import {tokens} from "../../theme";
 import useTheme from "@mui/material/styles/useTheme";
 import AddAssignment from '../../components/Lecturer/AddAssignment';
 import DeleteAssignment from '../../components/Lecturer/DeleteAssignment';
+import Topbar from '../../components/Admin/Topbar';
 
 
 export default function LecturerForms(){
@@ -79,6 +80,7 @@ const TabsList = styled(BaseTabsList)(
         <div className="app">
             <Sidebar/>
         <main className="content">
+            <Topbar/>
             <Header title="Forms" subtitle="Personnel Management"/>
     <Tabs defaultValue={0}>
       <TabsList>

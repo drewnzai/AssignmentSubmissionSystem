@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Assignment } from "../../models/Assignment";
 import LecturerService from "../../services/Lecturer.service";
 import { Box, Card, CardContent, Typography } from "@mui/material";
+import Topbar from "../../components/Admin/Topbar";
 
 export default function Assignments(){
     const location = useLocation();
@@ -31,6 +32,7 @@ export default function Assignments(){
         <div className="app"> 
         <Sidebar/>
         <main className="content">
+            <Topbar/>
             <Header title="Assignments" subtitle={`Assignments From ${unit.code} : ${unit.name}`}/>
             <Box
             m="15px" 
