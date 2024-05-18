@@ -2,7 +2,7 @@ import { Card, CardContent, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
-import Sidebar from "../../components/Admin/Sidebar";
+import Sidebar from "../../components/Student/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import Header from "../../components/Header/Header";
 import { Unit } from "../../models/Unit";
