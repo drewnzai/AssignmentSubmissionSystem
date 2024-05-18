@@ -14,6 +14,7 @@ import StudentLogin from "../components/Student/StudentLogin.tsx";
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import AdminService from "../services/Admin.service.ts";
+import StudentService from "../services/Student.service";
 import LecturerService from "../services/Lecturer.service.ts";
 
 export default function Login(){
@@ -22,11 +23,13 @@ export default function Login(){
 
     const adminService = new AdminService();
     const lecturerService = new LecturerService();
+    const studentService = new StudentService();
 
     const navigate = useNavigate();
 
     const admin = adminService.getCurrentUser();
     const lecturer = lecturerService.getCurrentUser();
+    const student = studentService.getCurrentUser();
 
     useEffect(() => {
         if(admin){
@@ -34,7 +37,9 @@ export default function Login(){
         }
         else if(lecturer){
             navigate("/lecturer/home");
-        }
+        }else if(student){
+          navigate("/student/home");
+      }
         
     }, []);
     
