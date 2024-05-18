@@ -19,6 +19,9 @@ public class Pending {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pendingId;
     private String title;
+
+    @Lob
+    @Column(length = 16777216)
     private String description;
 
     @ManyToOne

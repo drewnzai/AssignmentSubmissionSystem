@@ -19,6 +19,9 @@ public class Assignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long assignmentId;
     private String title;
+
+    @Lob
+    @Column(length = 16777216)
     private String description;
 
     @ManyToOne
