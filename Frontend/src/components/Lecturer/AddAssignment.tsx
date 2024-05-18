@@ -10,6 +10,8 @@ import {Box, Button, MenuItem, TextField} from "@mui/material";
 import {useEffect, useState} from "react";
 import {Unit} from "../../models/Unit";
 import LecturerService from "../../services/Lecturer.service";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 const initialValues: Assignment = {
@@ -32,13 +34,20 @@ const checkoutSchema = yup.object().shape({
 export default function AddAssignment(){
     const isNonMobile = useMediaQuery("(min-width:600px)");
 
+    const navigate = useNavigate();
     const service = new LecturerService();
 
 
     const handleFormSubmit = (values: Assignment) => {
         values.lecturerEmail = service.getCurrentUserEmail();
         
-        service.createAssignment(values);
+        service.createAssignment(values)
+        .then(
+          (_response) => {
+            toast.success("Successfully created assignment");
+            navigate("/lecturer/home");
+          }
+        )
     }
 
     const [units, setUnits] = useState<Unit[]>([]);
@@ -111,6 +120,7 @@ export default function AddAssignment(){
               select
               name="unitCode"
               onChange={handleChange}
+              defaultValue={""}
               >
                 {units.map(
                 (unit) => (
