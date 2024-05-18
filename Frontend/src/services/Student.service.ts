@@ -110,7 +110,7 @@ export default class StudentService{
             data: unitCode
         }
 
-     return axios.post(API_URL + "assignment/all", misc, {
+     return axios.post(API_URL + "assignment/unit", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
     }}).then(
         (response) => {
