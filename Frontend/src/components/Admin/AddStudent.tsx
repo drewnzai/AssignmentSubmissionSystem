@@ -1,11 +1,11 @@
 import {Box, Button, InputLabel, MenuItem, Select, TextField, useMediaQuery} from "@mui/material";
 import {Formik} from "formik";
 import * as yup from "yup";
-import { StudentDto } from "../../models/StudentDto";
+import {StudentDto} from "../../models/StudentDto";
 import AdminService from "../../services/Admin.service";
-import { useEffect, useState } from "react";
-import { Course } from "../../models/Course";
-import { toast } from "react-toastify";
+import {useEffect, useState} from "react";
+import {Course} from "../../models/Course";
+import {toast} from "react-toastify";
 
 const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");
 

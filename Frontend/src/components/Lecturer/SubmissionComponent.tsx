@@ -1,6 +1,16 @@
-import { useState } from "react";
-import { Submission } from "../../models/Submission";
-import { Typography, TextField, IconButton, Checkbox, Button, Box, Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+import {useState} from "react";
+import {Submission} from "../../models/Submission";
+import {
+    Accordion,
+    AccordionDetails,
+    AccordionSummary,
+    Box,
+    Button,
+    Checkbox,
+    IconButton,
+    TextField,
+    Typography
+} from "@mui/material";
 import DownloadIcon from '@mui/icons-material/Download';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LecturerService from "../../services/Lecturer.service";

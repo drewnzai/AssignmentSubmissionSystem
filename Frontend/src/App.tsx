@@ -1,6 +1,6 @@
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer } from 'react-toastify';
+import {ToastContainer} from 'react-toastify';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Dashboard from './pages/Admin/Dashboard';
 import Students from './pages/Admin/Students';

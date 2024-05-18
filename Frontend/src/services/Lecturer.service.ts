@@ -1,9 +1,9 @@
 import axios from "axios";
-import { LoginRequest } from "../models/LoginRequest";
-import { Assignment } from "../models/Assignment";
-import { MiscRequest } from "../models/MiscRequest";
-import { Submission } from "../models/Submission";
-import { useNavigate } from "react-router-dom";
+import {LoginRequest} from "../models/LoginRequest";
+import {Assignment} from "../models/Assignment";
+import {MiscRequest} from "../models/MiscRequest";
+import {Submission} from "../models/Submission";
+import {useNavigate} from "react-router-dom";
 
 const API_URL = "http://localhost:8081/api/";
 

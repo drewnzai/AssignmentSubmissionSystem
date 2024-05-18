@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
-import { Unit } from "../../models/Unit";
+import {Link, useLocation} from "react-router-dom";
+import {Unit} from "../../models/Unit";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Lecturer/Sidebar";
-import { useEffect, useState } from "react";
-import { Assignment } from "../../models/Assignment";
+import {useEffect, useState} from "react";
+import {Assignment} from "../../models/Assignment";
 import LecturerService from "../../services/Lecturer.service";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import {Box, Card, CardContent, Typography} from "@mui/material";
 import Topbar from "../../components/Admin/Topbar";
 
 export default function Assignments(){

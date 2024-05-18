@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Lecturer/Sidebar";
-import { Submission } from "../../models/Submission";
+import {Submission} from "../../models/Submission";
 import LecturerService from "../../services/Lecturer.service";
 import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
 import Box from "@mui/material/Box";

@@ -11,8 +11,8 @@ import {Tabs} from "@mui/base/Tabs";
 import AdminLogin from "../components/Admin/AdminLogin.tsx";
 import LecturerLogin from "../components/Lecturer/LecturerLogin.tsx";
 import StudentLogin from "../components/Student/StudentLogin.tsx";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import AdminService from "../services/Admin.service.ts";
 import LecturerService from "../services/Lecturer.service.ts";
 

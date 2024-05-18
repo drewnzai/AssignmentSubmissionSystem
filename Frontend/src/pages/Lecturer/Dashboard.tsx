@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Lecturer/Sidebar";
 import LecturerService from "../../services/Lecturer.service";
-import { Unit } from "../../models/Unit";
+import {Unit} from "../../models/Unit";
 import Box from "@mui/material/Box/Box";
-import { Typography } from "@mui/material";
+import {Typography} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Topbar from "../../components/Admin/Topbar";
 
 export default function LecturerDashboard(){

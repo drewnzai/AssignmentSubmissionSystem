@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import AdminService from "../services/Admin.service";
-import { useEffect } from "react";
+import {useEffect} from "react";
 import LecturerService from "../services/Lecturer.service";
 
 export default function Redirect(){

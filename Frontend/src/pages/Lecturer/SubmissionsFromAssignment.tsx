@@ -1,7 +1,6 @@
-import { useLocation } from "react-router-dom";
-import { Assignment } from "../../models/Assignment";
-import { useEffect, useState } from "react";
-import { Submission } from "../../models/Submission";
+import {useLocation} from "react-router-dom";
+import {Assignment} from "../../models/Assignment";
+import {useEffect} from "react";
 import Sidebar from "../../components/Lecturer/Sidebar";
 import Header from "../../components/Header/Header";
 import Topbar from "../../components/Admin/Topbar";

@@ -1,5 +1,5 @@
-import { Box, Button, TextField } from "@mui/material";
-import { useState } from "react";
+import {Box, Button, TextField} from "@mui/material";
+import {useState} from "react";
 import LecturerService from "../../services/Lecturer.service";
 
 export default function DeleteAssignment(){

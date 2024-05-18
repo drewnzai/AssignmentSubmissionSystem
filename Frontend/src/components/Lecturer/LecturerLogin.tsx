@@ -5,8 +5,8 @@ import {Box, Button, TextField} from "@mui/material";
 import {Formik} from "formik";
 import Typography from "@mui/material/Typography";
 import LecturerService from "../../services/Lecturer.service.ts";
-import { LoginRequest } from "../../models/LoginRequest.ts";
-import { useNavigate } from "react-router-dom";
+import {LoginRequest} from "../../models/LoginRequest.ts";
+import {useNavigate} from "react-router-dom";
 
 export default function LecturerLogin(){
     const theme = useTheme();

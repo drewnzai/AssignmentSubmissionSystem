@@ -5,8 +5,8 @@ import * as yup from "yup";
 import useTheme from "@mui/material/styles/useTheme";
 import {tokens} from "../../theme.ts";
 import AdminService from "../../services/Admin.service.ts";
-import { LoginRequest } from "../../models/LoginRequest.ts";
-import { useNavigate } from "react-router-dom";
+import {LoginRequest} from "../../models/LoginRequest.ts";
+import {useNavigate} from "react-router-dom";
 
 export default function AdminLogin(){
     const theme = useTheme();

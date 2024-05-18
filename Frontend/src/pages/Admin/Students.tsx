@@ -4,8 +4,8 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import {tokens} from "../../theme";
-import { useEffect, useState } from "react";
-import { StudentDetails } from "../../models/StudentDetails";
+import {useEffect, useState} from "react";
+import {StudentDetails} from "../../models/StudentDetails";
 import AdminService from "../../services/Admin.service";
 
 
