@@ -4,10 +4,16 @@ import * as yup from "yup";
 import {Box, Button, TextField} from "@mui/material";
 import {Formik} from "formik";
 import Typography from "@mui/material/Typography";
+import StudentService from "../../services/Student.service.ts";
+import { useNavigate } from "react-router-dom";
 
 export default function StudentLogin(){
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+
+    const service = new StudentService();
+
+    const navigate = useNavigate();
 
     const registrationRegEx = new RegExp("[A-Z]|[A-Z]P\d{2}/\d{5}/\d{2}");
 
@@ -25,7 +31,12 @@ export default function StudentLogin(){
     };
 
     const handleFormSubmit = (values: any) => {
-        console.log(values);
+        service.login(values)
+        .then(
+            (_response) => {
+                navigate("/student/home");
+            }
+        )
     };
 
     return(
