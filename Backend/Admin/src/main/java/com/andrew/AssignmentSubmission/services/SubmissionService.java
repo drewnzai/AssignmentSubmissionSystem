@@ -78,7 +78,7 @@ public class SubmissionService {
             List<Submission> submissions = submissionRepository.findAllByAssignment(assignment);
 
             for (Submission submission : submissions) {
-                if(Objects.equals(submission.getFeedback(), "")) {
+
                     SubmissionDto submissionDto = new SubmissionDto();
 
                     submissionDto.setAssignmentTitle(assignment.getTitle());
@@ -90,11 +90,35 @@ public class SubmissionService {
                     submissionDto.setPath(submission.getPath());
 
                     submissionDtos.add(submissionDto);
-                }
+
             }
         }
 
         return submissionDtos;
+    }
+
+    public List<SubmissionDto> getSubmissionsByAssignmentTitle(String assignmentTitle){
+        List<SubmissionDto> submissions = new ArrayList<>();
+
+        Assignment assignment = assignmentRepository.findByTitle(assignmentTitle);
+
+        for (Submission submission : submissionRepository.findAllByAssignment(assignment)) {
+
+            SubmissionDto submissionDto = new SubmissionDto();
+
+            submissionDto.setAssignmentTitle(assignment.getTitle());
+            submissionDto.setFeedback(submission.getFeedback());
+            submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
+            submissionDto.setUnitCode(assignment.getUnit().getCode());
+            submissionDto.setScore(submission.getScore());
+            submissionDto.setAccepted(submission.isAccepted());
+            submissionDto.setPath(submission.getPath());
+
+            submissions.add(submissionDto);
+
+        }
+
+        return submissions;
     }
 
 }
