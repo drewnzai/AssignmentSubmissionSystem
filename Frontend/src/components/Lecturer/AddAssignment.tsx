@@ -124,7 +124,8 @@ export default function AddAssignment(){
             <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DemoContainer components={['DatePicker']}>
                     <DatePicker 
-                    label="Due Date" 
+                    label="Due Date"
+                    disablePast 
                     onChange={(newValue) => {
                         //Due date will never be null
                         //@ts-ignore 
