@@ -50,4 +50,9 @@ public class SubmissionController {
         return submissionService.getAllSubmissions(miscRequest.getData());
     }
 
+    @PostMapping("/assignment")
+    public List<SubmissionDto> getAllSubmissionsFromAssignment(@RequestBody MiscRequest miscRequest){
+        return submissionService.getSubmissionsByAssignmentTitle(miscRequest.getData());
+    }
+
 }
