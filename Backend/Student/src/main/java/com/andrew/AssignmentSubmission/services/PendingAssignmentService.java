@@ -2,6 +2,7 @@ package com.andrew.AssignmentSubmission.services;
 
 import com.andrew.AssignmentSubmission.dto.AssignmentDto;
 import com.andrew.AssignmentSubmission.models.Pending;
+import com.andrew.AssignmentSubmission.models.User;
 import com.andrew.AssignmentSubmission.repositories.PendingRepository;
 import com.andrew.AssignmentSubmission.repositories.UnitRepository;
 import com.andrew.AssignmentSubmission.repositories.UserRepository;
@@ -21,6 +22,8 @@ public class PendingAssignmentService {
     private PendingRepository pendingRepository;
     private UnitRepository unitRepository;
     private UserRepository userRepository;
+
+    private AuthService authService;
 
     public List<AssignmentDto> pendingAssignments(String registration) {
 
@@ -49,8 +52,11 @@ public class PendingAssignmentService {
     public List<AssignmentDto> getAllPendingsFromUnit(String unitCode){
         List<AssignmentDto> assignments = new ArrayList<>();
 
+        User user = authService.getCurrentUser();
 
-        for(Pending pending: pendingRepository.findAllByUnit(unitRepository.findByCode(unitCode))){
+        for(Pending pending: pendingRepository.findAllByUnitAndUser
+                (unitRepository.findByCode(unitCode), user)){
+
             AssignmentDto assignmentDto = new AssignmentDto();
 
             assignmentDto.setUnitCode(pending.getUnit().getCode());
