@@ -43,7 +43,7 @@ export default function Assignments(){
                     (assignment) => (
                         <Link 
                         key={assignment.title}
-                        to={`/lecturer/assignments/${assignment.title}/submissions/`}
+                        to={`/lecturer/assignment/${assignment.title}/submissions`}
                         state={assignment}
                         style={{
                             textDecoration: "none"
