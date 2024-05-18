@@ -144,6 +144,25 @@ export default class LecturerService{
     }
     )}
 
+    getAllSubmissionsFromAssignment(assignmentTitle: string){
+        const misc: MiscRequest = {
+            data: assignmentTitle
+        }
+
+        return axios.post(API_URL + "submission/assignment", misc, {
+            headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
+    }}).then(
+        (response) => {
+            if(response.data){
+                return (response.data);
+            }
+            return response;
+    }, (error) => {
+        console.error(error);
+    }
+    )
+    }
+
     updateSubmission(submission: Submission){
         return axios.post(API_URL + "submission/update", submission, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
