@@ -32,7 +32,7 @@ export default function LecturerDashboard(){
             <Sidebar/>
             <main className="content">
                 <Topbar/>
-                <Header title="Dashboard" subtitle="Lecturer Home"/>
+                <Header title="Dashboard" subtitle="Current Assigned Units"/>
                 <Box 
                 m="15px" 
                 display="flex"
