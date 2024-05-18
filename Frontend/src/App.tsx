@@ -17,6 +17,7 @@ import LecturerFAQ from './pages/Lecturer/FAQ.tsx';
 import LecturerForms from './pages/Lecturer/Forms.tsx';
 import Assignments from './pages/Lecturer/Assignments.tsx';
 import SubmissionsFromAssignment from './pages/Lecturer/SubmissionsFromAssignment.tsx';
+import Submissions from './pages/Lecturer/Submissions.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -39,6 +40,7 @@ function App() {
       
       <Route element={<LecturerProtectedRoutes/>}>
       <Route path='/lecturer/home' element={<LecturerDashboard/>}/>
+      <Route path='/lecturer/submissions' element={<Submissions/>}/>
       <Route path='/lecturer/forms' element={<LecturerForms/>}/>
       <Route path='/lecturer/faq' element={<LecturerFAQ/>}/>
       <Route path='/lecturer/assignments/:code' element={<Assignments/>}/>
