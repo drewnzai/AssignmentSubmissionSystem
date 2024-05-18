@@ -107,7 +107,11 @@ export default class LecturerService{
     )
     }
 
-    getAssignmentsFromUnit(misc: MiscRequest){
+    getAssignmentsFromUnit(code: string){
+        const misc: MiscRequest = {
+            data: code
+        }
+
         return axios.post(API_URL + "assignment/delete", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
     }}).then(
