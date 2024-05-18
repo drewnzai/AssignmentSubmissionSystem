@@ -5,6 +5,9 @@ import LecturerService from "../../services/Lecturer.service";
 import { Unit } from "../../models/Unit";
 import Box from "@mui/material/Box/Box";
 import { Typography } from "@mui/material";
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { Link } from "react-router-dom";
 
 export default function LecturerDashboard(){
     
@@ -28,17 +31,38 @@ export default function LecturerDashboard(){
             <Sidebar/>
             <main className="content">
                 <Header title="Dashboard" subtitle="Lecturer Home"/>
-                <Box m="5px">
+                <Box 
+                m="15px" 
+                display="flex"
+                flexWrap="wrap"
+                gap="15px"
+                justifyContent="flex-start"
+               >
                 {units.map(
                     (unit) => (
-                        <Box>
-                            <Typography>
-                            {unit.code}
-                            </Typography>
-                            <Typography>
-                            {unit.name}
-                            </Typography>
-                        </Box>
+                        <Link 
+                        key={unit.code}
+                        to={`/lecturer/assignments/${unit.code}`}
+                        state={unit}
+                        style={{
+                            textDecoration: "none"
+                        }}
+                        >
+                        <Card sx={{
+                            height: "fit-content",
+                            width: "250px",
+                            margin: "15px"
+                        }}>
+                            <CardContent>
+                                <Typography variant="h5">
+                                    {unit.code}
+                                </Typography>
+                                <Typography variant="h6">
+                                    {unit.name}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                        </Link>
                     )
                     
                     )}
