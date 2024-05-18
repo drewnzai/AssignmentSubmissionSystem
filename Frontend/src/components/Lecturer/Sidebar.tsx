@@ -8,7 +8,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LogoutIcon from '@mui/icons-material/Logout';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-// import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LecturerService from "../../services/Lecturer.service";
 
@@ -145,7 +145,13 @@ export default function Sidebar(){
                 selected={selected}
                 setSelected={setSelected}
               />
-              
+              <Item
+                title="FAQ Page"
+                to="/lecturer/faq"
+                icon={<HelpOutlineOutlinedIcon />}
+                selected={selected}
+                setSelected={setSelected}
+              />
               <MenuItem
               style={{
                 color: colours.grey[100],
