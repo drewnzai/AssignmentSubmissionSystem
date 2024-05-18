@@ -126,7 +126,7 @@ export default class LecturerService{
     )
     }
 
-    getSubmissions(){
+    getAllSubmissions(){
         const misc: MiscRequest = {
             data: this.getCurrentUserEmail.toString()
         }
