@@ -23,7 +23,8 @@ const initialValues: Assignment = {
 const checkoutSchema = yup.object().shape({
     title: yup.string().required(),
     description: yup.string().required(),
-    unitCode: yup.string().required()
+    unitCode: yup.string().required(),
+    due: yup.string().required()
 });
 
 
