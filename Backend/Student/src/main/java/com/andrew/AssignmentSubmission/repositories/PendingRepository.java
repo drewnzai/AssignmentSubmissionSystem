@@ -18,5 +18,5 @@ public interface PendingRepository extends JpaRepository<Pending, Long> {
 
     List<Pending> findAllByUnit(Unit unit);
 
-    List<Pending> findAllByUnitAndUser(Unit byCode, User user);
+    List<Pending> findAllByUnitAndUser(Unit unit, User user);
 }
