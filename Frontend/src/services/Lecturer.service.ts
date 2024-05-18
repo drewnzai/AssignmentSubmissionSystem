@@ -112,7 +112,7 @@ export default class LecturerService{
             data: code
         }
 
-        return axios.post(API_URL + "assignment/delete", misc, {
+        return axios.post(API_URL + "assignment/unit", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`
     }}).then(
         (response) => {
