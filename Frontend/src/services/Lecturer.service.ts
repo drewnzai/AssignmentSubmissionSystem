@@ -128,7 +128,7 @@ export default class LecturerService{
 
     getAllSubmissions(){
         const misc: MiscRequest = {
-            data: this.getCurrentUserEmail.toString()
+            data: this.getCurrentUserEmail().toString()
         }
 
         return axios.post(API_URL + "submission/lecturer", misc, {
@@ -136,6 +136,7 @@ export default class LecturerService{
     }}).then(
         (response) => {
             if(response.data){
+                console.log(response.data);
                 return (response.data);
             }
             return response;
