@@ -1,17 +1,17 @@
-import {useEffect, useState} from "react";
-import Header from "../../components/Header/Header";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import {Submission} from "../../models/Submission";
-import LecturerService from "../../services/Lecturer.service";
-import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography/Typography";
+import { Typography, Box } from "@mui/material";
+import { useState, useEffect } from "react";
+import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
+import Header from "../../components/Header/Header";
+import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
+import { Submission } from "../../models/Submission";
+import StudentService from "../../services/Student.service";
+
 
 export default function Submissions(){
     const [submissions, setSubmissions] = useState<Submission[]>([]);
 
-    const service = new LecturerService();
+    const service = new StudentService();
 
     useEffect(
         () => {
