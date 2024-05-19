@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Assignment } from "../../models/Assignment";
 import StudentService from "../../services/Student.service";
 import { useCallback, useState } from "react";
@@ -7,12 +7,15 @@ import { useDropzone } from "react-dropzone";
 import Sidebar from "../../components/Student/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import Header from "../../components/Header/Header";
+import { toast } from "react-toastify";
 
 export default function SubmissionFromAssignment(){
     
     const location = useLocation();
     const assignment: Assignment = location.state;
 
+    const navigate = useNavigate();
+    
     const service = new StudentService();
 
     const registration = service.getCurrentUserRegistration();
@@ -40,6 +43,8 @@ export default function SubmissionFromAssignment(){
           return;
         }
     
+        window.confirm("Are you sure? This is a irreversible action");
+
         const formData = new FormData();
         formData.append('assignmentTitle', assignment.title);
         formData.append('studentRegistration', registration);
@@ -48,8 +53,9 @@ export default function SubmissionFromAssignment(){
 
         service.submitAssignment(formData)
         .then(
-            (response) => {
-                console.log(response.data);
+            (_response) => {
+              toast.success("Submitted Assignment Succesfully");
+              navigate("/student/home");
             }
         )
     }
@@ -59,29 +65,48 @@ export default function SubmissionFromAssignment(){
         <Sidebar/>
         <main className="content">
             <Topbar/>
-            <Header title="Dashboard" subtitle="Current Assigned Units"/>
+            <Header title="Submission Page" subtitle="Submit the Assignment"/>
             <form onSubmit={handleSubmit}>
             <Box 
             m="15px" 
-            display="flex"
+            display="block"
             alignItems={"center"}
             justifyContent="center"
            >
+            <Box m="20px"
+            ml="450px">
             <Typography variant="h2">
                 {assignment.title}
             </Typography>
 
             <Typography variant="h3">
-                {assignment.title}
+                {assignment.description}
             </Typography>
+            </Box>
 
-            <Box
+            {file? (
+            
+            <Box ml={70}
+            >
+                <Typography variant="h3" sx={{
+                    color: "red"
+                }}> Selected File: {file.name}</Typography>
+            </Box>
+            
+            )
+        
+        : ( <Box
             {...getRootProps()}
             border="1px dashed grey"
             p={2}
+            height="200px"
+            alignItems={"center"}
+            justifyContent={"center"}
             textAlign="center"
             mt={2}
             >
+
+        
                 
           <input {...getInputProps()} />
           {isDragActive ? (
@@ -89,10 +114,14 @@ export default function SubmissionFromAssignment(){
           ) : (
             <Typography>Drag 'n' drop a file here, or click to select one</Typography>
           )}
-          <Typography variant="caption">Only one file is allowed</Typography>
-        </Box>
-        {file && <Typography variant="body2" mt={2}>{file.name}</Typography>}
-        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }}>
+          <Typography variant="caption">Only one file is allowed. 
+          If submitting multiple files, compress them into one zip or rar file</Typography>
+        </Box>)
+    }
+           
+        <Button variant="contained" type="submit" fullWidth sx={{ mt: 2,
+            backgroundColor: "red"
+         }}>
           Submit
         </Button>
 

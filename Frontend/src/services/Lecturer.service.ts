@@ -28,7 +28,7 @@ export default class LecturerService{
     )
     }
 
-    private getCurrentUserToken(){
+    getCurrentUserToken(){
         const userStr = localStorage.getItem("lecturer");
         
         if(userStr){
@@ -182,7 +182,7 @@ export default class LecturerService{
             data: path
         }
 
-        axios.post("file/download", misc, {
+        axios.post(API_URL + "file/download", misc, {
             headers: {"Authorization" : `Bearer ${this.getCurrentUserToken()}`},
             responseType: "blob"
         }).then(
@@ -194,7 +194,8 @@ export default class LecturerService{
             
             if (contentDisposition) {
                 const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
-                if (fileNameMatch.length > 1) {
+                
+                if (fileNameMatch && fileNameMatch.length > 1) {
                 fileName = fileNameMatch[1];
                 }
             }

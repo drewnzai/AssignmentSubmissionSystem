@@ -14,12 +14,16 @@ import {
 import DownloadIcon from '@mui/icons-material/Download';
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import LecturerService from "../../services/Lecturer.service";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 
 export default function SubmissionComponent({submission}: {submission: Submission}){
     const [currentSubmission, setCurrentSubmission] = useState<Submission>(submission);
 
     const service = new LecturerService();
+
+    const navigate = useNavigate();
 
     const handleFeedbackChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setCurrentSubmission({
@@ -50,7 +54,15 @@ export default function SubmissionComponent({submission}: {submission: Submissio
       }
 
       const handleUpdateClick = () => {
-        service.updateSubmission(currentSubmission);
+        window.confirm("Are you sure? This action is irreversible");
+        
+        service.updateSubmission(currentSubmission)
+        .then(
+          (_response) => {
+            toast.success("Marked Submission");
+            navigate("/lecturer/home");
+          }
+        )
       }
 
     return( 
@@ -62,10 +74,10 @@ export default function SubmissionComponent({submission}: {submission: Submissio
     border={1} 
     borderRadius={4}>
         
-        {currentSubmission.feedback.length > 0 ? (
+        {submission.feedback.length > 0 ? (
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography variant="h5">{currentSubmission.assignmentTitle} by {currentSubmission.studentRegistration}</Typography>
+            <Typography variant="h5">{currentSubmission.studentRegistration}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="h6">Feedback: {currentSubmission.feedback}</Typography>
@@ -75,7 +87,7 @@ export default function SubmissionComponent({submission}: {submission: Submissio
         </Accordion>
       ) : (
         <>
-    <Typography variant="h6">Assignment Title: {currentSubmission.assignmentTitle} by {currentSubmission.studentRegistration}</Typography>
+    <Typography variant="h6"> From {currentSubmission.studentRegistration}</Typography>
     <TextField
       label="Feedback"
       value={currentSubmission.feedback}
