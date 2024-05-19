@@ -50,7 +50,7 @@ export default class StudentService{
         }
     }
 
-    private getCurrentUserRegistration(){
+    getCurrentUserRegistration(){
         const userStr = localStorage.getItem("student");
         
         if(userStr){
