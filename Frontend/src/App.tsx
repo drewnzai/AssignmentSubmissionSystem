@@ -21,6 +21,7 @@ import Submissions from './pages/Lecturer/Submissions.tsx';
 import StudentProtectedRoutes from './auth/Routes/StudentProtectedRoutes.tsx';
 import StudentDashboard from './pages/Student/Dashboard.tsx';
 import PendingFromUnit from './pages/Student/PendingFromUnit.tsx';
+import SubmissionFromAssignment from './pages/Student/SubmissionFromAssignment.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -53,6 +54,7 @@ function App() {
       <Route element={<StudentProtectedRoutes/>}>
       <Route path='/student/home' element={<StudentDashboard/>}/>
       <Route path='/student/assignments/:code' element={<PendingFromUnit/>}/>
+      <Route path='/student/assignment/:title/submission' element={<SubmissionFromAssignment/>}/>
       </Route>
 
     <Route path='/' element={<Redirect/>}/>
