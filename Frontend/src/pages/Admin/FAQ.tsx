@@ -4,9 +4,9 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import Sidebar from "../../components/Admin/Sidebar";
-import Topbar from "../../components/Admin/Topbar";
+import Topbar from "../../components/Topbar";
 import {tokens} from "../../theme";
 
 export default function FAQ(){

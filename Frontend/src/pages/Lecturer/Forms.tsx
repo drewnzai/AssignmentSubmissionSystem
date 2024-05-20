@@ -5,12 +5,12 @@ import {buttonClasses} from '@mui/base/Button';
 import {Tab as BaseTab, tabClasses} from '@mui/base/Tab';
 import {Tabs} from '@mui/base/Tabs';
 import Sidebar from "../../components/Lecturer/Sidebar";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import {tokens} from "../../theme";
 import useTheme from "@mui/material/styles/useTheme";
 import AddAssignment from '../../components/Lecturer/AddAssignment';
 import DeleteAssignment from '../../components/Lecturer/DeleteAssignment';
-import Topbar from '../../components/Admin/Topbar';
+import Topbar from '../../components/Topbar';
 
 
 export default function LecturerForms(){

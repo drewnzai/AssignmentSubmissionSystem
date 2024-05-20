@@ -1,12 +1,12 @@
 import {useEffect, useState} from "react";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import Sidebar from "../../components/Lecturer/Sidebar";
 import {Submission} from "../../models/Submission";
 import LecturerService from "../../services/Lecturer.service";
 import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography/Typography";
-import Topbar from "../../components/Admin/Topbar";
+import Topbar from "../../components/Topbar";
 
 export default function StudentSubmissions(){
     const [submissions, setSubmissions] = useState<Submission[]>([]);

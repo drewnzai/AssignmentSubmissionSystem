@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import Sidebar from "../../components/Student/Sidebar";
 import {Unit} from "../../models/Unit";
 import Box from "@mui/material/Box/Box";
@@ -7,7 +7,7 @@ import {Typography} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import {Link} from "react-router-dom";
-import Topbar from "../../components/Admin/Topbar";
+import Topbar from "../../components/Topbar";
 import StudentService from "../../services/Student.service";
 
 export default function StudentDashboard(){

@@ -4,10 +4,10 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import Sidebar from "../../components/Student/Sidebar";
 import {tokens} from "../../theme";
-import Topbar from "../../components/Admin/Topbar";
+import Topbar from "../../components/Topbar";
 
 export default function StudentFAQ(){
 

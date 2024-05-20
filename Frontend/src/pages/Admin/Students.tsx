@@ -1,8 +1,8 @@
 import {Box, useTheme} from "@mui/material";
 import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header";
 import Sidebar from "../../components/Admin/Sidebar";
-import Topbar from "../../components/Admin/Topbar";
+import Topbar from "../../components/Topbar";
 import {tokens} from "../../theme";
 import {useEffect, useState} from "react";
 import {StudentDetails} from "../../models/StudentDetails";

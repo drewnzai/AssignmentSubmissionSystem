@@ -1,4 +1,4 @@
-import {tokens} from "../../theme";
+import {tokens} from "../theme";
 import {Box, Typography, useTheme} from "@mui/material";
 
 export default function Header({title, subtitle}: {title: string, subtitle:string}){

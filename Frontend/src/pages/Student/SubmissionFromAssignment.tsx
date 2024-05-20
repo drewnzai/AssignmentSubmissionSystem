@@ -5,8 +5,8 @@ import StudentService from "../../services/Student.service";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Sidebar from "../../components/Student/Sidebar";
-import Topbar from "../../components/Admin/Topbar";
-import Header from "../../components/Header/Header";
+import Topbar from "../../components/Topbar";
+import Header from "../../components/Header";
 import { toast } from "react-toastify";
 
 export default function SubmissionFromAssignment(){
