@@ -16,11 +16,12 @@ export default function SubmissionComponent({submission}: {submission: Submissio
     display="flex" 
     flexDirection="column" 
     p={2} 
-    m={1} 
-    border={1} 
-    borderRadius={4}>
+    m={1}
+    >
         
-        <Accordion>
+        <Accordion sx={{
+          
+        }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">{submission.assignmentTitle}</Typography>
           </AccordionSummary>

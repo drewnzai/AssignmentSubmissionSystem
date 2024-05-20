@@ -29,11 +29,17 @@ export default function Submissions(){
         <Sidebar/>
         <main className="content">
             <Topbar/>
-            <Header title="Submissions" subtitle="Submissions From All Students"/>
-
+            <Header title="Submissions" subtitle="All My Submissions"/>
+            <Box 
+            display="flex"
+            flexWrap="wrap"
+            gap="15px"
+            justifyContent="flex-start"
+            >
             {submissions.length > 0 ? 
                 submissions.map(
                     (submission) => (
+                        
                         <>
                         <SubmissionComponent submission={submission}/>
                         </>
@@ -51,6 +57,8 @@ export default function Submissions(){
                         No Submissions Yet
                     </Typography>
                 </Box>) }
+
+                </Box>
         </main>
         </div>
     );
