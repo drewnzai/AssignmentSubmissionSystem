@@ -6,7 +6,6 @@ import {tokens} from "../../theme";
 import "react-pro-sidebar/dist/css/styles.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LogoutIcon from '@mui/icons-material/Logout';
-import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -138,14 +137,6 @@ export default function Sidebar(){
                 selected={selected}
                 setSelected={setSelected}
               />
-              <Item
-                title="Forms"
-                to="/student/assignments"
-                icon={<AssignmentIndIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-
             <Item
                 title="FAQ Page"
                 to="/student/faq"
