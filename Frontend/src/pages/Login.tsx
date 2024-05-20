@@ -1,5 +1,5 @@
-import {Box} from "@mui/material";
-import {tokens} from "../theme.ts";
+import {Box, IconButton} from "@mui/material";
+import {ColorModeContext, tokens} from "../theme.ts";
 import useTheme from "@mui/material/styles/useTheme";
 import {styled} from "@mui/system";
 import {Tab as BaseTab} from "@mui/base/Tab/Tab";
@@ -11,15 +11,18 @@ import {Tabs} from "@mui/base/Tabs";
 import AdminLogin from "../components/Admin/AdminLogin.tsx";
 import LecturerLogin from "../components/Lecturer/LecturerLogin.tsx";
 import StudentLogin from "../components/Student/StudentLogin.tsx";
-import {useEffect} from "react";
+import {useContext, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import AdminService from "../services/Admin.service.ts";
 import StudentService from "../services/Student.service";
 import LecturerService from "../services/Lecturer.service.ts";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
 export default function Login(){
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const colourMode = useContext(ColorModeContext);
 
     const adminService = new AdminService();
     const lecturerService = new LecturerService();
@@ -109,18 +112,26 @@ export default function Login(){
              sx={{
                  alignItems: "center",
                  justifyContent: "center",
-                 backgroundColor: `${colors.primary[800]}`,
                  padding: "3px"
              }}>
-            <Box height={"621px"} width={"400px"}
+               
+            <Box
             sx={{
-
-
                 borderRadius: "9px",
                 alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: `${colors.primary[600]}`
+                justifyContent: "center"
             }}>
+
+              <IconButton sx={{
+                marginLeft: "185px"
+              }} onClick={colourMode.toggleColorMode}>
+            {theme.palette.mode === "dark" ? (
+              <LightModeOutlinedIcon />
+            ) : (
+                <DarkModeOutlinedIcon />
+            )}
+          </IconButton>
+
                 <Tabs defaultValue={0}>
                     <TabsList>
                         <Tab value={0}>Admin</Tab>
