@@ -41,13 +41,8 @@ public class SubmissionService {
 
     public boolean submit(SubmissionDto submissionDto, MultipartFile multipartFile) throws IOException {
 
-        if(!pendingRepository.existsByTitle(submissionDto.getAssignmentTitle())
-        || !userRepository.existsByRegistration(submissionDto.getStudentRegistration())){
-
-            throw new AssignmentException("Assignment or User details are wrong");
-
-        }
-        else{
+        if(pendingRepository.existsByTitle(submissionDto.getAssignmentTitle())
+        && userRepository.existsByRegistration(submissionDto.getStudentRegistration())){
 
             Submission submission = new Submission();
 
@@ -82,6 +77,11 @@ public class SubmissionService {
 
             return true;
         }
+        else{
+
+
+            return false;
+        }
     }
 
     public List<SubmissionDto> getAllSubmissions(String registration){
@@ -94,6 +94,8 @@ public class SubmissionService {
         for(Submission submission: submissions){
             SubmissionDto submissionDto = new SubmissionDto();
 
+            submissionDto.setAssignmentTitle(submission.getAssignment().getTitle());
+            submissionDto.setFeedback(submission.getFeedback());
             submissionDto.setStudentRegistration(submission.getStudent().getRegistration());
             submissionDto.setUnitCode(submission.getAssignment().getUnit().getCode());
             submissionDto.setScore(submission.getScore());
