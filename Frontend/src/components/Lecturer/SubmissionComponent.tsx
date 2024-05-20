@@ -70,14 +70,17 @@ export default function SubmissionComponent({submission}: {submission: Submissio
     display="flex" 
     flexDirection="column" 
     p={2} 
-    m={1} 
-    border={1} 
-    borderRadius={4}>
+    
+    >
         
         {submission.feedback.length > 0 ? (
         <Accordion>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography variant="h5">{currentSubmission.studentRegistration}</Typography>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <Typography variant="h6"> {currentSubmission.assignmentTitle}</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography variant="h6">Feedback: {currentSubmission.feedback}</Typography>
