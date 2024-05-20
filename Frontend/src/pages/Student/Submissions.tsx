@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Sidebar from "../../components/Admin/Sidebar";
 import Topbar from "../../components/Admin/Topbar";
 import Header from "../../components/Header/Header";
-import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
+import SubmissionComponent from "../../components/Student/SubmissionComponent";
 import { Submission } from "../../models/Submission";
 import StudentService from "../../services/Student.service";
 
