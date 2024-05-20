@@ -23,6 +23,7 @@ import StudentDashboard from './pages/Student/Dashboard.tsx';
 import PendingFromUnit from './pages/Student/PendingFromUnit.tsx';
 import SubmissionFromAssignment from './pages/Student/SubmissionFromAssignment.tsx';
 import Submissions from './pages/Student/Submissions.tsx';
+import StudentFAQ from './pages/Student/FAQ.tsx';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -54,6 +55,7 @@ function App() {
 
       <Route element={<StudentProtectedRoutes/>}>
       <Route path='/student/home' element={<StudentDashboard/>}/>
+      <Route path='/student/faq' element={<StudentFAQ/>}/>
       <Route path='/student/assignments/:code' element={<PendingFromUnit/>}/>
       <Route path='/student/assignment/:title/submission' element={<SubmissionFromAssignment/>}/>
       <Route path='/student/submissions' element={<Submissions/>}/>
