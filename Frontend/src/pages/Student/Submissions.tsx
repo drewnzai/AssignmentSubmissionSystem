@@ -1,6 +1,6 @@
 import { Typography, Box } from "@mui/material";
 import { useState, useEffect } from "react";
-import Sidebar from "../../components/Admin/Sidebar";
+import Sidebar from "../../components/Student/Sidebar";
 import Topbar from "../../components/Topbar";
 import Header from "../../components/Header";
 import SubmissionComponent from "../../components/Student/SubmissionComponent";
