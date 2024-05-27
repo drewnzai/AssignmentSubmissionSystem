@@ -26,10 +26,13 @@ public class FileDownloaderController {
     public ResponseEntity<Resource> downloadFile(@RequestBody MiscRequest miscRequest, HttpServletResponse response) {
 
         response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + miscRequest.getData().replace("/", "_") + ".zip\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\""
+                + miscRequest.getData().replace("/", "_") + ".zip\"");
 
        return ResponseEntity.ok()
-                .contentType(MediaType.parseMediaType("application/zip"))
+               .header("Content-Disposition", "attachment; filename=\""
+                       + miscRequest.getData().replace("/", "_") + ".zip\"")
+               .contentType(MediaType.parseMediaType("application/zip"))
                .body(amazonService.download(miscRequest.getData()));
     }
 
