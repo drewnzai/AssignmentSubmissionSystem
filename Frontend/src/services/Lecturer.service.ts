@@ -189,17 +189,9 @@ export default class LecturerService{
         }).then(
             (response) => {
             
-            const contentDisposition = response.headers['content-disposition'];
+           const fileName = path.replace("/", "_") + ".zip";
             
-            let fileName = 'download.zip';
-            
-            if (contentDisposition) {
-                const fileNameMatch = contentDisposition.match(/filename="(.+)"/);
-                
-                if (fileNameMatch && fileNameMatch.length > 1) {
-                fileName = fileNameMatch[1];
-                }
-            }
+           console.log(fileName);
         
           const url = window.URL.createObjectURL(new Blob([response.data]));
           const link = document.createElement('a');
