@@ -1,7 +1,5 @@
-import { Typography, Box } from "@mui/material";
-import { useState, useEffect } from "react";
-import Sidebar from "../../components/Student/Sidebar";
-import Topbar from "../../components/Topbar";
+import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import SubmissionComponent from "../../components/Student/SubmissionComponent";
 import { Submission } from "../../models/Submission";
@@ -25,10 +23,7 @@ export default function Submissions(){
     );
     
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Submissions" subtitle="All My Submissions"/>
             <Box 
             display="flex"
@@ -59,7 +54,6 @@ export default function Submissions(){
                 </Box>) }
 
                 </Box>
-        </main>
         </div>
     );
 }

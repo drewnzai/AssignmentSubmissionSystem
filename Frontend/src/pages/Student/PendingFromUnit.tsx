@@ -1,12 +1,10 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
-import Sidebar from "../../components/Student/Sidebar";
-import Topbar from "../../components/Topbar";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
-import { Unit } from "../../models/Unit";
 import { Assignment } from "../../models/Assignment";
+import { Unit } from "../../models/Unit";
 import StudentService from "../../services/Student.service";
 
 
@@ -31,10 +29,7 @@ export default function PendingFromUnit(){
     
 
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Assignments" subtitle={`Assignments From ${unit.code} : ${unit.name}`}/>
             <Box
             m="15px" 
@@ -81,7 +76,6 @@ export default function PendingFromUnit(){
                 </Box>
 }
             </Box>
-        </main>
-        </div>
+            </div>
     );
 }

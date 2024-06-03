@@ -1,13 +1,11 @@
 import { Box, Button, Typography } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Assignment } from "../../models/Assignment";
-import StudentService from "../../services/Student.service";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
-import Sidebar from "../../components/Student/Sidebar";
-import Topbar from "../../components/Topbar";
-import Header from "../../components/Header";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Header from "../../components/Header";
+import { Assignment } from "../../models/Assignment";
+import StudentService from "../../services/Student.service";
 
 export default function SubmissionFromAssignment(){
     
@@ -61,10 +59,7 @@ export default function SubmissionFromAssignment(){
     }
     
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Submission Page" subtitle="Submit the Assignment"/>
             <form onSubmit={handleSubmit}>
             <Box 
@@ -127,7 +122,6 @@ export default function SubmissionFromAssignment(){
 
         </Box>
         </form>
-        </main>
         </div>
     );
 }

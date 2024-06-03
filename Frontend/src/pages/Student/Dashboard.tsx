@@ -1,13 +1,11 @@
-import {useEffect, useState} from "react";
-import Header from "../../components/Header";
-import Sidebar from "../../components/Student/Sidebar";
-import {Unit} from "../../models/Unit";
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box/Box";
-import {Typography} from "@mui/material";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import {Link} from "react-router-dom";
-import Topbar from "../../components/Topbar";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header";
+import { Unit } from "../../models/Unit";
 import StudentService from "../../services/Student.service";
 
 export default function StudentDashboard(){
@@ -28,10 +26,7 @@ export default function StudentDashboard(){
     );
     
     return(
-        <div className="app"> 
-            <Sidebar/>
-            <main className="content">
-                <Topbar/>
+        <div>
                 <Header title="Dashboard" subtitle="Current Assigned Units"/>
                 <Box 
                 m="15px" 
@@ -69,8 +64,6 @@ export default function StudentDashboard(){
                     
                     )}
                     </Box>
-            </main>
-            
             </div>
        
         
