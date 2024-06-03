@@ -1,12 +1,10 @@
-import {useLocation} from "react-router-dom";
-import {Assignment} from "../../models/Assignment";
-import {useEffect, useState} from "react";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import Header from "../../components/Header";
-import Topbar from "../../components/Topbar";
-import { Submission } from "../../models/Submission";
 import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Header from "../../components/Header";
 import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
+import { Assignment } from "../../models/Assignment";
+import { Submission } from "../../models/Submission";
 import LecturerService from "../../services/Lecturer.service";
 
 export default function SubmissionsFromAssignment(){
@@ -29,10 +27,7 @@ export default function SubmissionsFromAssignment(){
     );
 
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Submissions" subtitle={`Submissions From ${assignment.title}`}/>
             {submissions.length > 0 ? 
                 submissions.map(
@@ -54,7 +49,6 @@ export default function SubmissionsFromAssignment(){
                         No Submissions Yet
                     </Typography>
                 </Box>) }
-        </main>
         </div>
     );
 }

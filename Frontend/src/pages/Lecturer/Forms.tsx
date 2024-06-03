@@ -1,16 +1,14 @@
-import {styled} from '@mui/system';
-import {TabsList as BaseTabsList} from '@mui/base/TabsList';
-import {TabPanel as BaseTabPanel} from '@mui/base/TabPanel';
-import {buttonClasses} from '@mui/base/Button';
-import {Tab as BaseTab, tabClasses} from '@mui/base/Tab';
-import {Tabs} from '@mui/base/Tabs';
-import Sidebar from "../../components/Lecturer/Sidebar";
-import Header from "../../components/Header";
-import {tokens} from "../../theme";
+import { buttonClasses } from '@mui/base/Button';
+import { Tab as BaseTab, tabClasses } from '@mui/base/Tab';
+import { TabPanel as BaseTabPanel } from '@mui/base/TabPanel';
+import { Tabs } from '@mui/base/Tabs';
+import { TabsList as BaseTabsList } from '@mui/base/TabsList';
 import useTheme from "@mui/material/styles/useTheme";
+import { styled } from '@mui/system';
+import Header from "../../components/Header";
 import AddAssignment from '../../components/Lecturer/AddAssignment';
 import DeleteAssignment from '../../components/Lecturer/DeleteAssignment';
-import Topbar from '../../components/Topbar';
+import { tokens } from "../../theme";
 
 
 export default function LecturerForms(){
@@ -77,10 +75,7 @@ const TabsList = styled(BaseTabsList)(
 
 
     return(
-        <div className="app">
-            <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Forms" subtitle="Personnel Management"/>
     <Tabs defaultValue={0}>
       <TabsList>
@@ -91,7 +86,6 @@ const TabsList = styled(BaseTabsList)(
       <TabPanel value={1}><DeleteAssignment/></TabPanel>
       </Tabs>
                
-            </main>
         </div>
     );
 }

@@ -1,12 +1,10 @@
-import {useEffect, useState} from "react";
-import Header from "../../components/Header";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import {Submission} from "../../models/Submission";
-import LecturerService from "../../services/Lecturer.service";
-import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography/Typography";
-import Topbar from "../../components/Topbar";
+import { useEffect, useState } from "react";
+import Header from "../../components/Header";
+import SubmissionComponent from "../../components/Lecturer/SubmissionComponent";
+import { Submission } from "../../models/Submission";
+import LecturerService from "../../services/Lecturer.service";
 
 export default function StudentSubmissions(){
     const [submissions, setSubmissions] = useState<Submission[]>([]);
@@ -25,10 +23,7 @@ export default function StudentSubmissions(){
     );
     
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Submissions" subtitle="Submissions From All Students"/>
 
             {submissions.length > 0 ? 
@@ -51,7 +46,7 @@ export default function StudentSubmissions(){
                         No Submissions Yet
                     </Typography>
                 </Box>) }
-        </main>
+        
         </div>
     );
 }

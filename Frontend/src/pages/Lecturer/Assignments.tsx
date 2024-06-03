@@ -1,12 +1,10 @@
-import {Link, useLocation} from "react-router-dom";
-import {Unit} from "../../models/Unit";
+import { Box, Card, CardContent, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Header from "../../components/Header";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import {useEffect, useState} from "react";
-import {Assignment} from "../../models/Assignment";
+import { Assignment } from "../../models/Assignment";
+import { Unit } from "../../models/Unit";
 import LecturerService from "../../services/Lecturer.service";
-import {Box, Card, CardContent, Typography} from "@mui/material";
-import Topbar from "../../components/Topbar";
 
 export default function Assignments(){
     const location = useLocation();
@@ -29,10 +27,7 @@ export default function Assignments(){
     
 
     return(
-        <div className="app"> 
-        <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Assignments" subtitle={`Assignments From ${unit.code} : ${unit.name}`}/>
             <Box
             m="15px" 
@@ -79,7 +74,7 @@ export default function Assignments(){
                 </Box>
 }
             </Box>
-        </main>
+        
         </div>
     );
 }

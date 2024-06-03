@@ -1,13 +1,11 @@
-import {useTheme} from "@mui/material";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useTheme } from "@mui/material";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import Typography from "@mui/material/Typography";
 import Header from "../../components/Header";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import {tokens} from "../../theme";
-import Topbar from "../../components/Topbar";
+import { tokens } from "../../theme";
 
 export default function LecturerFAQ(){
 
@@ -15,10 +13,7 @@ export default function LecturerFAQ(){
     const colors = tokens(theme.palette.mode);
 
     return(
-        <div className="app">
-            <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="FAQ" subtitle="Frequently Asked Questions"/>
             <Accordion>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -48,7 +43,7 @@ export default function LecturerFAQ(){
                 </AccordionDetails>
             </Accordion>
 
-        </main>
+        
         </div>
     );
 }
