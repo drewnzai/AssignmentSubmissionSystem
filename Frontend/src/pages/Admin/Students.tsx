@@ -1,12 +1,10 @@
-import {Box, useTheme} from "@mui/material";
-import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
+import { Box, useTheme } from "@mui/material";
+import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
-import Sidebar from "../../components/Admin/Sidebar";
-import Topbar from "../../components/Topbar";
-import {tokens} from "../../theme";
-import {useEffect, useState} from "react";
-import {StudentDetails} from "../../models/StudentDetails";
+import { StudentDetails } from "../../models/StudentDetails";
 import AdminService from "../../services/Admin.service";
+import { tokens } from "../../theme";
 
 
 export default function Students(){
@@ -56,10 +54,7 @@ export default function Students(){
 
     return(
         <>
-        <div className="app">
-            <Sidebar/>
-        <main className="content">
-            <Topbar/>
+        <div>
             <Header title="Student Details" subtitle="Student Management"/>
             <Box m="40px 0 0 0" height={"69vh"}
             sx={{
@@ -99,7 +94,6 @@ export default function Students(){
             slots={{ toolbar: GridToolbar }}
             />
             </Box>
-        </main>
             
             </div>
         
