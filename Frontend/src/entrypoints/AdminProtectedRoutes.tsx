@@ -1,6 +1,6 @@
 import {Navigate, Outlet} from "react-router-dom";
-import Sidebar from "../../components/Admin/Sidebar";
-import Topbar from "../../components/Topbar";
+import Sidebar from "../components/Admin/Sidebar";
+import Topbar from "../components/Topbar";
 
 export default function AdminProtectedRoutes(){
     const user: any | null = localStorage.getItem("admin");

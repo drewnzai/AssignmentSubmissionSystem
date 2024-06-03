@@ -1,6 +1,6 @@
 import {Navigate, Outlet} from "react-router-dom";
-import Sidebar from "../../components/Lecturer/Sidebar";
-import Topbar from "../../components/Topbar";
+import Sidebar from "../components/Lecturer/Sidebar";
+import Topbar from "../components/Topbar";
 
 export default function LecturerProtectedRoutes(){
     const lecturer: any | null = localStorage.getItem("lecturer");
