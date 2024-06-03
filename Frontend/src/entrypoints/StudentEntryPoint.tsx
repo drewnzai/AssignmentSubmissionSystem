@@ -2,7 +2,7 @@ import {Navigate, Outlet} from "react-router-dom";
 import Sidebar from "../components/Student/Sidebar";
 import Topbar from "../components/Topbar";
 
-export default function StudentProtectedRoutes(){
+export default function StudentEntryPoint(){
     const user: any | null = localStorage.getItem("student");
 
     return(

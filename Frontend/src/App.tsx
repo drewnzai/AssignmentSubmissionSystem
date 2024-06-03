@@ -9,16 +9,16 @@ import {ColorModeContext, useMode} from './theme';
 import Forms from './pages/Admin/Forms';
 import FAQ from './pages/Admin/FAQ';
 import Login from "./pages/Login.tsx";
-import AdminProtectedRoutes from './entrypoints/AdminEntryPoint.tsx';
+import AdminEntryPoint from './entrypoints/AdminEntryPoint.tsx';
 import Redirect from './pages/Redirect.tsx';
-import LecturerProtectedRoutes from './entrypoints/LecturerEntryPoint.tsx';
+import LecturerEntryPoint from './entrypoints/LecturerEntryPoint.tsx';
 import LecturerDashboard from './pages/Lecturer/Dashboard.tsx';
 import LecturerFAQ from './pages/Lecturer/FAQ.tsx';
 import LecturerForms from './pages/Lecturer/Forms.tsx';
 import Assignments from './pages/Lecturer/Assignments.tsx';
 import SubmissionsFromAssignment from './pages/Lecturer/SubmissionsFromAssignment.tsx';
 import StudentSubmissions from './pages/Lecturer/StudentSubmissions.tsx';
-import StudentProtectedRoutes from './entrypoints/StudentEntryPoint.tsx';
+import StudentEntryPoint from './entrypoints/StudentEntryPoint.tsx';
 import StudentDashboard from './pages/Student/Dashboard.tsx';
 import PendingFromUnit from './pages/Student/PendingFromUnit.tsx';
 import SubmissionFromAssignment from './pages/Student/SubmissionFromAssignment.tsx';
@@ -37,14 +37,14 @@ function App() {
     <BrowserRouter>
     <Routes>
       
-      <Route element={<AdminProtectedRoutes/>}>
+      <Route element={<AdminEntryPoint/>}>
       <Route path='/admin/home' element={<Dashboard/>}/>
       <Route path='/admin/students' element={<Students/>}/>
       <Route path='/admin/forms' element={<Forms/>}/>
       <Route path='/admin/faq' element={<FAQ/>}/>
       </Route>
       
-      <Route element={<LecturerProtectedRoutes/>}>
+      <Route element={<LecturerEntryPoint/>}>
       <Route path='/lecturer/home' element={<LecturerDashboard/>}/>
       <Route path='/lecturer/submissions' element={<StudentSubmissions/>}/>
       <Route path='/lecturer/forms' element={<LecturerForms/>}/>
@@ -53,7 +53,7 @@ function App() {
       <Route path='/lecturer/assignment/:title/submissions' element={<SubmissionsFromAssignment/>}/>
       </Route>
 
-      <Route element={<StudentProtectedRoutes/>}>
+      <Route element={<StudentEntryPoint/>}>
       <Route path='/student/home' element={<StudentDashboard/>}/>
       <Route path='/student/faq' element={<StudentFAQ/>}/>
       <Route path='/student/assignments/:code' element={<PendingFromUnit/>}/>
