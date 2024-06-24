@@ -63,16 +63,9 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<APIResponse> refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
+    public LoginResponse refreshTokens(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
 
-        APIResponse apiResponse = APIResponse.builder()
-                .message("Successful login")
-                .isSuccessful(true)
-                .statusCode(200)
-                .data(authService.refreshToken(refreshTokenRequest))
-                .build();
-
-        return new ResponseEntity<>(apiResponse, HttpStatus.OK);
+        return authService.refreshToken(refreshTokenRequest);
 
     }
 
